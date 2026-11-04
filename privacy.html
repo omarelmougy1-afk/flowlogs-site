@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flowlogs Privacy Policy</title>
+<style>
+  body { margin: 0; background: #f7f8f9; color: #172b4d; font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  header { background: #fff; border-bottom: 1px solid #dcdfe4; }
+  header div, main { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  header div { display: flex; align-items: center; gap: 10px; height: 60px; }
+  header a { color: #172b4d; font-weight: 700; text-decoration: none; }
+  nav { margin-left: auto; display: flex; gap: 18px; font-size: 14px; }
+  nav a { font-weight: 500; color: #44546f; }
+  main { padding-top: 32px; padding-bottom: 64px; }
+  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 8px; }
+  h2 { font-size: 18px; margin: 32px 0 8px; }
+  a { color: #0c66e4; }
+  li { margin: 4px 0; }
+  code { background: #f1f2f4; padding: 1px 4px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<header><div>
+  <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="11" width="4" height="7" rx="1" fill="#1D7AFC"/><rect x="8" y="7" width="4" height="11" rx="1" fill="#1D7AFC"/><rect x="14" y="3" width="4" height="15" rx="1" fill="#1D7AFC"/></svg>
+  <a href="index.html">Flowlogs</a>
+  <nav><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav>
+</div></header>
+<main>
+<h1>Flowlogs Privacy Policy</h1>
+<p>Effective date: 4 November 2026</p>
+<p>Flowlogs is an app for Atlassian Jira Cloud, built and provided by Omar El-Mougy, an independent developer based in Egypt ("I", "me", "the developer"). This policy explains what Jira data Flowlogs uses, where it is kept, and for how long.</p>
+<h2>Data Flowlogs processes</h2>
+<p>Flowlogs only sees Jira data that the person viewing the report is already allowed to see in Jira:</p>
+<ul>
+<li>Jira account identifiers and display names;</li>
+<li>project identifiers, keys, and names;</li>
+<li>issue keys, summaries, statuses, and original estimates;</li>
+<li>worklog authors, dates, descriptions, and time spent;</li>
+<li>the viewer's own report settings and saved report views.</li>
+</ul>
+<h2>Why it is processed</h2>
+<p>Only to build the worklog, capacity, estimate, and daily activity reports; to apply the filters the viewer chooses; to draw charts and the team timesheet; to export the report to CSV, Excel, or PDF; to remember settings; and to reopen saved views.</p>
+<h2>Where it is kept, and for how long</h2>
+<p>Flowlogs runs entirely on Atlassian Forge. It has no servers, database, or analytics of its own.</p>
+<ul>
+<li><strong>Report settings</strong> are stored in Atlassian Forge storage per Jira account, until changed or the app's data is removed.</li>
+<li><strong>Saved views</strong> are stored in Atlassian Forge storage per Jira account, until the user deletes them or the app's data is removed.</li>
+<li><strong>Report caches</strong>: up to 10 minutes for ranges that include today, up to 60 minutes for past ranges.</li>
+<li><strong>User directory cache</strong>: up to 6 hours.</li>
+<li>An hourly scheduled job deletes every cached record once its time is up.</li>
+<li><strong>In the viewer's browser</strong>: the last tab and filters used are kept in the browser's local storage on that device, so the report reopens where the viewer left it. Clearing the browser's site data removes them.</li>
+<li><strong>Exports</strong> (CSV, Excel, PDF) are created inside the viewer's browser and saved to their device. They are never uploaded anywhere.</li>
+</ul>
+<p>The only Jira account identifiers kept longer than 24 hours are the owner of a settings record or saved view, and any person chosen in a saved view's user filter. A weekly scheduled job reports these identifiers to Atlassian through the Forge Privacy API and deletes them when Atlassian reports that an account has been closed.</p>
+<p>Jira stays the system of record. Flowlogs never creates, edits, or deletes issues or worklogs.</p>
+<h2>Sharing and sale</h2>
+<p>I do not sell personal data, and Flowlogs sends no Jira data to advertisers, AI services, analytics providers, or any other destination outside Atlassian. Its manifest declares no external network access. Atlassian processes the data as the Forge hosting provider under its own terms.</p>
+<h2>Security</h2>
+<p>Flowlogs uses Atlassian's authentication. Jira data is requested as the current user, so Jira's own permissions decide what each viewer can see. Settings, saved views, and caches are stored under keys tied to the Jira account they belong to, so one user's stored data is never returned to another.</p>
+<h2>Data location</h2>
+<p>Atlassian controls where Forge stores app data. See Atlassian's data residency and subprocessor documentation for the hosting that applies to your Jira site.</p>
+<h2>Your choices and rights</h2>
+<p>Users can delete their saved views in Flowlogs at any time. Jira site administrators can uninstall the app, after which Atlassian removes its stored data under the Forge data retention rules. For access, correction, deletion, or any other privacy request about Flowlogs data, email <a href="mailto:omarelmougy1@gmail.com.">omarelmougy1@gmail.com.</a> Requests about the underlying Jira records should go to your Jira site administrator.</p>
+<h2>Children</h2>
+<p>Flowlogs is a business tool and is not directed to children.</p>
+<h2>Changes</h2>
+<p>This policy may be updated when the app or the law changes. The effective date at the top shows the current version.</p>
+<h2>Contact</h2>
+<p>Omar El-Mougy, Egypt<br><a href="mailto:omarelmougy1@gmail.com">omarelmougy1@gmail.com</a></p>
+</main>
+</body>
+</html>

@@ -26,10 +26,12 @@
   from { opacity: 0; transform: translateY(18px); }
 }
 
-/* --- Hero stage: the app window and two cards in depth -----------------------------
+/* --- Hero stage: the app window and three cards in depth ---------------------------
    The window runs past the edge of the page; the cards float in front at their own
    depth, so they shift against it as the stage turns towards the pointer (motion.js
-   sets --px and --py) and as it flattens on scroll (--fl-flat). */
+   sets --px and --py), and a light on the glass follows the pointer. The stage swings
+   in on arrival, a light sweeps the days to the empty one, and it flattens on scroll
+   (--fl-flat). */
 @property --fl-flat {
   syntax: '<number>';
   inherits: true;
@@ -39,31 +41,43 @@
   --px: 0;
   --py: 0;
   --turn: -16deg;
+  --side: 1;
   position: relative;
   container-type: inline-size;
-  perspective: 2400px;
+  perspective: 2200px;
 }
-[dir='rtl'] .fl-hero { --turn: 16deg; }
+[dir='rtl'] .fl-hero { --turn: 16deg; --side: -1; }
 .fl-hero-glow {
   position: absolute;
-  inset: -12% -20% -10% -10%;
+  inset: -16% -24% -14% -14%;
   z-index: 0;
   pointer-events: none;
-  background:
-    radial-gradient(closest-side at 55% 45%, rgba(12, 102, 228, 0.28), transparent),
-    radial-gradient(closest-side at 80% 80%, rgba(101, 84, 192, 0.2), transparent);
-  filter: blur(20px);
+}
+.fl-hero-glow::before,
+.fl-hero-glow::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+.fl-hero-glow::before {
+  inset: 10% 20% 25% 10%;
+  background: radial-gradient(closest-side, rgba(12, 102, 228, 0.34), transparent);
+}
+.fl-hero-glow::after {
+  inset: 40% 5% 0 45%;
+  background: radial-gradient(closest-side, rgba(101, 84, 192, 0.26), transparent);
 }
 .fl-hero-scene {
   position: relative;
   z-index: 1;
-  height: 82cqw;
+  height: 84cqw;
   margin: 0;
   transform-style: preserve-3d;
   transform-origin: 30% 50%;
   transform:
-    rotateX(calc(var(--fl-flat) * 9deg - var(--py) * 5deg))
-    rotateY(calc(var(--fl-flat) * var(--turn) + var(--px) * 7deg));
+    rotateX(calc(var(--fl-flat) * 9deg - var(--py) * 6deg))
+    rotateY(calc(var(--fl-flat) * var(--turn) + var(--px) * 9deg));
   transition: transform 0.7s var(--fl-ease);
 }
 [dir='rtl'] .fl-hero-scene { transform-origin: 70% 50%; }
@@ -73,13 +87,13 @@
   position: absolute;
   top: 2cqw;
   left: 0;
-  width: 128cqw;
+  width: 134cqw;
   overflow: hidden;
   border-radius: 1.6cqw;
   background: #f7f8f9;
   box-shadow:
     0 0 0 1px rgba(9, 30, 66, 0.08),
-    0 3cqw 8cqw -2cqw rgba(9, 30, 66, 0.35),
+    0 4cqw 10cqw -2cqw rgba(9, 30, 66, 0.38),
     0 1cqw 2cqw -1cqw rgba(9, 30, 66, 0.2);
   direction: ltr;
 }
@@ -98,6 +112,18 @@
 .fl-hero-sheet img { display: block; width: 100%; height: auto; }
 .fl-hero-body { padding: 2.6cqw 0 3.4cqw; }
 .fl-hero-sheet { position: relative; width: var(--sheet); margin: 0 auto; }
+.fl-hero-scan {
+  position: absolute;
+  top: 30%;
+  height: 58%;
+  border-radius: 0.6cqw;
+  background: rgba(12, 102, 228, 0.16);
+  box-shadow:
+    inset 0 0 0 0.2cqw rgba(12, 102, 228, 0.55),
+    0 0 2cqw rgba(12, 102, 228, 0.35);
+  opacity: 0;
+  pointer-events: none;
+}
 .fl-hero-ring {
   position: absolute;
   box-sizing: border-box;
@@ -113,7 +139,9 @@
   border-radius: inherit;
   opacity: 0;
 }
+/* The label opens away from the PDF card, which floats on the outer side. */
 .fl-hero-chip {
+  --chip-x: calc(-100% + 2.4cqw);
   position: absolute;
   margin-top: 0.8cqw;
   padding: 0.5cqw 1.1cqw;
@@ -127,68 +155,107 @@
   translate: var(--chip-x) 0;
   box-shadow: 0 0.6cqw 1.6cqw -0.4cqw rgba(226, 72, 61, 0.6);
 }
-/* The label opens away from the PDF card, which floats on the outer side. */
-.fl-hero-chip { --chip-x: calc(-100% + 2.4cqw); }
 [dir='rtl'] .fl-hero-chip { --chip-x: -2.4cqw; }
-[dir='rtl'] .fl-hero-pdf { top: 47cqw; }
-.fl-hero-shine {
+.fl-hero-shine,
+.fl-hero-glare {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.55) 50%, transparent 65%);
+}
+.fl-hero-shine {
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.6) 50%, transparent 65%);
   opacity: 0;
 }
+.fl-hero-glare {
+  background: radial-gradient(
+    circle at calc(45% + var(--px) * 110%) calc(25% + var(--py) * 110%),
+    rgba(255, 255, 255, 0.32),
+    transparent 42%
+  );
+}
+
+/* Cards: the holder sets the depth, the picture inside drifts. */
 .fl-hero-card {
   position: absolute;
+  transform-style: preserve-3d;
+}
+.fl-hero-card img {
+  display: block;
+  width: 100%;
   height: auto;
   border-radius: 1cqw;
   box-shadow:
     0 0 0 1px rgba(9, 30, 66, 0.08),
-    0 4cqw 7cqw -2cqw rgba(9, 30, 66, 0.4);
+    0 5cqw 8cqw -2.5cqw rgba(9, 30, 66, 0.42);
 }
 .fl-hero-attention {
-  top: 51cqw;
-  inset-inline-start: 3cqw;
-  width: 58cqw;
+  top: 54cqw;
+  inset-inline-start: 2cqw;
+  width: 60cqw;
   transform: translateZ(90px);
 }
 .fl-hero-pdf {
-  top: 40cqw;
-  inset-inline-start: 70cqw;
+  top: 42cqw;
+  inset-inline-start: 72cqw;
   width: 27cqw;
-  border-radius: 0.5cqw;
-  transform: translateZ(150px) rotate(4deg);
+  transform: translateZ(150px) rotate(calc(var(--side) * 4deg));
 }
-[dir='rtl'] .fl-hero-pdf { transform: translateZ(150px) rotate(-4deg); }
+.fl-hero-pdf img { border-radius: 0.5cqw; }
+[dir='rtl'] .fl-hero-pdf { top: 47cqw; }
+.fl-hero-kpi {
+  top: 3cqw;
+  inset-inline-start: 62cqw;
+  width: 30cqw;
+  transform: translateZ(230px) rotate(calc(var(--side) * -2deg));
+}
+.fl-hero-kpi img { border-radius: 1.4cqw; }
+[dir='rtl'] .fl-hero-kpi { inset-inline-start: 34cqw; }
 @media (max-width: 1023px) {
   .fl-hero { margin-top: 1rem; }
-  .fl-hero-scene { height: 86cqw; }
+  .fl-hero-scene { height: 80cqw; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* Arrival: the window slides in, the cards rise one after the other, then the empty
-     day is ringed and a light passes over the glass. */
-  .fl-hero-win { animation: fl-hero-win 1.3s var(--fl-ease) 0.15s both; }
-  .fl-hero-attention { animation: fl-hero-card 1.1s var(--fl-ease) 0.55s both; }
-  .fl-hero-pdf { animation: fl-hero-pdf 1.2s var(--fl-ease) 0.75s both; }
-  .fl-hero-ring { animation: fl-hero-ring 0.6s var(--fl-ease) 1.35s both; }
-  .fl-hero-ring::after { animation: fl-pulse 2s ease-out 2s infinite; }
-  .fl-hero-chip { animation: fl-hero-chip 0.6s var(--fl-ease) 1.6s both; }
-  .fl-hero-shine { animation: fl-hero-shine 1.6s ease-in-out 1.1s both; }
-  .fl-hero-glow { animation: fl-breathe 7s ease-in-out infinite alternate; }
+  /* Arrival: the stage swings round as the window slides in, the cards rise one after
+     another, a light sweeps the days and stops on the empty one, which is ringed. */
+  .fl-hero-scene { animation: fl-hero-swing 1.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .fl-hero-win { animation: fl-hero-win 1.3s var(--fl-ease) 0.1s both; }
+  .fl-hero-attention { animation: fl-hero-rise 1.2s var(--fl-ease) 0.5s both; }
+  .fl-hero-pdf { animation: fl-hero-pdf 1.3s var(--fl-ease) 0.7s both; }
+  .fl-hero-kpi { animation: fl-hero-drop 1.2s var(--fl-ease) 0.9s both; }
+  .fl-hero-scan { animation: fl-hero-scan 1.1s cubic-bezier(0.65, 0, 0.35, 1) 1.2s both; }
+  .fl-hero-ring { animation: fl-hero-ring 0.6s var(--fl-ease) 2.2s both; }
+  .fl-hero-ring::after { animation: fl-pulse 2s ease-out 2.8s infinite; }
+  .fl-hero-chip { animation: fl-hero-chip 0.6s var(--fl-ease) 2.45s both; }
+  .fl-hero-shine { animation: fl-hero-shine 1.6s ease-in-out 1s both; }
+  .fl-hero-glow::before { animation: fl-drift 11s ease-in-out infinite alternate; }
+  .fl-hero-glow::after { animation: fl-drift 14s ease-in-out -5s infinite alternate-reverse; }
+  /* Then the cards keep drifting, each at its own pace. */
+  .fl-hero-attention img { animation: fl-float 6s ease-in-out 2s infinite alternate; }
+  .fl-hero-pdf img { animation: fl-float 7.5s ease-in-out 2.4s infinite alternate-reverse; }
+  .fl-hero-kpi img { animation: fl-float 5s ease-in-out 2.2s infinite alternate; }
+}
+/* No opacity here: it would flatten the stage's depth while it ran. */
+@keyframes fl-hero-swing {
+  from { rotate: y calc(var(--side) * -30deg); scale: 0.86; }
 }
 @keyframes fl-hero-win {
-  from { opacity: 0; translate: 10cqw 0; scale: 0.94; }
+  from { opacity: 0; translate: calc(var(--side) * 12cqw) 0; }
 }
-[dir='rtl'] .fl-hero-win { animation-name: fl-hero-win-rtl; }
-@keyframes fl-hero-win-rtl {
-  from { opacity: 0; translate: -10cqw 0; scale: 0.94; }
-}
-@keyframes fl-hero-card {
-  from { opacity: 0; translate: 0 12cqw; }
+@keyframes fl-hero-rise {
+  from { opacity: 0; translate: 0 14cqw; }
 }
 @keyframes fl-hero-pdf {
-  from { opacity: 0; translate: 0 18cqw; rotate: 10deg; }
+  from { opacity: 0; translate: 0 20cqw; rotate: calc(var(--side) * 12deg); }
+}
+@keyframes fl-hero-drop {
+  from { opacity: 0; translate: 0 -10cqw; scale: 0.8; }
+}
+@keyframes fl-hero-scan {
+  0% { opacity: 0; transform: none; }
+  15% { opacity: 1; }
+  80% { opacity: 1; transform: translateX(var(--to)); }
+  100% { opacity: 0; transform: translateX(var(--to)); }
 }
 @keyframes fl-hero-ring {
   from { opacity: 0; scale: 1.8; }
@@ -200,9 +267,13 @@
   0% { opacity: 1; transform: translateX(-100%); }
   100% { opacity: 1; transform: translateX(100%); }
 }
-@keyframes fl-breathe {
-  from { opacity: 0.75; }
-  to { opacity: 1; }
+@keyframes fl-drift {
+  from { transform: translate(-4%, -3%) scale(1); }
+  to { transform: translate(5%, 4%) scale(1.12); }
+}
+@keyframes fl-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1.4cqw); }
 }
 @keyframes fl-pulse {
   from { opacity: 0.7; transform: scale(1); }

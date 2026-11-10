@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth scroll-pt-20" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flowlogs for Jira: see who logged what, and who didn&#39;t</title>
+<meta content="Flowlogs turns the worklogs your team already keeps in Jira into a team timesheet, a capacity report and a PDF you can send. Free on the Atlassian Marketplace." name="description"/>
+<meta content="Flowlogs for Jira: see who logged what, and who didn&#39;t" property="og:title"/>
+<meta content="Flowlogs turns the worklogs your team already keeps in Jira into a team timesheet, a capacity report and a PDF you can send. Free on the Atlassian Marketplace." property="og:description"/>
+<meta content="https://omarelmougy1-afk.github.io/flowlogs-site/editorial.html" property="og:url"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://omarelmougy1-afk.github.io/flowlogs-site/img/og.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/" hreflang="en" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/ar.html" hreflang="ar" rel="alternate"/>
+<link href="img/logo-144.png" rel="icon"/>
+<meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}</style><link href="editorial.css" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Flowlogs" class="h-8 w-auto object-contain" src="img/logo-144.png"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">Flowlogs</span></div><nav class="hidden md:flex items-center gap-space-lg" data-active-classes="text-primary font-label-md text-label-md"><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Features</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#how-it-works">How it works</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#security">Security</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#faq">FAQ</a></nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center justify-center bg-primary-container text-on-primary font-label-md text-label-md px-space-md py-space-sm rounded-lg hover:bg-primary transition-colors" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noopener" target="_blank">Get it free</a></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full text-on-surface">
+<!-- 1. HERO SECTION -->
+<section class="max-w-7xl mx-auto px-margin pt-space-xl pb-space-2xl w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start mb-space-xl">
+<!-- Left Column: Asymmetric dominant title -->
+<div class="lg:col-span-7">
+<h1 class="font-display-hero text-display-hero text-on-surface tracking-tight">
+          See who logged what, and who didn't.
+        </h1>
+</div>
+<!-- Right Column: Narrative + Action -->
+<div class="lg:col-span-5 flex flex-col justify-start pt-space-xs">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed mb-space-lg">
+          Flowlogs turns the worklogs your team already keeps in Jira into a team timesheet, a capacity report and a PDF you can send. There is nothing to set up.
+        </p>
+<div class="flex flex-wrap items-center gap-y-space-sm">
+<a class="inline-flex items-center justify-center bg-primary-container text-on-primary font-label-md text-label-md px-6 py-3 rounded-lg hover:bg-primary transition-colors" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noopener" target="_blank">
+            Get it free on Atlassian Marketplace
+          </a>
+<a class="font-label-md text-label-md text-primary-container hover:underline ml-6" href="sample-report.pdf">
+            See a sample report
+          </a>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-md">
+          Runs inside Jira. Your data never leaves Atlassian.
+        </p>
+</div>
+</div>
+<!-- Hero composition: real captures -->
+<div class="relative lg:pb-16">
+<div class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] overflow-hidden shadow-[0_4px_16px_rgba(23,43,77,0.04)] p-space-sm md:p-space-md">
+<img alt="Flowlogs team timesheet: Mariam Nabil's row in focus, with her empty working day on 1 Nov outlined in red" class="block w-full h-auto " height="658" loading="lazy" src="img/timesheet-focus.png" width="2104"/>
+</div>
+<div class="mt-space-md lg:mt-0 lg:absolute lg:bottom-0 lg:right-8 w-full lg:w-[440px] bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] overflow-hidden shadow-[0_8px_24px_rgba(23,43,77,0.08)]">
+<img alt="Needs attention: Mariam Nabil may be missing timesheets, 63% or 38h of 60h; FIN-221 and WES-77 are over their estimates; 3 issues have no original estimate" class="block w-full h-auto " height="424" loading="lazy" src="img/needs-attention.png" width="1568"/>
+</div>
+</div>
+<!-- Hero Underline Caption -->
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-md">
+<strong class="text-on-surface font-semibold">On 1 Nov, Mariam logged nothing.</strong> Flowlogs already flagged it: 63% of capacity.
+    </p>
+</section>
+<!-- 2. STORY SECTION (Three Equal Tiles) -->
+<section class="max-w-7xl mx-auto px-margin py-space-2xl w-full">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Tile 1 -->
+<div class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] p-space-lg flex flex-col overflow-hidden">
+<h3 class="font-headline-md text-headline-md text-on-surface">An empty working day</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-lg">Mariam logged nothing on 1 Nov. Every other working day in her row is filled.</p>
+<div class="mt-auto rounded-lg border border-[#DCDFE4] overflow-hidden bg-white"><div class="overflow-hidden"><img alt="The team timesheet cropped to the first days, with Mariam Nabil's empty 1 Nov outlined in red" class="block w-full h-auto max-w-none !w-[190%]" height="658" loading="lazy" src="img/timesheet-focus.png" width="2104"/></div></div>
+</div>
+<!-- Tile 2 -->
+<div class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] p-space-lg flex flex-col overflow-hidden">
+<h3 class="font-headline-md text-headline-md text-on-surface">Flowlogs flags it</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-lg">Needs attention puts Mariam first: 63% · 38h of 60h.</p>
+<div class="mt-auto rounded-lg border border-[#DCDFE4] overflow-hidden bg-white"><div class="overflow-hidden"><img alt="The Needs attention list with Mariam Nabil first" class="block w-full h-auto max-w-none !w-[150%]" height="424" loading="lazy" src="img/needs-attention.png" width="1568"/></div></div>
+</div>
+<!-- Tile 3 -->
+<div class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] p-space-lg flex flex-col overflow-hidden">
+<h3 class="font-headline-md text-headline-md text-on-surface">The report already says so</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-lg">The PDF for the sprint review shows the same gap, with the charts and totals.</p>
+<div class="mt-auto rounded-lg border border-[#DCDFE4] overflow-hidden bg-white"><div class="max-h-56 overflow-hidden"><img alt="The first page of the Daily activity PDF report" class="block w-full h-auto " height="1347" loading="lazy" src="img/pdf-page.png" width="952"/></div></div>
+</div>
+</div>
+</section>
+<!-- 3. PROBLEM SECTION ("The Thursday problem") -->
+<section class="w-full bg-surface-container-lowest py-space-2xl">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<div class="lg:col-span-5">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+            The Thursday problem
+          </h2>
+</div>
+<div class="lg:col-span-7 flex flex-col divide-y divide-surface-container-highest">
+<div class="pb-space-md">
+<p class="font-body-lg text-body-lg text-on-surface">
+              You message four people to ask if they logged their hours.
+            </p>
+</div>
+<div class="py-space-md">
+<p class="font-body-lg text-body-lg text-on-surface">
+              You export worklogs to a spreadsheet to answer one question.
+            </p>
+</div>
+<div class="pt-space-md">
+<p class="font-body-lg text-body-lg text-on-surface">
+              You guess whether the team can take on the next sprint.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. FEATURE CHAPTERS -->
+<section class="w-full flex flex-col" id="features">
+<!-- Chapter 1 (Team Timesheet) -->
+<div class="py-space-2xl bg-surface">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] overflow-hidden shadow-[0_4px_16px_rgba(23,43,77,0.04)]"><img alt="The Flowlogs team timesheet for four people over two weeks, with empty working days outlined in red" class="block w-full h-auto " height="1800" loading="lazy" src="img/team-timesheet.png" width="2880"/></div>
+</div>
+<div class="lg:col-span-5">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-space-sm">
+              Missing timesheets stand out
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Every person, every day, coloured against a working day; a day with nothing logged gets a red outline. Spot missing logs before the sprint review.
+            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Chapter 2 (Capacity & Flow Efficiency) -->
+<div class="py-space-2xl bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<div class="lg:col-span-5 order-2 lg:order-1">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-space-sm">
+              Capacity and estimates in one view
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Total time, capacity and flow efficiency up top, then every number traced from person to project to issue. See exactly where your team spent their time.
+            </p>
+</div>
+<div class="lg:col-span-7 order-1 lg:order-2">
+<div class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] overflow-hidden shadow-[0_4px_16px_rgba(23,43,77,0.04)]"><img alt="The Flowlogs flow report: total time, team capacity, flow efficiency, missing estimates and the Needs attention list" class="block w-full h-auto " height="1800" loading="lazy" src="img/flow-report.png" width="2880"/></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Chapter 3 (PDF Report) -->
+<div class="py-space-2xl bg-surface">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] overflow-hidden shadow-[0_4px_16px_rgba(23,43,77,0.04)]"><img alt="Two pages of the Flowlogs PDF report: Daily activity with charts and the team timesheet, and the flow report table" class="block w-full h-auto " height="1800" loading="lazy" src="img/pdf-report.png" width="2880"/></div>
+</div>
+<div class="lg:col-span-5">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-space-sm">
+              A report that explains itself
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              An A4 PDF with the charts and the timesheet, plus Excel and CSV that match the screen. Send it to management with one click.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. SETUP SECTION -->
+<section id="how-it-works" class="w-full bg-surface-container-lowest py-space-2xl">
+<div class="max-w-7xl mx-auto px-margin">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-xl">
+        Set up in the time it takes to read this
+      </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg divide-y md:divide-y-0 md:divide-x divide-surface-container-highest">
+<div class="pb-space-md md:pb-0 md:pr-space-lg">
+<p class="font-body-lg text-body-lg text-on-surface leading-snug">
+            Install Flowlogs from the Atlassian Marketplace.
+          </p>
+</div>
+<div class="py-space-md md:py-0 md:px-space-lg">
+<p class="font-body-lg text-body-lg text-on-surface leading-snug">
+            Open Apps, then Flowlogs, in Jira.
+          </p>
+</div>
+<div class="pt-space-md md:pt-0 md:pl-space-lg">
+<p class="font-body-lg text-body-lg text-on-surface leading-snug">
+            Pick a date range. The worklogs are already there.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. TRUST SECTION (Dark band) -->
+<section id="security" class="w-full bg-on-secondary-fixed text-on-primary py-space-2xl">
+<div class="max-w-7xl mx-auto px-margin">
+<h2 class="font-headline-lg text-headline-lg text-on-primary mb-space-xl">
+        Your Jira data stays in Jira
+      </h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<div class="bg-on-secondary-fixed-variant/40 p-space-md rounded-xl">
+<p class="font-body-md text-body-md text-on-primary-container leading-relaxed">
+            Reads Jira as you, so nobody sees more than Jira already shows them.
+          </p>
+</div>
+<div class="bg-on-secondary-fixed-variant/40 p-space-md rounded-xl">
+<p class="font-body-md text-body-md text-on-primary-container leading-relaxed">
+            Settings and saved views live only in Atlassian Forge storage.
+          </p>
+</div>
+<div class="bg-on-secondary-fixed-variant/40 p-space-md rounded-xl">
+<p class="font-body-md text-body-md text-on-primary-container leading-relaxed">
+            No servers of ours, no tracking.
+          </p>
+</div>
+<div class="bg-on-secondary-fixed-variant/40 p-space-md rounded-xl">
+<p class="font-body-md text-body-md text-on-primary-container leading-relaxed">
+            Exports are created in your browser.
+          </p>
+</div>
+</div>
+<div class="mt-space-xl">
+<a class="font-label-md text-label-md text-inverse-primary hover:underline inline-flex items-center gap-1" href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html">
+          Read the privacy policy
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 7. COMPARISON TABLE -->
+<section class="w-full bg-surface-container-lowest py-space-2xl">
+<div class="max-w-7xl mx-auto px-margin">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-xl">
+        How Flowlogs compares
+      </h2>
+<div class="w-full overflow-x-auto">
+<div class="min-w-[760px] flex flex-col">
+<!-- Table Header -->
+<div class="grid grid-cols-12 gap-space-sm pb-space-sm font-label-md text-label-md text-on-surface">
+<div class="col-span-3 text-on-surface-variant">Capability</div>
+<div class="col-span-3 bg-secondary-fixed/50 p-space-sm rounded-t-lg font-semibold text-primary">
+              Flowlogs
+            </div>
+<div class="col-span-3 p-space-sm text-on-surface">Spreadsheet exports</div>
+<div class="col-span-3 p-space-sm text-on-surface">Time-tracking suites</div>
+</div>
+<!-- Row 1: Setup -->
+<div class="grid grid-cols-12 gap-space-sm items-center py-space-md bg-surface rounded-lg mb-space-xs">
+<div class="col-span-3 px-space-sm font-semibold text-on-surface">Setup</div>
+<div class="col-span-3 px-space-sm font-medium text-primary">Zero setup, instant</div>
+<div class="col-span-3 px-space-sm text-on-surface-variant">Manual CSV export every week</div>
+<div class="col-span-3 px-space-sm text-on-surface-variant">Requires team onboarding &amp; new habits</div>
+</div>
+<!-- Row 2: Cost -->
+<div class="grid grid-cols-12 gap-space-sm items-center py-space-md bg-surface-container-lowest rounded-lg mb-space-xs">
+<div class="col-span-3 px-space-sm font-semibold text-on-surface">Cost</div>
+<div class="col-span-3 px-space-sm font-bold text-primary">Free</div>
+<div class="col-span-3 px-space-sm text-on-surface-variant">Free</div>
+<div class="col-span-3 px-space-sm text-on-surface-variant">Paid per user</div>
+</div>
+<!-- Row 3: Team Timesheet -->
+<div class="grid grid-cols-12 gap-space-sm items-center py-space-md bg-surface rounded-lg mb-space-xs">
+<div class="col-span-3 px-space-sm font-semibold text-on-surface">Team timesheet</div>
+<div class="col-span-3 px-space-sm font-medium text-primary">Automatic grid with empty day highlights</div>
+<div class="col-span-3 px-space-sm text-on-surface-variant">Manual formulas &amp; formatting</div>
+<div class="col-span-3 px-space-sm text-on-surface-variant">Included in proprietary interface</div>
+</div>
+<!-- Row 4: Capacity vs Estimates -->
+<div class="grid grid-cols-12 gap-space-sm items-center py-space-md bg-surface-container-lowest rounded-lg mb-space-xs">
+<div class="col-span-3 px-space-sm font-semibold text-on-surface">Capacity against estimates</div>
+<div class="col-span-3 px-space-sm font-medium text-primary">Built-in capacity &amp; flow efficiency</div>
+<div class="col-span-3 px-space-sm text-on-surface-variant">Complex pivot tables</div>
+<div class="col-span-3 px-space-sm text-on-surface-variant">Comprehensive reporting</div>
+</div>
+<!-- Row 5: PDF Report -->
+<div class="grid grid-cols-12 gap-space-sm items-center py-space-md bg-surface rounded-lg mb-space-xs">
+<div class="col-span-3 px-space-sm font-semibold text-on-surface">PDF report</div>
+<div class="col-span-3 px-space-sm font-medium text-primary">One-click printable A4 PDF</div>
+<div class="col-span-3 px-space-sm text-on-surface-variant">Print spreadsheet</div>
+<div class="col-span-3 px-space-sm text-on-surface-variant">PDF and dashboard exports</div>
+</div>
+<!-- Row 6: Approvals and Billing -->
+<div class="grid grid-cols-12 gap-space-sm items-center py-space-md bg-surface-container-lowest rounded-lg mb-space-xs">
+<div class="col-span-3 px-space-sm font-semibold text-on-surface">Approvals and billing</div>
+<div class="col-span-3 px-space-sm text-on-surface-variant">Not supported (focused on Scrum visibility)</div>
+<div class="col-span-3 px-space-sm text-on-surface-variant">Manual tracking</div>
+<div class="col-span-3 px-space-sm text-on-surface font-medium">Full approval workflows and client invoicing</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. FAQ ACCORDION -->
+<section id="faq" class="w-full bg-surface py-space-2xl">
+<div class="max-w-4xl mx-auto px-margin">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-xl">
+        Frequently asked questions
+      </h2>
+<div class="space-y-space-sm" id="faq-container">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<button class="faq-toggle w-full flex items-center justify-between p-space-md text-left font-headline-sm text-[18px] text-on-surface" type="button">
+<span>Is Flowlogs free?</span>
+<span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md pt-0 text-on-surface-variant font-body-md text-body-md">
+            Yes. Flowlogs is free on the Atlassian Marketplace, with no user limits.
+          </div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<button class="faq-toggle w-full flex items-center justify-between p-space-md text-left font-headline-sm text-[18px] text-on-surface" type="button">
+<span>Does any data leave Jira?</span>
+<span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-md pb-space-md pt-0 text-on-surface-variant font-body-md text-body-md">
+            No. Flowlogs runs entirely on Atlassian Forge infrastructure. Your worklogs and issues never leave Atlassian.
+          </div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<button class="faq-toggle w-full flex items-center justify-between p-space-md text-left font-headline-sm text-[18px] text-on-surface" type="button">
+<span>Which date does a worklog count on?</span>
+<span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-md pb-space-md pt-0 text-on-surface-variant font-body-md text-body-md">
+            On the day it was logged in Jira, so a report for last week shows exactly what was entered last week. Capacity follows the hours per day and days per week you set.
+          </div>
+</div>
+<!-- Item 4 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<button class="faq-toggle w-full flex items-center justify-between p-space-md text-left font-headline-sm text-[18px] text-on-surface" type="button">
+<span>Who can see what?</span>
+<span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-md pb-space-md pt-0 text-on-surface-variant font-body-md text-body-md">
+            Flowlogs reads Jira strictly with the permissions of the current viewer. Users only see worklogs and issues they already have permission to access in Jira.
+          </div>
+</div>
+<!-- Item 5 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<button class="faq-toggle w-full flex items-center justify-between p-space-md text-left font-headline-sm text-[18px] text-on-surface" type="button">
+<span>Does it support Arabic?</span>
+<span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-md pb-space-md pt-0 text-on-surface-variant font-body-md text-body-md">
+            Arabic names and text display correctly on screen and in every export, including the PDF. The interface itself is in English.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. CLOSING BAND -->
+<section class="w-full bg-secondary-fixed/40 py-space-2xl text-center">
+<div class="max-w-4xl mx-auto px-margin flex flex-col items-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-md">
+        Know where your team's time went, in one Jira page.
+      </h2>
+<a class="inline-flex items-center justify-center bg-primary-container text-on-primary font-label-md text-label-md px-8 py-3.5 rounded-lg hover:bg-primary transition-colors shadow-sm" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noopener" target="_blank">
+        Get Flowlogs free
+      </a>
+</div>
+</section>
+</div>
+<script>
+  // Simple vanilla accordion micro-interaction
+  document.querySelectorAll('.faq-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('.material-symbols-outlined');
+      const isHidden = content.classList.contains('hidden');
+      
+      // Close all others
+      document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+      document.querySelectorAll('.faq-toggle .material-symbols-outlined').forEach(i => i.style.transform = 'rotate(0deg)');
+      
+      if (isHidden) {
+        content.classList.remove('hidden');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant py-space-xl"><div class="max-w-7xl mx-auto px-margin flex flex-col md:flex-row items-center justify-between gap-space-md"><nav class="flex items-center gap-space-lg" data-active-classes="text-on-surface"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html">Privacy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/terms.html">Terms</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/support.html">Support</a></nav><div class="font-body-sm text-body-sm text-on-surface-variant">Built by Omar El-Mougy</div></div></footer></body></html>

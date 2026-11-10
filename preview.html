@@ -7,9 +7,7 @@
 <meta content="See the Flowlogs landing pages on a phone, a tablet and a desktop, with rulers, guides and layout columns." name="description"/>
 <meta content="noindex" name="robots"/>
 <link href="img/logo-144.png" rel="icon"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="fonts.css" rel="stylesheet"/>
 <style>
   :root {
     --blue: #0C66E4; --blue-hover: #0055CC; --ink: #172B4D; --navy: #091E42; --muted: #626F86;
@@ -23,7 +21,7 @@
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; }
   body {
-    font: 400 14px/20px 'IBM Plex Sans', system-ui, sans-serif; color: var(--ink);
+    font: 400 14px/20px 'GhroobBB', -apple-system, 'Segoe UI', sans-serif; font-variant-numeric: tabular-nums; color: var(--ink);
     background: var(--navy); display: flex; padding: clamp(0px, 2vw, 28px);
   }
   button, select, input { font: inherit; color: inherit; }
@@ -57,7 +55,7 @@
   .toolbar select { border: 1px solid var(--line); background: var(--panel); border-radius: 5px; padding: 3px 6px; font-size: 12px; font-weight: 500; }
   .dims { display: flex; align-items: center; gap: 4px; padding-left: 6px; margin-left: 4px; border-left: 1px solid var(--line); }
   .dims label { display: flex; align-items: center; gap: 3px; background: var(--panel); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; color: var(--muted); font-size: 11px; }
-  .dims input { width: 46px; border: 0; background: transparent; padding: 2px 0; font: 500 12px 'IBM Plex Mono', monospace; color: var(--ink); text-align: center; outline: none; -moz-appearance: textfield; }
+  .dims input { width: 46px; border: 0; background: transparent; padding: 2px 0; font: 500 12px 'GhroobBB', monospace; color: var(--ink); text-align: center; outline: none; -moz-appearance: textfield; }
   .dims input::-webkit-inner-spin-button { -webkit-appearance: none; }
   .icon { border: 0; background: transparent; padding: 4px; border-radius: 5px; color: var(--muted); display: inline-flex; }
   .icon:hover { color: var(--blue); background: var(--panel); }
@@ -99,13 +97,13 @@
   .overlay .cols span { background: rgba(255, 86, 48, 0.12); border-left: 1px solid rgba(255, 86, 48, 0.35); border-right: 1px solid rgba(255, 86, 48, 0.35); }
   .overlay .grid8 { position: absolute; inset: 0; }
   .overlay .zone { position: absolute; background: rgba(201, 55, 44, 0.16); border: 1px dashed rgba(201, 55, 44, 0.6); }
-  .overlay .zone em { position: absolute; left: 6px; top: 4px; font: 500 10px 'IBM Plex Mono', monospace; color: #AE2E24; font-style: normal; background: rgba(255, 255, 255, 0.85); padding: 0 4px; border-radius: 3px; }
+  .overlay .zone em { position: absolute; left: 6px; top: 4px; font: 500 10px 'GhroobBB', monospace; color: #AE2E24; font-style: normal; background: rgba(255, 255, 255, 0.85); padding: 0 4px; border-radius: 3px; }
   .guide { position: absolute; pointer-events: auto; background: var(--guide); }
   .guide.h { left: 0; right: 0; height: 1px; cursor: row-resize; }
   .guide.v { top: 0; bottom: 0; width: 1px; cursor: col-resize; }
   .guide::before { content: ''; position: absolute; inset: -4px; }
   .guide:hover, .guide.dragging { background: var(--guide-active); }
-  .guide b { position: absolute; font: 500 10px 'IBM Plex Mono', monospace; color: #fff; background: var(--guide-active); padding: 1px 4px; border-radius: 3px; white-space: nowrap; display: none; }
+  .guide b { position: absolute; font: 500 10px 'GhroobBB', monospace; color: #fff; background: var(--guide-active); padding: 1px 4px; border-radius: 3px; white-space: nowrap; display: none; }
   .guide.h b { left: 4px; top: 3px; }
   .guide.v b { top: 4px; left: 3px; }
   .guide:hover b, .guide.dragging b { display: block; }
@@ -416,7 +414,7 @@
       ctx.strokeStyle = ink;
       ctx.fillStyle = ink;
       ctx.lineWidth = 1;
-      ctx.font = "500 9px 'IBM Plex Mono', monospace";
+      ctx.font = "500 9px 'GhroobBB', monospace";
       const max = horizontal ? state.w : state.h;
       const label = scale < 0.35 ? 200 : scale < 0.7 ? 100 : 50;
       const minor = label / 5;

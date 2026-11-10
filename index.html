@@ -44,8 +44,10 @@
     }
   </style>
 <!-- END: Custom Styles -->
+<link href="motion.css" rel="stylesheet"/>
 </head>
 <body class="bg-brand-bg font-sans text-brand-ink antialiased selection:bg-brand-lightBlue selection:text-brand-blue">
+<div aria-hidden="true" class="fl-progress"></div>
 <!-- BEGIN: Sticky Navigation -->
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-brand-border">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -84,7 +86,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
 <!-- Left Hero Column -->
-<div class="lg:col-span-5 space-y-6">
+<div class="lg:col-span-5 space-y-6" data-hero-copy>
 <p class="text-sm font-semibold text-brand-blue">For Jira Cloud · Free</p>
 <h1 class="text-4xl sm:text-5xl lg:text-[50px] font-black text-brand-ink tracking-tight leading-[1.08]">
             See who logged what, and who didn't.
@@ -121,7 +123,7 @@
 </div>
 </div>
 <!-- Right Hero Column (Visual Flow Composition) -->
-<div class="lg:col-span-7">
+<div class="lg:col-span-7" data-hero-visual>
 <div class="bg-white p-2 sm:p-3 rounded-2xl border border-brand-border shadow-xl hover:shadow-2xl transition-shadow">
 <img alt="Flowlogs team timesheet with Mariam Nabil's empty working day outlined in red, the Needs attention list flagging her at 63% of capacity, and the PDF report" class="w-full h-auto rounded-xl object-contain block" src="img/flowlogs-flow.png"/>
 </div>
@@ -159,12 +161,13 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center max-w-3xl mx-auto mb-14">
 <p class="text-sm font-semibold text-brand-blue mb-2">One missing timesheet, start to finish</p>
-<h2 class="text-3xl sm:text-4xl font-extrabold text-brand-ink tracking-tight">
+<h2 data-reveal class="text-3xl sm:text-4xl font-extrabold text-brand-ink tracking-tight">
           From an empty day to a report in three clicks
         </h2>
 </div>
-<!-- Centered Wide Flow Diagram -->
-<div class="bg-brand-bg/70 rounded-2xl border border-brand-border p-3 sm:p-6 shadow-sm mb-12">
+<div class="fl-story">
+<div class="fl-story-static"><!-- Centered Wide Flow Diagram -->
+<div data-reveal class="bg-brand-bg/70 rounded-2xl border border-brand-border p-3 sm:p-6 shadow-sm mb-12">
 <img alt="Mariam Nabil's empty working day outlined in the team timesheet, Flowlogs flagging her in Needs attention, and the same gap in the PDF report" class="w-full h-auto rounded-xl object-contain block mx-auto bg-white border border-brand-border shadow-sm" src="img/flowlogs-flow.png"/>
 </div>
 <!-- Three Columns / Captions (1, 2, 3) -->
@@ -195,6 +198,23 @@
 </div>
 </div>
 </div>
+<div class="fl-story-live">
+<div class="fl-story-steps">
+<div class="fl-story-step is-active" data-step="1"><h3>Spot it</h3><p>A working day with nothing logged gets a red outline in the team timesheet.</p></div>
+<div class="fl-story-step" data-step="2"><h3>Act on it</h3><p>Needs attention names the person and how far below capacity they are.</p></div>
+<div class="fl-story-step" data-step="3"><h3>Report it</h3><p>One click sends the same picture to management as a clean A4 PDF.</p></div>
+</div>
+<div class="fl-story-pin">
+<figure aria-label="Flowlogs team timesheet with Mariam Nabil's empty working day outlined in red, the Needs attention list naming her, and the PDF report" class="fl-stage" data-active="1" role="img">
+<div class="fl-layer fl-ts" style="top:25.92cqw;transform-origin:44.74% 77.35%"><img alt="" width="2720" height="596" src="img/story/timesheet.png"/><img alt="" class="fl-ts-focus" src="img/story/timesheet-focus.png"/><span class="fl-ring" style="left:42.60%;top:71.81%;width:4.29%;height:11.07%"></span></div>
+<div class="fl-layer fl-at"><img alt="" width="1568" height="424" src="img/story/attention.png"/><span class="fl-row" style="top:19.34%;height:18.87%"></span></div>
+<div class="fl-layer fl-pdf"><img alt="" width="952" height="1347" src="img/story/pdf-page.png"/></div>
+<div class="fl-story-bar"><span></span></div>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <!-- END: Dedicated Flow Section -->
 <!-- BEGIN: Problem Section -->
@@ -202,13 +222,13 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center max-w-2xl mx-auto mb-14">
 <p class="text-sm font-semibold text-brand-blue mb-2">Sound familiar?</p>
-<h2 class="text-3xl font-extrabold text-brand-ink tracking-tight">
+<h2 data-reveal class="text-3xl font-extrabold text-brand-ink tracking-tight">
           Timesheet day shouldn't mean open tabs and guessing games
         </h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <!-- Problem Card 1 -->
-<div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
+<div data-reveal class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
 <div class="space-y-3">
 <h3 class="text-base font-bold text-brand-ink">Chasing people for timesheets every Thursday.</h3>
 <p class="text-sm text-brand-secondary leading-relaxed">
@@ -217,7 +237,7 @@
 </div>
 </div>
 <!-- Problem Card 2 -->
-<div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
+<div data-reveal class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
 <div class="space-y-3">
 <h3 class="text-base font-bold text-brand-ink">Exporting worklogs to a spreadsheet to answer one question.</h3>
 <p class="text-sm text-brand-secondary leading-relaxed">
@@ -226,7 +246,7 @@
 </div>
 </div>
 <!-- Problem Card 3 -->
-<div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
+<div data-reveal class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
 <div class="space-y-3">
 <h3 class="text-base font-bold text-brand-ink">Guessing whether the team has capacity for the next sprint.</h3>
 <p class="text-sm text-brand-secondary leading-relaxed">
@@ -245,7 +265,7 @@
 <!-- Feature Copy -->
 <div class="lg:col-span-5 space-y-4">
 <p class="text-sm font-semibold text-brand-blue">Team timesheet</p>
-<h2 class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
+<h2 data-reveal class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
             Missing timesheets stand out
           </h2>
 <p class="text-brand-secondary leading-relaxed text-base">
@@ -262,7 +282,7 @@
 </div>
 <!-- UI Screenshot -->
 <div class="lg:col-span-7">
-<div class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-white">
+<div data-reveal class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-white">
 <img alt="Flowlogs Team Timesheet UI" class="w-full h-auto object-cover block" src="img/team-timesheet.png"/>
 </div>
 </div>
@@ -276,14 +296,14 @@
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 <!-- UI Screenshot (Left) -->
 <div class="lg:col-span-7 order-2 lg:order-1">
-<div class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-white">
+<div data-reveal class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-white">
 <img alt="Flowlogs Flow Report KPI and analytics dashboard view" class="w-full h-auto object-cover block" src="img/flow-report.png"/>
 </div>
 </div>
 <!-- Feature Copy (Right) -->
 <div class="lg:col-span-5 space-y-4 order-1 lg:order-2">
 <p class="text-sm font-semibold text-brand-blue">Flow report</p>
-<h2 class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
+<h2 data-reveal class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
             Capacity and estimates in one view
           </h2>
 <p class="text-brand-secondary leading-relaxed text-base">
@@ -309,7 +329,7 @@
 <!-- Feature Copy -->
 <div class="lg:col-span-5 space-y-4">
 <p class="text-sm font-semibold text-brand-blue">Share it</p>
-<h2 class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
+<h2 data-reveal class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
             A report that explains itself
           </h2>
 <p class="text-brand-secondary leading-relaxed text-base">
@@ -323,7 +343,7 @@
 </div>
 <!-- PDF UI Image -->
 <div class="lg:col-span-7">
-<div class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-brand-bg p-3 sm:p-6 flex items-center justify-center">
+<div data-reveal class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-brand-bg p-3 sm:p-6 flex items-center justify-center">
 <img alt="Flowlogs crisp A4 PDF report layout and timesheet preview" class="w-full h-auto object-contain rounded-lg shadow-sm block" src="img/pdf-report.png"/>
 </div>
 </div>
@@ -336,13 +356,13 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center max-w-xl mx-auto mb-16">
 <p class="text-sm font-semibold text-brand-blue mb-2">Getting started</p>
-<h2 class="text-3xl font-extrabold text-brand-ink tracking-tight">
+<h2 data-reveal class="text-3xl font-extrabold text-brand-ink tracking-tight">
           Up and running in two minutes
         </h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
 <!-- Step 1 -->
-<div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
+<div data-reveal class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
 <p class="text-sm font-semibold text-brand-blue mb-2">Step 1</p>
 <h3 class="text-base font-bold text-brand-ink mb-2">Install from Marketplace</h3>
 <p class="text-sm text-brand-secondary leading-relaxed">
@@ -350,7 +370,7 @@
           </p>
 </div>
 <!-- Step 2 -->
-<div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
+<div data-reveal class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
 <p class="text-sm font-semibold text-brand-blue mb-2">Step 2</p>
 <h3 class="text-base font-bold text-brand-ink mb-2">Open Apps, then Flowlogs</h3>
 <p class="text-sm text-brand-secondary leading-relaxed">
@@ -358,7 +378,7 @@
           </p>
 </div>
 <!-- Step 3 -->
-<div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
+<div data-reveal class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
 <p class="text-sm font-semibold text-brand-blue mb-2">Step 3</p>
 <h3 class="text-base font-bold text-brand-ink mb-2">Pick your date range</h3>
 <p class="text-sm text-brand-secondary leading-relaxed">
@@ -374,7 +394,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center max-w-2xl mx-auto mb-14">
 <p class="text-sm font-semibold text-blue-300 mb-2">Privacy &amp; architecture</p>
-<h2 class="text-3xl font-extrabold text-white tracking-tight">
+<h2 data-reveal class="text-3xl font-extrabold text-white tracking-tight">
           Your Jira data stays in Jira
         </h2>
 <p class="text-sm text-slate-300 mt-2">
@@ -382,25 +402,25 @@
         </p>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-<div class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
+<div data-reveal class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
 <h4 class="text-sm font-semibold text-white">Reads Jira as you</h4>
 <p class="text-xs text-slate-300 leading-relaxed">
             Nobody sees more than Jira already allows them to see through existing permission schemes.
           </p>
 </div>
-<div class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
+<div data-reveal class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
 <h4 class="text-sm font-semibold text-white">Atlassian Forge storage</h4>
 <p class="text-xs text-slate-300 leading-relaxed">
             Configuration and saved views live strictly inside Atlassian-managed multi-tenant cloud storage.
           </p>
 </div>
-<div class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
+<div data-reveal class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
 <h4 class="text-sm font-semibold text-white">No external servers</h4>
 <p class="text-xs text-slate-300 leading-relaxed">
             Zero third-party analytics, external telemetry databases, or ad tracking scripts embedded.
           </p>
 </div>
-<div class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
+<div data-reveal class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
 <h4 class="text-sm font-semibold text-white">Client-side exports</h4>
 <p class="text-xs text-slate-300 leading-relaxed">
             PDFs and Excel files are rendered directly inside your browser window before downloading.
@@ -420,7 +440,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center max-w-2xl mx-auto mb-14">
 <p class="text-sm font-semibold text-brand-blue mb-2">Choosing the right tool</p>
-<h2 class="text-3xl font-extrabold text-brand-ink tracking-tight">
+<h2 data-reveal class="text-3xl font-extrabold text-brand-ink tracking-tight">
           Is Flowlogs right for your team?
         </h2>
 <p class="text-sm text-brand-secondary mt-2">
@@ -504,13 +524,13 @@
 <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-12">
 <p class="text-sm font-semibold text-brand-blue mb-2">Frequently asked questions</p>
-<h2 class="text-3xl font-extrabold text-brand-ink tracking-tight">
+<h2 data-reveal class="text-3xl font-extrabold text-brand-ink tracking-tight">
           Everything you need to know
         </h2>
 </div>
 <div class="space-y-3">
 <!-- FAQ 1 -->
-<details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group" open="">
+<details data-reveal class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group" open="">
 <summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
 <span>Is Flowlogs free?</span>
 <svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
@@ -520,7 +540,7 @@
           </p>
 </details>
 <!-- FAQ 2 -->
-<details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
+<details data-reveal class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
 <summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
 <span>Does any data leave Jira?</span>
 <svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
@@ -530,7 +550,7 @@
           </p>
 </details>
 <!-- FAQ 3 -->
-<details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
+<details data-reveal class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
 <summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
 <span>Which date does a worklog count on?</span>
 <svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
@@ -540,7 +560,7 @@
           </p>
 </details>
 <!-- FAQ 4 -->
-<details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
+<details data-reveal class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
 <summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
 <span>Who can see what?</span>
 <svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
@@ -550,7 +570,7 @@
           </p>
 </details>
 <!-- FAQ 5 -->
-<details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
+<details data-reveal class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
 <summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
 <span>Does it support Arabic?</span>
 <svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
@@ -566,7 +586,7 @@
 <!-- BEGIN: Call to Action Band -->
 <section class="bg-brand-lightBlue py-24 border-b border-brand-border">
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-<h2 class="text-3xl sm:text-4xl font-extrabold text-brand-ink tracking-tight">
+<h2 data-reveal class="text-3xl sm:text-4xl font-extrabold text-brand-ink tracking-tight">
         Know where your team's time went, in one Jira page.
       </h2>
 <p class="text-base text-brand-secondary max-w-xl mx-auto">
@@ -607,4 +627,5 @@
 </div>
 </footer>
 <!-- END: Footer -->
+<script defer src="motion.js"></script>
 </body></html>

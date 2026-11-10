@@ -13,20 +13,22 @@
 <link href="https://omarelmougy1-afk.github.io/flowlogs-site/ar.html" hreflang="ar" rel="alternate"/>
 <link href="img/logo-144.png" rel="icon"/>
 <meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}</style><link href="fonts.css" rel="stylesheet"/>
-<link href="editorial.css" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Flowlogs" class="h-8 w-auto object-contain" src="img/logo-144.png"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">Flowlogs</span></div><nav class="hidden md:flex items-center gap-space-lg" data-active-classes="text-primary font-label-md text-label-md"><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Features</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#how-it-works">How it works</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#security">Security</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#faq">FAQ</a></nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center justify-center bg-primary-container text-on-primary font-label-md text-label-md px-space-md py-space-sm rounded-lg hover:bg-primary transition-colors" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noopener" target="_blank">Get it free</a></div></div>
+<link href="editorial.css" rel="stylesheet"/><link href="motion.css" rel="stylesheet"/>
+</head><body class="bg-surface font-body-md text-on-surface antialiased">
+<div aria-hidden="true" class="fl-progress"></div><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Flowlogs" class="h-8 w-auto object-contain" src="img/logo-144.png"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">Flowlogs</span></div><nav class="hidden md:flex items-center gap-space-lg" data-active-classes="text-primary font-label-md text-label-md"><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Features</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#how-it-works">How it works</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#security">Security</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" href="#faq">FAQ</a></nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center justify-center bg-primary-container text-on-primary font-label-md text-label-md px-space-md py-space-sm rounded-lg hover:bg-primary transition-colors" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noopener" target="_blank">Get it free</a></div></div>
 <nav aria-label="Sections" class="md:hidden border-t border-outline-variant"><div class="flex gap-5 overflow-x-auto whitespace-nowrap px-4 py-2.5 text-sm font-medium text-on-surface-variant"><a class="hover:text-on-surface transition-colors" href="#features">Features</a><a class="hover:text-on-surface transition-colors" href="#how-it-works">How it works</a><a class="hover:text-on-surface transition-colors" href="#security">Security</a><a class="hover:text-on-surface transition-colors" href="#faq">FAQ</a></div></nav>
 </header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full text-on-surface">
 <!-- 1. HERO SECTION -->
 <section class="max-w-7xl mx-auto px-margin pt-space-xl pb-space-2xl w-full">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start mb-space-xl">
 <!-- Left Column: Asymmetric dominant title -->
-<div class="lg:col-span-7">
+<div class="lg:col-span-7" data-hero-copy>
 <h1 class="font-display-hero text-display-hero text-on-surface tracking-tight">
           See who logged what, and who didn't.
         </h1>
 </div>
 <!-- Right Column: Narrative + Action -->
-<div class="lg:col-span-5 flex flex-col justify-start pt-space-xs">
+<div class="lg:col-span-5 flex flex-col justify-start pt-space-xs" data-hero-copy>
 <p class="font-body-lg text-body-lg text-on-surface leading-relaxed mb-space-lg">
           Flowlogs turns the worklogs your team already keeps in Jira into a team timesheet, a capacity report and a PDF you can send. There is nothing to set up.
         </p>
@@ -44,7 +46,7 @@
 </div>
 </div>
 <!-- Hero composition: real captures -->
-<div class="relative lg:pb-16">
+<div class="relative lg:pb-16" data-hero-visual>
 <div class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] overflow-hidden shadow-[0_4px_16px_rgba(23,43,77,0.04)] p-space-sm md:p-space-md">
 <img alt="Flowlogs team timesheet: Mariam Nabil's row in focus, with her empty working day on 1 Nov outlined in red" class="block w-full h-auto " height="658" loading="lazy" src="img/timesheet-focus.png" width="2104"/>
 </div>
@@ -61,19 +63,19 @@
 <section class="max-w-7xl mx-auto px-margin py-space-2xl w-full">
 <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
 <!-- Tile 1 -->
-<div class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] p-space-lg flex flex-col overflow-hidden">
+<div data-reveal class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] p-space-lg flex flex-col overflow-hidden">
 <h3 class="font-headline-md text-headline-md text-on-surface">An empty working day</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-lg">Mariam logged nothing on 1 Nov. Every other working day in her row is filled.</p>
 <div class="mt-auto rounded-lg border border-[#DCDFE4] overflow-hidden bg-white"><div class="overflow-hidden"><img alt="The team timesheet cropped to the first days, with Mariam Nabil's empty 1 Nov outlined in red" class="block w-full h-auto max-w-none !w-[190%]" height="658" loading="lazy" src="img/timesheet-focus.png" width="2104"/></div></div>
 </div>
 <!-- Tile 2 -->
-<div class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] p-space-lg flex flex-col overflow-hidden">
+<div data-reveal class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] p-space-lg flex flex-col overflow-hidden">
 <h3 class="font-headline-md text-headline-md text-on-surface">Flowlogs flags it</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-lg">Needs attention puts Mariam first: 63% · 38h of 60h.</p>
 <div class="mt-auto rounded-lg border border-[#DCDFE4] overflow-hidden bg-white"><div class="overflow-hidden"><img alt="The Needs attention list with Mariam Nabil first" class="block w-full h-auto max-w-none !w-[150%]" height="424" loading="lazy" src="img/needs-attention.png" width="1568"/></div></div>
 </div>
 <!-- Tile 3 -->
-<div class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] p-space-lg flex flex-col overflow-hidden">
+<div data-reveal class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] p-space-lg flex flex-col overflow-hidden">
 <h3 class="font-headline-md text-headline-md text-on-surface">The report already says so</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-lg">The PDF for the sprint review shows the same gap, with the charts and totals.</p>
 <div class="mt-auto rounded-lg border border-[#DCDFE4] overflow-hidden bg-white"><div class="max-h-56 overflow-hidden"><img alt="The first page of the Daily activity PDF report" class="block w-full h-auto " height="1347" loading="lazy" src="img/pdf-page.png" width="952"/></div></div>
@@ -85,7 +87,7 @@
 <div class="max-w-7xl mx-auto px-margin">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
 <div class="lg:col-span-5">
-<h2 class="font-headline-lg text-headline-lg text-on-surface">
+<h2 data-reveal class="font-headline-lg text-headline-lg text-on-surface">
             The Thursday problem
           </h2>
 </div>
@@ -116,7 +118,7 @@
 <div class="max-w-7xl mx-auto px-margin">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
 <div class="lg:col-span-7">
-<div class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] overflow-hidden shadow-[0_4px_16px_rgba(23,43,77,0.04)]"><img alt="The Flowlogs team timesheet for four people over two weeks, with empty working days outlined in red" class="block w-full h-auto " height="1800" loading="lazy" src="img/team-timesheet.png" width="2880"/></div>
+<div data-reveal class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] overflow-hidden shadow-[0_4px_16px_rgba(23,43,77,0.04)]"><img alt="The Flowlogs team timesheet for four people over two weeks, with empty working days outlined in red" class="block w-full h-auto " height="1800" loading="lazy" src="img/team-timesheet.png" width="2880"/></div>
 </div>
 <div class="lg:col-span-5">
 <h3 class="font-headline-lg text-headline-lg text-on-surface mb-space-sm">
@@ -142,7 +144,7 @@
             </p>
 </div>
 <div class="lg:col-span-7 order-1 lg:order-2">
-<div class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] overflow-hidden shadow-[0_4px_16px_rgba(23,43,77,0.04)]"><img alt="The Flowlogs flow report: total time, team capacity, flow efficiency, missing estimates and the Needs attention list" class="block w-full h-auto " height="1800" loading="lazy" src="img/flow-report.png" width="2880"/></div>
+<div data-reveal class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] overflow-hidden shadow-[0_4px_16px_rgba(23,43,77,0.04)]"><img alt="The Flowlogs flow report: total time, team capacity, flow efficiency, missing estimates and the Needs attention list" class="block w-full h-auto " height="1800" loading="lazy" src="img/flow-report.png" width="2880"/></div>
 </div>
 </div>
 </div>
@@ -152,7 +154,7 @@
 <div class="max-w-7xl mx-auto px-margin">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
 <div class="lg:col-span-7">
-<div class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] overflow-hidden shadow-[0_4px_16px_rgba(23,43,77,0.04)]"><img alt="Two pages of the Flowlogs PDF report: Daily activity with charts and the team timesheet, and the flow report table" class="block w-full h-auto " height="1800" loading="lazy" src="img/pdf-report.png" width="2880"/></div>
+<div data-reveal class="bg-surface-container-lowest border border-[#DCDFE4] rounded-[10px] overflow-hidden shadow-[0_4px_16px_rgba(23,43,77,0.04)]"><img alt="Two pages of the Flowlogs PDF report: Daily activity with charts and the team timesheet, and the flow report table" class="block w-full h-auto " height="1800" loading="lazy" src="img/pdf-report.png" width="2880"/></div>
 </div>
 <div class="lg:col-span-5">
 <h3 class="font-headline-lg text-headline-lg text-on-surface mb-space-sm">
@@ -169,7 +171,7 @@
 <!-- 5. SETUP SECTION -->
 <section id="how-it-works" class="w-full bg-surface-container-lowest py-space-2xl">
 <div class="max-w-7xl mx-auto px-margin">
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-xl">
+<h2 data-reveal class="font-headline-lg text-headline-lg text-on-surface mb-space-xl">
         Set up in the time it takes to read this
       </h2>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg divide-y md:divide-y-0 md:divide-x divide-surface-container-highest">
@@ -194,7 +196,7 @@
 <!-- 6. TRUST SECTION (Dark band) -->
 <section id="security" class="w-full bg-on-secondary-fixed text-on-primary py-space-2xl">
 <div class="max-w-7xl mx-auto px-margin">
-<h2 class="font-headline-lg text-headline-lg text-on-primary mb-space-xl">
+<h2 data-reveal class="font-headline-lg text-headline-lg text-on-primary mb-space-xl">
         Your Jira data stays in Jira
       </h2>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-lg">
@@ -229,7 +231,7 @@
 <!-- 7. COMPARISON TABLE -->
 <section class="w-full bg-surface-container-lowest py-space-2xl">
 <div class="max-w-7xl mx-auto px-margin">
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-xl">
+<h2 data-reveal class="font-headline-lg text-headline-lg text-on-surface mb-space-xl">
         How Flowlogs compares
       </h2>
 <div class="w-full overflow-x-auto">
@@ -292,7 +294,7 @@
 <!-- 8. FAQ ACCORDION -->
 <section id="faq" class="w-full bg-surface py-space-2xl">
 <div class="max-w-4xl mx-auto px-margin">
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-xl">
+<h2 data-reveal class="font-headline-lg text-headline-lg text-on-surface mb-space-xl">
         Frequently asked questions
       </h2>
 <div class="space-y-space-sm" id="faq-container">
@@ -352,7 +354,7 @@
 <!-- 9. CLOSING BAND -->
 <section class="w-full bg-secondary-fixed/40 py-space-2xl text-center">
 <div class="max-w-4xl mx-auto px-margin flex flex-col items-center">
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-md">
+<h2 data-reveal class="font-headline-lg text-headline-lg text-on-surface mb-space-md">
         Know where your team's time went, in one Jira page.
       </h2>
 <a class="inline-flex items-center justify-center bg-primary-container text-on-primary font-label-md text-label-md px-8 py-3.5 rounded-lg hover:bg-primary transition-colors shadow-sm" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noopener" target="_blank">
@@ -379,4 +381,5 @@
       }
     });
   });
-</script></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant py-space-xl"><div class="max-w-7xl mx-auto px-margin flex flex-col md:flex-row items-center justify-between gap-space-md"><nav class="flex items-center gap-space-lg" data-active-classes="text-on-surface"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html">Privacy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/terms.html">Terms</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/support.html">Support</a></nav><div class="font-body-sm text-body-sm text-on-surface-variant">Built by Omar El-Mougy</div></div></footer></body></html>
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant py-space-xl"><div class="max-w-7xl mx-auto px-margin flex flex-col md:flex-row items-center justify-between gap-space-md"><nav class="flex items-center gap-space-lg" data-active-classes="text-on-surface"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html">Privacy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/terms.html">Terms</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/support.html">Support</a></nav><div class="font-body-sm text-body-sm text-on-surface-variant">Built by Omar El-Mougy</div></div></footer><script defer src="motion.js"></script>
+</body></html>

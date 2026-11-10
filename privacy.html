@@ -30,8 +30,10 @@
       background-size: 28px 28px;
     }
   </style>
+<link href="motion.css" rel="stylesheet"/>
 </head>
 <body class="bg-white text-brand-secondary font-sans antialiased selection:bg-brand-lightBlue selection:text-brand-blue">
+<div aria-hidden="true" class="fl-progress"></div>
 
   <!-- Sticky Header -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-brand-border">
@@ -89,8 +91,8 @@
       
       <!-- Left Column: Sticky "On this page" Index -->
       <aside class="hidden lg:block lg:col-span-4 sticky top-24 pr-4">
-        <div class="p-6 rounded-xl border border-brand-border bg-white shadow-xs">
-          <h2 class="text-xs font-bold text-brand-ink mb-4">
+        <div data-reveal class="p-6 rounded-xl border border-brand-border bg-white shadow-xs">
+          <h2 data-reveal class="text-xs font-bold text-brand-ink mb-4">
             On this page
           </h2>
           <nav class="flex flex-col space-y-2.5 text-[14px]">
@@ -114,8 +116,8 @@
         
         <!-- "In short" Card -->
         <section id="in-short" class="scroll-mt-24">
-          <div class="p-6 lg:p-7 rounded-xl border border-brand-border bg-white shadow-xs">
-            <h2 class="text-xs font-bold text-brand-muted mb-4">
+          <div data-reveal class="p-6 lg:p-7 rounded-xl border border-brand-border bg-white shadow-xs">
+            <h2 data-reveal class="text-xs font-bold text-brand-muted mb-4">
               In short
             </h2>
             <div class="space-y-3.5 text-[15px] lg:text-[16px] text-brand-ink font-medium leading-relaxed">
@@ -130,7 +132,7 @@
 
         <!-- Section 1: Data Flowlogs processes -->
         <section id="data-processed" class="scroll-mt-24 space-y-4">
-          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
             Data Flowlogs processes
           </h2>
           <p class="text-[16px] text-brand-secondary leading-relaxed">
@@ -147,7 +149,7 @@
 
         <!-- Section 2: Why it is processed -->
         <section id="why-processed" class="scroll-mt-24 space-y-4">
-          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
             Why it is processed
           </h2>
           <p class="text-[16px] text-brand-secondary leading-relaxed">
@@ -158,7 +160,7 @@
         <!-- Section 3: Where it is kept, and for how long -->
         <section id="retention-storage" class="scroll-mt-24 space-y-6">
           <div class="space-y-4">
-            <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
               Where it is kept, and for how long
             </h2>
             <p class="text-[16px] text-brand-secondary leading-relaxed">
@@ -167,7 +169,7 @@
           </div>
 
           <!-- Two-column retention table -->
-          <div class="border border-brand-border rounded-xl overflow-hidden shadow-xs bg-white">
+          <div data-reveal class="border border-brand-border rounded-xl overflow-hidden shadow-xs bg-white">
             <table class="w-full text-left border-collapse">
               <thead>
                 <tr class="bg-brand-bg border-b border-brand-border">
@@ -252,7 +254,7 @@
 
         <!-- Section 4: Sharing and sale -->
         <section id="sharing-sale" class="scroll-mt-24 space-y-4">
-          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
             Sharing and sale
           </h2>
           <p class="text-[16px] text-brand-secondary leading-relaxed">
@@ -262,7 +264,7 @@
 
         <!-- Section 5: Security -->
         <section id="security" class="scroll-mt-24 space-y-4">
-          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
             Security
           </h2>
           <p class="text-[16px] text-brand-secondary leading-relaxed">
@@ -272,7 +274,7 @@
 
         <!-- Section 6: Data location -->
         <section id="data-location" class="scroll-mt-24 space-y-4">
-          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
             Data location
           </h2>
           <p class="text-[16px] text-brand-secondary leading-relaxed">
@@ -282,7 +284,7 @@
 
         <!-- Section 7: Your choices and rights -->
         <section id="choices-rights" class="scroll-mt-24 space-y-4">
-          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
             Your choices and rights
           </h2>
           <p class="text-[16px] text-brand-secondary leading-relaxed">
@@ -292,7 +294,7 @@
 
         <!-- Section 8: Children -->
         <section id="children" class="scroll-mt-24 space-y-4">
-          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
             Children
           </h2>
           <p class="text-[16px] text-brand-secondary leading-relaxed">
@@ -302,7 +304,7 @@
 
         <!-- Section 9: Changes -->
         <section id="changes" class="scroll-mt-24 space-y-4">
-          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
             Changes
           </h2>
           <p class="text-[16px] text-brand-secondary leading-relaxed">
@@ -312,8 +314,8 @@
 
         <!-- Section 10: Contact (White Card) -->
         <section id="contact" class="scroll-mt-24">
-          <div class="p-6 lg:p-8 rounded-xl border border-brand-border bg-white shadow-xs space-y-4">
-            <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+          <div data-reveal class="p-6 lg:p-8 rounded-xl border border-brand-border bg-white shadow-xs space-y-4">
+            <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
               Contact
             </h2>
             <div class="space-y-1 text-[15px] leading-relaxed text-brand-secondary">
@@ -334,7 +336,7 @@
   <!-- Light Blue Band (Used once as permitted) -->
   <section class="bg-brand-lightBlue border-t border-brand-border py-12 lg:py-16">
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12 text-center">
-      <h2 class="text-2xl lg:text-3xl font-extrabold text-brand-ink tracking-tight mb-4">
+      <h2 data-reveal class="text-2xl lg:text-3xl font-extrabold text-brand-ink tracking-tight mb-4">
         Know where your team's time went, in one Jira page.
       </h2>
       <p class="text-[16px] text-brand-secondary max-w-xl mx-auto mb-8 font-normal">
@@ -407,5 +409,6 @@
       onScroll();
     });
   </script>
+<script defer src="motion.js"></script>
 </body>
 </html>

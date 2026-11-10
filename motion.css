@@ -1,0 +1,231 @@
+/* Motion for the Flowlogs landing pages.
+   Only transform and opacity move, so the browser can animate on the compositor.
+   Nothing moves when the visitor has asked for reduced motion, and every page reads
+   the same without this file. */
+
+:root {
+  --fl-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --fl-ink: #172b4d;
+  --fl-muted: #626f86;
+  --fl-blue: #0c66e4;
+  --fl-red: #e2483d;
+}
+
+/* --- Hero entrance: the copy, line by line, then the picture settles ------------- */
+@media (prefers-reduced-motion: no-preference) {
+  [data-hero-copy] > * {
+    animation: fl-enter 0.9s var(--fl-ease) both;
+  }
+  [data-hero-copy] > :nth-child(2) { animation-delay: 0.08s; }
+  [data-hero-copy] > :nth-child(3) { animation-delay: 0.16s; }
+  [data-hero-copy] > :nth-child(4) { animation-delay: 0.24s; }
+  [data-hero-copy] > :nth-child(5) { animation-delay: 0.32s; }
+  [data-hero-copy] > :nth-child(n + 6) { animation-delay: 0.4s; }
+  [data-hero-visual] {
+    animation: fl-settle 1.3s var(--fl-ease) 0.25s both;
+  }
+}
+@keyframes fl-enter {
+  from { opacity: 0; transform: translateY(18px); }
+}
+@keyframes fl-settle {
+  from { opacity: 0; transform: translateY(48px) scale(0.96); }
+}
+
+/* --- Scroll-linked: reveals, reading progress, header lift ----------------------- */
+.fl-progress { display: none; }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-reveal] {
+      animation: fl-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+    .fl-progress {
+      display: block;
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: 3px;
+      z-index: 70;
+      pointer-events: none;
+      background: var(--fl-blue);
+      transform-origin: 0 50%;
+      animation: fl-grow linear both;
+      animation-timeline: scroll(root);
+    }
+    [dir='rtl'] .fl-progress { transform-origin: 100% 50%; }
+    body > header {
+      animation: fl-lift linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 140px;
+    }
+  }
+}
+@keyframes fl-reveal {
+  from { opacity: 0; transform: translateY(36px) scale(0.985); }
+}
+@keyframes fl-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes fl-lift {
+  to { box-shadow: 0 12px 32px -20px rgba(9, 30, 66, 0.45); }
+}
+
+/* --- Scroll story: one missing timesheet, start to finish ------------------------
+   The picture stays pinned while the three steps scroll past; the step in the middle
+   of the screen sets the stage (motion.js). Phones and reduced motion keep the
+   static picture and captions. */
+.fl-story-live { display: none; }
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .fl-story-static { display: none; }
+  .fl-story-live {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 4rem;
+    text-align: start;
+    timeline-scope: --fl-story;
+  }
+}
+.fl-story-steps {
+  view-timeline: --fl-story block;
+  padding: 18vh 0;
+}
+.fl-story-step {
+  min-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0.32;
+  transition: opacity 0.5s ease;
+}
+.fl-story-step.is-active { opacity: 1; }
+.fl-story-step h3 {
+  margin: 0 0 0.75rem;
+  color: var(--fl-ink);
+  font-size: 1.875rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.fl-story-step p {
+  margin: 0;
+  max-width: 26rem;
+  color: var(--fl-muted);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+.fl-story-pin {
+  position: sticky;
+  top: max(5.5rem, calc(50vh - 16rem));
+  align-self: start;
+}
+.fl-stage {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 100 / 72;
+  overflow: hidden;
+  direction: ltr;
+  container-type: inline-size;
+  border: 1px solid #dcdfe4;
+  border-radius: 16px;
+  background-color: #f4f6fa;
+  background-image:
+    linear-gradient(to right, rgba(220, 223, 228, 0.55) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(220, 223, 228, 0.55) 1px, transparent 1px);
+  background-size: 28px 28px;
+  box-shadow: 0 30px 60px -30px rgba(9, 30, 66, 0.35);
+}
+.fl-layer {
+  position: absolute;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #dcdfe4;
+  box-shadow: 0 18px 40px -18px rgba(9, 30, 66, 0.35);
+  transition: transform 0.9s var(--fl-ease), opacity 0.6s ease;
+  will-change: transform, opacity;
+}
+.fl-layer img { display: block; width: 100%; height: auto; border-radius: inherit; }
+
+/* The team timesheet: full width, centred. */
+.fl-ts { left: 4cqw; width: 92cqw; }
+.fl-ts .fl-ts-focus { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease; }
+.fl-ring {
+  position: absolute;
+  box-sizing: content-box;
+  margin: -3px;
+  border: 3px solid var(--fl-red);
+  border-radius: 7px;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.3s;
+}
+.fl-ring::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border: 3px solid var(--fl-red);
+  border-radius: 9px;
+  opacity: 0;
+}
+/* Needs attention: waits below the frame. */
+.fl-at { left: 13cqw; width: 74cqw; top: 36cqw; opacity: 0; transform: translateY(18cqw); }
+.fl-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: rgba(226, 72, 61, 0.1);
+  border-left: 3px solid var(--fl-red);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.7s var(--fl-ease) 0.35s;
+}
+/* The PDF page: waits below, tilted. */
+.fl-pdf { right: 5cqw; top: 6cqw; width: 31cqw; border-radius: 4px; opacity: 0; transform: translateY(46cqw) rotate(9deg); }
+
+/* Step 1, spot it: zoom into the empty day. */
+.fl-stage[data-active='1'] .fl-ts { transform: scale(1.9); }
+.fl-stage[data-active='1'] .fl-ts-focus,
+.fl-stage[data-active='1'] .fl-ring { opacity: 1; }
+.fl-stage[data-active='1'] .fl-ring::after { animation: fl-pulse 1.8s ease-out 0.9s infinite; }
+/* Step 2, act on it: the timesheet steps back, Needs attention names her. */
+.fl-stage[data-active='2'] .fl-ts { transform: translateY(-19cqw); opacity: 0.55; }
+.fl-stage[data-active='2'] .fl-ts-focus,
+.fl-stage[data-active='3'] .fl-ts-focus { opacity: 1; }
+.fl-stage[data-active='2'] .fl-at { opacity: 1; transform: none; }
+.fl-stage[data-active='2'] .fl-row,
+.fl-stage[data-active='3'] .fl-row { transform: scaleX(1); }
+/* Step 3, report it: the PDF lands on top. */
+.fl-stage[data-active='3'] .fl-ts { transform: translateY(-19cqw); opacity: 0.25; }
+.fl-stage[data-active='3'] .fl-at { opacity: 0.9; transform: translate(-10cqw, 9cqw) scale(0.86); }
+.fl-stage[data-active='3'] .fl-pdf { opacity: 1; transform: rotate(2.5deg); }
+
+@keyframes fl-pulse {
+  from { opacity: 0.7; transform: scale(1); }
+  to { opacity: 0; transform: scale(1.9); }
+}
+
+/* Reading progress for the story, along the bottom of the frame. */
+.fl-story-bar {
+  position: absolute;
+  left: 4cqw;
+  right: 4cqw;
+  bottom: 3cqw;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(9, 30, 66, 0.1);
+  overflow: hidden;
+}
+.fl-story-bar span {
+  display: block;
+  height: 100%;
+  background: var(--fl-blue);
+  transform: scaleX(0.04);
+  transform-origin: 0 50%;
+}
+@supports (animation-timeline: view()) {
+  .fl-story-bar span {
+    animation: fl-grow linear both;
+    animation-timeline: --fl-story;
+    animation-range: contain 0% contain 100%;
+  }
+}

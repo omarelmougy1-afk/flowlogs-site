@@ -1,258 +1,634 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Flowlogs for Jira: see who logged what, and who didn't</title>
-<meta name="description" content="Flowlogs turns the worklogs your team already keeps in Jira into a team timesheet, a capacity report and a PDF you can send. Free on the Atlassian Marketplace.">
-<meta property="og:title" content="Flowlogs for Jira">
-<meta property="og:description" content="See who logged what, and who didn't. A team timesheet, capacity report and PDF from the worklogs already in Jira.">
-<meta property="og:image" content="img/og.png">
-<link rel="icon" href="img/logo-144.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flowlogs — Free Jira Cloud Timesheet &amp; Capacity Reports</title>
+<meta content="Flowlogs turns the worklogs your team already keeps in Jira into a team timesheet, a capacity report and a PDF you can send. Free on the Atlassian Marketplace." name="description"/>
+<meta content="Flowlogs for Jira" property="og:title"/>
+<meta content="See who logged what, and who didn't. A team timesheet, capacity report and PDF from the worklogs already in Jira." property="og:description"/>
+<meta content="https://omarelmougy1-afk.github.io/flowlogs-site/img/og.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="img/logo-144.png" rel="icon"/>
+<!-- Inter Font Family -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="background-grid">
+    /* Subtle 28px square timesheet-like grid */
+    .bg-grid-pattern {
+      background-color: #F4F6FA;
+      background-image: 
+        linear-gradient(to right, rgba(220, 223, 228, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(220, 223, 228, 0.45) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+  </style>
+<style data-purpose="details-summary">
+    /* Remove native arrow and style accordion details */
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    details summary {
+      list-style: none;
+    }
+    details[open] .faq-icon {
+      transform: rotate(180deg);
+    }
+  </style>
+<!-- END: Custom Styles -->
 </head>
-<body>
-
-<header class="nav" id="top">
-  <div class="wrap nav-row">
-    <a class="mark" href="#top" aria-label="Flowlogs home">
-      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="11" width="4" height="7" rx="1"/><rect x="8" y="7" width="4" height="11" rx="1"/><rect x="14" y="3" width="4" height="15" rx="1"/></svg>
-      Flowlogs
-    </a>
-    <nav class="links" id="menu" aria-label="Main">
-      <a href="#features">Features</a>
-      <a href="#setup">How it works</a>
-      <a href="#security">Security</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <a class="btn btn-small nav-cta" href="https://marketplace.atlassian.com/search?query=flowlogs">Get it free</a>
-    <button class="menu-button" aria-controls="menu" aria-expanded="false" aria-label="Open menu"><span></span></button>
-  </div>
+<body class="bg-brand-bg font-sans text-brand-ink antialiased selection:bg-brand-lightBlue selection:text-brand-blue">
+<!-- BEGIN: Sticky Navigation -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-brand-border">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<!-- Brand & Badge -->
+<a class="flex items-center space-x-3 group" href="#">
+<img alt="Flowlogs Logo" class="w-8 h-8 rounded-lg shadow-sm" src="img/logo-144.png"/>
+<div class="flex items-center space-x-2">
+<span class="text-xl font-bold tracking-tight text-brand-ink">Flowlogs</span>
+<span class="text-[11px] font-semibold tracking-wider text-brand-secondary bg-brand-bg px-2 py-0.5 rounded border border-brand-border">
+            JIRA CLOUD
+          </span>
+</div>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-brand-secondary">
+<a class="hover:text-brand-blue transition-colors" href="#flow">Flow</a>
+<a class="hover:text-brand-blue transition-colors" href="#features">Features</a>
+<a class="hover:text-brand-blue transition-colors" href="#how-it-works">How it works</a>
+<a class="hover:text-brand-blue transition-colors" href="#security">Security</a>
+<a class="hover:text-brand-blue transition-colors" href="#comparison">Fit comparison</a>
+<a class="hover:text-brand-blue transition-colors" href="#faq">FAQ</a>
+</nav>
+<!-- CTA -->
+<div class="flex items-center">
+<a class="inline-flex items-center justify-center bg-brand-blue hover:bg-brand-blueHover text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors shadow-sm" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noreferrer" target="_blank">
+          Get it free
+        </a>
+</div>
+</div>
 </header>
-
-<main>
-  <section class="hero" id="hero">
-    <div class="wrap hero-copy">
-      <h1>See who logged what, and who didn't.</h1>
-      <div class="hero-side">
-        <p class="lede">Flowlogs turns the worklogs your team already keeps in Jira into a team timesheet, a capacity report and a PDF you can send. There is nothing to set up.</p>
-        <div class="actions">
-          <a class="btn" href="https://marketplace.atlassian.com/search?query=flowlogs">Get it free on Atlassian Marketplace</a>
-          <a class="text-link" href="sample-report.pdf">See a sample report</a>
-        </div>
-        <p class="fine">Runs inside Jira. Your data never leaves Atlassian.</p>
+<!-- END: Sticky Navigation -->
+<!-- BEGIN: Hero Section -->
+<section class="bg-grid-pattern pt-16 pb-28 border-b border-brand-border overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+<!-- Left Hero Column -->
+<div class="lg:col-span-5 space-y-6">
+<div class="inline-flex items-center px-2.5 py-1 rounded bg-brand-lightBlue border border-blue-200">
+<span class="text-xs font-bold uppercase tracking-wider text-brand-blue">FOR JIRA CLOUD · FREE</span>
+</div>
+<h1 class="text-4xl sm:text-5xl lg:text-[50px] font-black text-brand-ink tracking-tight leading-[1.08]">
+            See who logged what — and who didn't.
+          </h1>
+<p class="text-lg text-brand-secondary max-w-xl leading-relaxed">
+            The worklogs your team already logs in Jira, turned into a team timesheet, a capacity report, and a PDF you can send. Nothing to set up.
+          </p>
+<!-- Numbered Steps Guide -->
+<div class="space-y-4 pt-2">
+<div class="flex items-start space-x-3.5 p-2 rounded-lg hover:bg-white/60 transition-colors">
+<span class="w-6 h-6 rounded-full bg-brand-blue text-white flex-shrink-0 flex items-center justify-center text-xs font-bold mt-0.5 shadow-sm">1</span>
+<p class="text-sm text-brand-secondary leading-snug">
+<strong class="text-brand-ink font-semibold">Spot it</strong> — A working day with nothing logged gets a red outline in the team timesheet.
+              </p>
+</div>
+<div class="flex items-start space-x-3.5 p-2 rounded-lg hover:bg-white/60 transition-colors">
+<span class="w-6 h-6 rounded-full bg-brand-blue text-white flex-shrink-0 flex items-center justify-center text-xs font-bold mt-0.5 shadow-sm">2</span>
+<p class="text-sm text-brand-secondary leading-snug">
+<strong class="text-brand-ink font-semibold">Act on it</strong> — Needs attention names the person and how far below capacity they are.
+              </p>
+</div>
+<div class="flex items-start space-x-3.5 p-2 rounded-lg hover:bg-white/60 transition-colors">
+<span class="w-6 h-6 rounded-full bg-brand-blue text-white flex-shrink-0 flex items-center justify-center text-xs font-bold mt-0.5 shadow-sm">3</span>
+<p class="text-sm text-brand-secondary leading-snug">
+<strong class="text-brand-ink font-semibold">Report it</strong> — One click sends the same picture to management as a clean A4 PDF.
+              </p>
+</div>
+</div>
+<!-- Hero Actions -->
+<div class="pt-2 space-y-3">
+<a class="inline-flex items-center justify-center bg-brand-blue hover:bg-brand-blueHover text-white font-semibold text-base px-6 py-3.5 rounded-lg shadow-sm transition-all" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noreferrer" target="_blank">
+              Get it free on Atlassian Marketplace
+            </a>
+<p class="text-xs text-brand-muted font-medium">
+              Runs on Atlassian Forge · No data leaves Jira · Arabic names in every export
+            </p>
+</div>
+</div>
+<!-- Right Hero Column (Visual Flow Composition) -->
+<div class="lg:col-span-7">
+<div class="bg-white p-2 sm:p-3 rounded-2xl border border-brand-border shadow-xl hover:shadow-2xl transition-shadow">
+<img alt="Flowlogs team timesheet with Mariam Nabil's empty working day outlined in red, the Needs attention list flagging her at 63% of capacity, and the PDF report" class="w-full h-auto rounded-xl object-contain block" src="img/flowlogs-panel.png"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: Proof Strip -->
+<section class="bg-white border-b border-brand-border py-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-brand-border">
+<div class="pt-2 md:pt-0">
+<p class="text-sm font-semibold text-brand-ink">Free on the Marketplace</p>
+<p class="text-xs text-brand-muted mt-0.5">No license fees or user limits</p>
+</div>
+<div class="pt-2 md:pt-0">
+<p class="text-sm font-semibold text-brand-ink">Reads Existing Jira Logs</p>
+<p class="text-xs text-brand-muted mt-0.5">Zero manual time duplication</p>
+</div>
+<div class="pt-2 md:pt-0">
+<p class="text-sm font-semibold text-brand-ink">Data Stays in Atlassian</p>
+<p class="text-xs text-brand-muted mt-0.5">Native Forge infrastructure</p>
+</div>
+<div class="pt-2 md:pt-0">
+<p class="text-sm font-semibold text-brand-ink">Arabic-ready exports</p>
+<p class="text-xs text-brand-muted mt-0.5">Names render right in PDF, Excel and CSV</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Proof Strip -->
+<!-- BEGIN: Dedicated Flow Section (Prompt 3) -->
+<section class="py-28 bg-white border-b border-brand-border" id="flow">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-14">
+<p class="text-xs font-semibold uppercase tracking-wider text-brand-blue mb-2">ONE MISSING TIMESHEET, START TO FINISH</p>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-brand-ink tracking-tight">
+          From an empty day to a report in three clicks
+        </h2>
+</div>
+<!-- Centered Wide Flow Diagram -->
+<div class="bg-brand-bg/70 rounded-2xl border border-brand-border p-3 sm:p-6 shadow-sm mb-12">
+<img alt="Three steps: an empty working day in the team timesheet, Flowlogs flagging it in Needs attention, and the same gap in the PDF report" class="w-full h-auto rounded-xl object-contain block mx-auto bg-white border border-brand-border shadow-sm" src="img/flowlogs-story.png"/>
+</div>
+<!-- Three Columns / Captions (1, 2, 3) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="space-y-2">
+<div class="flex items-center space-x-2.5">
+<span class="w-7 h-7 rounded-full bg-brand-blue text-white flex-shrink-0 flex items-center justify-center text-xs font-bold shadow-sm">1</span>
+<h3 class="text-base font-bold text-brand-ink">Spot it</h3>
+</div>
+<p class="text-sm text-brand-secondary leading-relaxed pl-9">
+            A working day with nothing logged gets a red outline in the team timesheet.
+          </p>
+</div>
+<div class="space-y-2">
+<div class="flex items-center space-x-2.5">
+<span class="w-7 h-7 rounded-full bg-brand-blue text-white flex-shrink-0 flex items-center justify-center text-xs font-bold shadow-sm">2</span>
+<h3 class="text-base font-bold text-brand-ink">Act on it</h3>
+</div>
+<p class="text-sm text-brand-secondary leading-relaxed pl-9">
+            Needs attention names the person and how far below capacity they are.
+          </p>
+</div>
+<div class="space-y-2">
+<div class="flex items-center space-x-2.5">
+<span class="w-7 h-7 rounded-full bg-brand-blue text-white flex-shrink-0 flex items-center justify-center text-xs font-bold shadow-sm">3</span>
+<h3 class="text-base font-bold text-brand-ink">Report it</h3>
+</div>
+<p class="text-sm text-brand-secondary leading-relaxed pl-9">
+            One click sends the same picture to management as a clean A4 PDF.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Dedicated Flow Section -->
+<!-- BEGIN: Problem Section -->
+<section class="py-28 bg-grid-pattern border-b border-brand-border">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-14">
+<p class="text-xs font-bold uppercase tracking-wider text-brand-blue mb-2">SOUND FAMILIAR?</p>
+<h2 class="text-3xl font-extrabold text-brand-ink tracking-tight">
+          Timesheet day shouldn't mean open tabs and guessing games
+        </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Problem Card 1 -->
+<div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
+<div class="space-y-3">
+<div class="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center font-bold text-sm">
+              !
+            </div>
+<h3 class="text-base font-bold text-brand-ink">Chasing people for timesheets every Thursday.</h3>
+<p class="text-sm text-brand-secondary leading-relaxed">
+              Manually checking ten separate profiles just to figure out who forgot to log yesterday's standup or design work.
+            </p>
+</div>
+</div>
+<!-- Problem Card 2 -->
+<div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
+<div class="space-y-3">
+<div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm">
+              !
+            </div>
+<h3 class="text-base font-bold text-brand-ink">Exporting worklogs to a spreadsheet to answer one question.</h3>
+<p class="text-sm text-brand-secondary leading-relaxed">
+              Downloading messy CSV dumps and writing Excel formulas just to check sprint capacity vs spent hours.
+            </p>
+</div>
+</div>
+<!-- Problem Card 3 -->
+<div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
+<div class="space-y-3">
+<div class="w-8 h-8 rounded-lg bg-blue-50 text-brand-blue flex items-center justify-center font-bold text-sm">
+              !
+            </div>
+<h3 class="text-base font-bold text-brand-ink">Guessing whether the team has capacity for the next sprint.</h3>
+<p class="text-sm text-brand-secondary leading-relaxed">
+              Planning commitments without knowing who is over capacity and which issues are quietly burning extra hours.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Problem Section -->
+<!-- BEGIN: Feature 1 (Team Timesheet) -->
+<section class="py-28 bg-white border-b border-brand-border" id="features">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Feature Copy -->
+<div class="lg:col-span-5 space-y-4">
+<p class="text-xs font-bold uppercase tracking-wider text-brand-blue">TEAM TIMESHEET</p>
+<h2 class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
+            Missing timesheets stand out
+          </h2>
+<p class="text-brand-secondary leading-relaxed text-base">
+            Every person, every day, coloured against a working day. A day with nothing logged gets a red outline, so you know who to nudge before the sprint review. Click any day to see every worklog.
+          </p>
+<ul class="pt-2 space-y-2 text-sm text-brand-secondary">
+<li class="flex items-center space-x-2">
+<span class="text-brand-blue font-bold">✓</span>
+<span>Visual color-coded thresholds for over, part, and full days</span>
+</li>
+<li class="flex items-center space-x-2">
+<span class="text-brand-blue font-bold">✓</span>
+<span>Granular drilldown into specific issues with one click</span>
+</li>
+</ul>
+</div>
+<!-- UI Screenshot -->
+<div class="lg:col-span-7">
+<div class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-white">
+<img alt="Flowlogs Team Timesheet UI" class="w-full h-auto object-cover block" src="img/team-timesheet.png"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Feature 1 -->
+<!-- BEGIN: Feature 2 (Flow Report) -->
+<section class="py-28 bg-grid-pattern border-b border-brand-border">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- UI Screenshot (Left) -->
+<div class="lg:col-span-7 order-2 lg:order-1">
+<div class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-white">
+<img alt="Flowlogs Flow Report KPI and analytics dashboard view" class="w-full h-auto object-cover block" src="img/flow-report.png"/>
+</div>
+</div>
+<!-- Feature Copy (Right) -->
+<div class="lg:col-span-5 space-y-4 order-1 lg:order-2">
+<p class="text-xs font-bold uppercase tracking-wider text-brand-blue">FLOW REPORT</p>
+<h2 class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
+            Capacity and estimates in one view
+          </h2>
+<p class="text-brand-secondary leading-relaxed text-base">
+            Total time, capacity and flow efficiency at the top, a short Needs attention list under it, and every number traceable from person to project to issue.
+          </p>
+<ul class="pt-2 space-y-2 text-sm text-brand-secondary">
+<li class="flex items-center space-x-2">
+<span class="text-brand-blue font-bold">✓</span>
+<span>Immediate flags for issues exceeding original estimates</span>
+</li>
+<li class="flex items-center space-x-2">
+<span class="text-brand-blue font-bold">✓</span>
+<span>Flow efficiency metric to evaluate utilization against target capacity</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Feature 2 -->
+<!-- BEGIN: Feature 3 (Share It) -->
+<section class="py-28 bg-white border-b border-brand-border">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Feature Copy -->
+<div class="lg:col-span-5 space-y-4">
+<p class="text-xs font-bold uppercase tracking-wider text-brand-blue">SHARE IT</p>
+<h2 class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
+            A report that explains itself
+          </h2>
+<p class="text-brand-secondary leading-relaxed text-base">
+            A clean A4 PDF with the charts and the timesheet, or Excel and CSV that match the screen exactly. No endless spreadsheet tweaking before sending updates to department leadership.
+          </p>
+<div class="pt-2 flex flex-wrap gap-2 text-xs font-semibold text-brand-muted">
+<span class="px-2.5 py-1 bg-brand-bg rounded border border-brand-border">Print-ready A4 PDF</span>
+<span class="px-2.5 py-1 bg-brand-bg rounded border border-brand-border">Raw CSV Data</span>
+<span class="px-2.5 py-1 bg-brand-bg rounded border border-brand-border">Native Formatted Excel</span>
+</div>
+</div>
+<!-- PDF UI Image -->
+<div class="lg:col-span-7">
+<div class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-brand-bg p-3 sm:p-6 flex items-center justify-center">
+<img alt="Flowlogs crisp A4 PDF report layout and timesheet preview" class="w-full h-auto object-contain rounded-lg shadow-sm block" src="img/pdf-report.png"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Feature 3 -->
+<!-- BEGIN: How It Works -->
+<section class="py-28 bg-grid-pattern border-b border-brand-border" id="how-it-works">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-xl mx-auto mb-16">
+<p class="text-xs font-bold uppercase tracking-wider text-brand-blue mb-2">GETTING STARTED</p>
+<h2 class="text-3xl font-extrabold text-brand-ink tracking-tight">
+          Up and running in two minutes
+        </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+<!-- Step 1 -->
+<div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
+<div class="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm mx-auto mb-4">
+            1
+          </div>
+<h3 class="text-base font-bold text-brand-ink mb-2">Install from Marketplace</h3>
+<p class="text-sm text-brand-secondary leading-relaxed">
+            Install Flowlogs directly into your Jira Cloud workspace with standard admin permissions.
+          </p>
+</div>
+<!-- Step 2 -->
+<div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
+<div class="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm mx-auto mb-4">
+            2
+          </div>
+<h3 class="text-base font-bold text-brand-ink mb-2">Open Apps → Flowlogs</h3>
+<p class="text-sm text-brand-secondary leading-relaxed">
+            Navigate right to Flowlogs in your Jira top navigation. No extra passwords or third-party signups.
+          </p>
+</div>
+<!-- Step 3 -->
+<div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
+<div class="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm mx-auto mb-4">
+            3
+          </div>
+<h3 class="text-base font-bold text-brand-ink mb-2">Pick your date range</h3>
+<p class="text-sm text-brand-secondary leading-relaxed">
+            Your team's existing Jira worklogs populate automatically. Timesheets and charts appear instantly.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: How It Works -->
+<!-- BEGIN: Trust Band (Dark Atlassian Navy - Only dark section) -->
+<section class="py-28 bg-brand-darkNavy text-white" id="security">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-14">
+<p class="text-xs font-bold uppercase tracking-wider text-blue-300 mb-2">PRIVACY &amp; ARCHITECTURE</p>
+<h2 class="text-3xl font-extrabold text-white tracking-tight">
+          Your Jira data stays in Jira
+        </h2>
+<p class="text-sm text-slate-300 mt-2">
+          Flowlogs is built on Atlassian's secure Forge serverless framework. Zero external endpoints.
+        </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
+<div class="text-blue-400 font-bold text-lg">01</div>
+<h4 class="text-sm font-semibold text-white">Reads Jira as you</h4>
+<p class="text-xs text-slate-300 leading-relaxed">
+            Nobody sees more than Jira already allows them to see through existing permission schemes.
+          </p>
+</div>
+<div class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
+<div class="text-blue-400 font-bold text-lg">02</div>
+<h4 class="text-sm font-semibold text-white">Atlassian Forge storage</h4>
+<p class="text-xs text-slate-300 leading-relaxed">
+            Configuration and saved views live strictly inside Atlassian-managed multi-tenant cloud storage.
+          </p>
+</div>
+<div class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
+<div class="text-blue-400 font-bold text-lg">03</div>
+<h4 class="text-sm font-semibold text-white">No external servers</h4>
+<p class="text-xs text-slate-300 leading-relaxed">
+            Zero third-party analytics, external telemetry databases, or ad tracking scripts embedded.
+          </p>
+</div>
+<div class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
+<div class="text-blue-400 font-bold text-lg">04</div>
+<h4 class="text-sm font-semibold text-white">Client-side exports</h4>
+<p class="text-xs text-slate-300 leading-relaxed">
+            PDFs and Excel files are rendered directly inside your browser window before downloading.
+          </p>
+</div>
+</div>
+<div class="mt-10 text-center">
+<a class="text-xs font-semibold text-blue-300 hover:text-white transition-colors inline-flex items-center space-x-1" href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html">
+<span>Read our detailed privacy &amp; security architecture</span>
+<span>→</span>
+</a>
+</div>
+</div>
+</section>
+<!-- END: Trust Band -->
+<!-- BEGIN: Fit Comparison Section -->
+<section class="py-28 bg-white border-b border-brand-border" id="comparison">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-14">
+<p class="text-xs font-bold uppercase tracking-wider text-brand-blue mb-2">CHOOSING THE RIGHT TOOL</p>
+<h2 class="text-3xl font-extrabold text-brand-ink tracking-tight">
+          Is Flowlogs right for your team?
+        </h2>
+<p class="text-sm text-brand-secondary mt-2">
+          Compare how Flowlogs fits alongside spreadsheets and enterprise billing suites.
+        </p>
+</div>
+<!-- Comparison Table -->
+<div class="overflow-x-auto">
+<table class="w-full border-collapse text-left text-sm">
+<thead>
+<tr class="border-b border-brand-border">
+<th class="p-4 font-bold text-brand-ink w-1/4">Criteria</th>
+<th class="p-4 font-bold text-brand-blue bg-brand-lightBlue/60 rounded-t-lg border-x border-t border-brand-blue/30 w-1/4">
+                Flowlogs
+              </th>
+<th class="p-4 font-bold text-brand-ink w-1/4">Spreadsheet exports</th>
+<th class="p-4 font-bold text-brand-ink w-1/4">Full time-tracking suites</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-brand-border text-brand-secondary">
+<tr>
+<td class="p-4 font-semibold text-brand-ink">Setup</td>
+<td class="p-4 bg-brand-lightBlue/60 border-x border-brand-blue/30 font-semibold text-brand-ink">
+                Instant (Native Forge)
+              </td>
+<td class="p-4">Manual export each week</td>
+<td class="p-4">Days of team onboarding</td>
+</tr>
+<tr>
+<td class="p-4 font-semibold text-brand-ink">Cost</td>
+<td class="p-4 bg-brand-lightBlue/60 border-x border-brand-blue/30 font-semibold text-emerald-700">
+                100% Free
+              </td>
+<td class="p-4">Included in Office</td>
+<td class="p-4">Paid per user</td>
+</tr>
+<tr>
+<td class="p-4 font-semibold text-brand-ink">Team timesheet view</td>
+<td class="p-4 bg-brand-lightBlue/60 border-x border-brand-blue/30 font-medium text-brand-ink">
+                Automated grid with missing day alerts
+              </td>
+<td class="p-4">Custom formulas &amp; pivot tables</td>
+<td class="p-4">Separate standalone dashboard</td>
+</tr>
+<tr>
+<td class="p-4 font-semibold text-brand-ink">Capacity vs estimates</td>
+<td class="p-4 bg-brand-lightBlue/60 border-x border-brand-blue/30 font-medium text-brand-ink">
+                Automatic aggregation
+              </td>
+<td class="p-4">Manual lookup &amp; VLOOKUPs</td>
+<td class="p-4">Built-in complex models</td>
+</tr>
+<tr>
+<td class="p-4 font-semibold text-brand-ink">PDF report</td>
+<td class="p-4 bg-brand-lightBlue/60 border-x border-brand-blue/30 font-medium text-brand-ink">
+                One-click executive A4 export
+              </td>
+<td class="p-4">Print print-preview from Excel</td>
+<td class="p-4">Custom report builder</td>
+</tr>
+<tr>
+<td class="p-4 font-semibold text-brand-ink">Approvals and billing</td>
+<td class="p-4 bg-brand-lightBlue/60 border-x border-b border-brand-blue/30 text-brand-muted">
+                ✕ Not included
+              </td>
+<td class="p-4 text-brand-muted">✕ Not included</td>
+<td class="p-4 font-medium text-emerald-700">✓ Full client invoicing &amp; approvals</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footnote -->
+<div class="mt-6 p-4 rounded-lg bg-brand-bg border border-brand-border text-xs text-brand-secondary">
+<strong class="text-brand-ink">Honest note:</strong> Flowlogs is built specifically for Jira sprint teams and engineering leads who want timesheet visibility and capacity tracking without the friction, cost, and overhead of heavy enterprise billing suites.
       </div>
-    </div>
-    <div class="wrap hero-shot">
-      <div class="scroller" tabindex="0" aria-label="Team timesheet, scroll sideways">
-        <figure class="frame hero-timesheet">
-          <img src="img/timesheet-focus.png" width="2104" height="658" alt="Flowlogs team timesheet: people in rows, days in columns. Mariam Nabil's row is highlighted; 1 November is outlined in red because nothing was logged on a working day.">
-        </figure>
-      </div>
-      <figure class="frame hero-note">
-        <img src="img/needs-attention.png" width="1568" height="424" alt="Needs attention list: Mariam Nabil may be missing timesheets, 63%, 38h of 60h; two issues over their estimate; three issues have no original estimate.">
-      </figure>
-      <p class="caption"><strong>On 1 Nov, Mariam logged nothing.</strong> Flowlogs already flagged it: 63% of capacity, 38h of 60h.</p>
-    </div>
-  </section>
-
-  <section class="facts" aria-label="At a glance">
-    <ul class="wrap fact-row">
-      <li>Free on the Atlassian Marketplace</li>
-      <li>Reads the worklogs already in Jira</li>
-      <li>Data stays in Atlassian</li>
-      <li>Arabic names in every export</li>
-    </ul>
-  </section>
-
-  <section class="band problem">
-    <div class="wrap split">
-      <h2>Timesheets shouldn't need a sprint of their own.</h2>
-      <ul class="ruled">
-        <li>You message four people on Thursday to ask whether they logged their hours.</li>
-        <li>You export worklogs to a spreadsheet to answer one question for your manager.</li>
-        <li>You guess whether the team can take on the next sprint.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="band story" aria-labelledby="story-title">
-    <div class="wrap">
-      <h2 id="story-title">One empty day, start to finish</h2>
-      <div class="tiles">
-        <article class="tile">
-          <h3>An empty working day</h3>
-          <p>Mariam logged nothing on 1 Nov. Every other working day in her row is filled.</p>
-          <div class="tile-shot frame"><img src="img/timesheet-focus.png" alt="" loading="lazy"></div>
-        </article>
-        <article class="tile">
-          <h3>Flowlogs flags it</h3>
-          <p>Needs attention puts Mariam first: 63% of capacity, 38h of 60h.</p>
-          <div class="tile-shot frame"><img src="img/needs-attention.png" alt="" loading="lazy"></div>
-        </article>
-        <article class="tile">
-          <h3>The report already says so</h3>
-          <p>The PDF for the sprint review shows the same gap, with the charts and totals.</p>
-          <div class="tile-shot frame tile-pdf"><img src="img/pdf-page.png" alt="" loading="lazy"></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="features">
-    <div class="band chapter">
-      <div class="wrap chapter-row">
-        <div class="chapter-text">
-          <h2>Missing timesheets stand out</h2>
-          <p>Every person, every day, coloured against a working day. A day with nothing logged gets a red outline, so you know who to nudge before the sprint review.</p>
-          <ul class="ruled small">
-            <li>Days off are greyed, not counted as missing</li>
-            <li>Click any day to see every worklog in it</li>
-            <li>Each row totals hours and percent of capacity</li>
-          </ul>
-        </div>
-        <figure class="frame chapter-shot"><img src="img/3-team-timesheet.png" alt="Daily activity page with the team timesheet and the list of worklogs for the newest day" loading="lazy"></figure>
-      </div>
-    </div>
-
-    <div class="band chapter alt">
-      <div class="wrap chapter-row reverse">
-        <div class="chapter-text">
-          <h2>Capacity and estimates in one view</h2>
-          <p>Total time, capacity and flow efficiency at the top. Underneath, every number traced from person to project to issue.</p>
-          <ul class="ruled small">
-            <li>Measure against capacity or original estimates</li>
-            <li>Hours per day and days per week are yours to set</li>
-            <li>Issues with no estimate are called out, not hidden</li>
-          </ul>
-        </div>
-        <figure class="frame chapter-shot"><img src="img/2-flow-report-expanded.png" alt="Flow report: team breakdown with a person expanded into projects and issues"></figure>
-      </div>
-    </div>
-
-    <div class="band chapter">
-      <div class="wrap chapter-row">
-        <div class="chapter-text">
-          <h2>A report that explains itself</h2>
-          <p>An A4 PDF with the charts, the team timesheet and the full breakdown, with clickable issue keys. Excel and CSV match the screen exactly.</p>
-          <ul class="ruled small">
-            <li>The filters and formula are printed on the first page</li>
-            <li>Tables never split a row across pages</li>
-            <li>Arabic names render correctly</li>
-          </ul>
-          <a class="text-link" href="sample-report.pdf">Open a sample PDF</a>
-        </div>
-        <figure class="frame chapter-shot plain"><img src="img/7-pdf-report.png" alt="Two pages of a Flowlogs PDF report"></figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="band setup" id="setup">
-    <div class="wrap">
-      <h2>Set up in the time it takes to read this</h2>
-      <ol class="setup-row">
-        <li><strong>Install</strong> Flowlogs from the Atlassian Marketplace.</li>
-        <li><strong>Open</strong> Apps, then Flowlogs, in Jira.</li>
-        <li><strong>Pick</strong> a date range. The worklogs are already there.</li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="trust" id="security">
-    <div class="wrap">
-      <h2>Your Jira data stays in Jira</h2>
-      <ul class="trust-row">
-        <li><strong>Reads Jira as you.</strong> Nobody sees more than Jira already shows them.</li>
-        <li><strong>Atlassian storage only.</strong> Settings and saved views live in Forge storage.</li>
-        <li><strong>No servers of ours.</strong> No tracking, no analytics, no external calls.</li>
-        <li><strong>Exports stay local.</strong> PDF, Excel and CSV are made in your browser.</li>
-      </ul>
-      <a class="text-link on-dark" href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html">Read the privacy policy</a>
-    </div>
-  </section>
-
-  <section class="band compare" aria-labelledby="compare-title">
-    <div class="wrap">
-      <h2 id="compare-title">Choose the right tool for your team</h2>
-      <p class="section-lede">Flowlogs reports on time you already log. If you need approvals or client billing, a full time-tracking suite is the better fit.</p>
-      <div class="table-scroll" tabindex="0">
-        <table>
-          <thead>
-            <tr><th scope="col"><span class="sr">Question</span></th><th scope="col" class="us">Flowlogs</th><th scope="col">Spreadsheet exports</th><th scope="col">Time-tracking suites</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Setup</th><td class="us">Install and open</td><td>Rebuild it every time</td><td>Admin setup and training</td></tr>
-            <tr><th scope="row">Cost</th><td class="us">Free</td><td>Free, but costs hours</td><td>Paid per user</td></tr>
-            <tr><th scope="row">Team timesheet</th><td class="us">Built in</td><td>By hand</td><td>Yes</td></tr>
-            <tr><th scope="row">Capacity against estimates</th><td class="us">Built in</td><td>Formulas to maintain</td><td>Yes</td></tr>
-            <tr><th scope="row">PDF report</th><td class="us">One click, A4</td><td>By hand</td><td>Yes</td></tr>
-            <tr><th scope="row">Approvals and billing</th><td class="us">Not included</td><td>No</td><td>Yes, their strength</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section class="band faq" id="faq">
-    <div class="wrap split">
-      <h2>Questions</h2>
-      <div class="faq-list">
-        <details><summary>Is Flowlogs free?</summary><p>Yes. It is free on the Atlassian Marketplace for Jira Cloud.</p></details>
-        <details><summary>Does any data leave Jira?</summary><p>No. Flowlogs runs on Atlassian Forge, declares no external network access, and keeps settings and saved views in Atlassian's own storage. Exports are created in your browser.</p></details>
-        <details><summary>Which date does a worklog count on?</summary><p>The day it was logged in Jira. A report for last week shows exactly what was entered last week.</p></details>
-        <details><summary>Who can see what?</summary><p>Flowlogs reads Jira as the person viewing the report, so everyone sees only the projects and worklogs their Jira permissions allow. Settings and saved views belong to each person.</p></details>
-        <details><summary>How is capacity worked out?</summary><p>From the hours per day and days per week you set in Flowlogs, multiplied by the working days in the range and the people in scope. The working week starts on Sunday.</p></details>
-        <details><summary>Does it support Arabic?</summary><p>Arabic names and text show correctly on screen and in every export, including the PDF. The interface itself is in English.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="closing">
-    <div class="wrap">
-      <h2>Know where your team's time went, in one Jira page.</h2>
-      <a class="btn" href="https://marketplace.atlassian.com/search?query=flowlogs">Get Flowlogs free</a>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="wrap footer-row">
-    <span class="mark small"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="11" width="4" height="7" rx="1"/><rect x="8" y="7" width="4" height="11" rx="1"/><rect x="14" y="3" width="4" height="15" rx="1"/></svg>Flowlogs</span>
-    <nav aria-label="Legal">
-      <a href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html">Privacy</a>
-      <a href="https://omarelmougy1-afk.github.io/flowlogs-site/terms.html">Terms</a>
-      <a href="https://omarelmougy1-afk.github.io/flowlogs-site/support.html">Support</a>
-    </nav>
-    <span class="byline">Built by Omar El-Mougy</span>
-  </div>
+</div>
+</section>
+<!-- END: Fit Comparison Section -->
+<!-- BEGIN: FAQ Accordion Section -->
+<section class="py-28 bg-grid-pattern border-b border-brand-border" id="faq">
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12">
+<p class="text-xs font-bold uppercase tracking-wider text-brand-blue mb-2">FREQUENTLY ASKED QUESTIONS</p>
+<h2 class="text-3xl font-extrabold text-brand-ink tracking-tight">
+          Everything you need to know
+        </h2>
+</div>
+<div class="space-y-3">
+<!-- FAQ 1 -->
+<details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group" open="">
+<summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
+<span>Is Flowlogs free?</span>
+<span class="faq-icon text-brand-muted text-xs transition-transform duration-200">▼</span>
+</summary>
+<p class="mt-3 text-sm text-brand-secondary leading-relaxed">
+            Yes, completely free on the Atlassian Marketplace with no tiers, trial limits, or hidden fees. We built it to be a transparent, high-quality utility for the Jira community.
+          </p>
+</details>
+<!-- FAQ 2 -->
+<details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
+<summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
+<span>Does any data leave Jira?</span>
+<span class="faq-icon text-brand-muted text-xs transition-transform duration-200">▼</span>
+</summary>
+<p class="mt-3 text-sm text-brand-secondary leading-relaxed">
+            Never. Flowlogs is built entirely on Atlassian Forge, meaning all code executes in Atlassian cloud infrastructure and stores configuration in Forge storage.
+          </p>
+</details>
+<!-- FAQ 3 -->
+<details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
+<summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
+<span>Which date does a worklog count on?</span>
+<span class="faq-icon text-brand-muted text-xs transition-transform duration-200">▼</span>
+</summary>
+<p class="mt-3 text-sm text-brand-secondary leading-relaxed">
+            On the day they were logged in Jira, so a report for last week shows exactly what was entered last week. Capacity follows the hours per day and days per week you set.
+          </p>
+</details>
+<!-- FAQ 4 -->
+<details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
+<summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
+<span>Who can see what?</span>
+<span class="faq-icon text-brand-muted text-xs transition-transform duration-200">▼</span>
+</summary>
+<p class="mt-3 text-sm text-brand-secondary leading-relaxed">
+            Flowlogs adheres strictly to Jira permission schemes. Users only see worklogs and issues they already have permission to view in Jira.
+          </p>
+</details>
+<!-- FAQ 5 -->
+<details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
+<summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
+<span>Does it support Arabic?</span>
+<span class="faq-icon text-brand-muted text-xs transition-transform duration-200">▼</span>
+</summary>
+<p class="mt-3 text-sm text-brand-secondary leading-relaxed">
+            Arabic names and text display correctly on screen and in every export, including the PDF. The interface itself is in English.
+          </p>
+</details>
+</div>
+</div>
+</section>
+<!-- END: FAQ Accordion Section -->
+<!-- BEGIN: Call to Action Band -->
+<section class="bg-brand-lightBlue py-24 border-b border-brand-border">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+<h2 class="text-3xl sm:text-4xl font-extrabold text-brand-ink tracking-tight">
+        Know where your team's time went — in one Jira page.
+      </h2>
+<p class="text-base text-brand-secondary max-w-xl mx-auto">
+        No new apps to convince your team to download. Just clear visibility over existing Jira worklogs.
+      </p>
+<div>
+<a class="inline-flex items-center justify-center bg-brand-blue hover:bg-brand-blueHover text-white px-8 py-3.5 rounded-lg font-bold shadow-sm transition-colors text-base" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noreferrer" target="_blank">
+          Get Flowlogs free
+        </a>
+</div>
+</div>
+</section>
+<!-- END: Call to Action Band -->
+<!-- BEGIN: Footer -->
+<footer class="bg-white py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-brand-border pb-8">
+<!-- Logo and Details -->
+<div class="flex items-center space-x-3">
+<img alt="Flowlogs Icon" class="w-7 h-7 rounded-md" src="img/logo-144.png"/>
+<span class="font-bold text-brand-ink text-base">Flowlogs</span>
+<span class="text-xs text-brand-muted">· Built with Atlassian Forge</span>
+</div>
+<!-- Links -->
+<div class="flex items-center space-x-6 text-xs text-brand-secondary font-medium">
+<a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html">Privacy Policy</a>
+<a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/terms.html">Terms of Service</a>
+<a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/support.html">Support</a>
+<span>Built by Omar El-Mougy</span>
+</div>
+</div>
+<!-- Legal Disclaimer -->
+<div class="mt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-brand-muted">
+<p>© 2026 Flowlogs. All rights reserved.</p>
+<p class="mt-2 sm:mt-0">Jira is a registered trademark of Atlassian Pty Ltd.</p>
+</div>
+</div>
 </footer>
-
-<a class="btn sticky-cta" href="https://marketplace.atlassian.com/search?query=flowlogs" aria-hidden="true" tabindex="-1">Get it free</a>
-
-<script>
-  const button = document.querySelector('.menu-button');
-  const nav = document.querySelector('.nav');
-  button.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    button.setAttribute('aria-expanded', String(open));
-  });
-  document.querySelectorAll('#menu a').forEach(link =>
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      button.setAttribute('aria-expanded', 'false');
-    }),
-  );
-  // The bottom button appears on phones once the hero button has scrolled away.
-  const cta = document.querySelector('.sticky-cta');
-  new IntersectionObserver(([entry]) => {
-    const show = !entry.isIntersecting;
-    cta.classList.toggle('show', show);
-    cta.setAttribute('aria-hidden', String(!show));
-    cta.tabIndex = show ? 0 : -1;
-  }).observe(document.querySelector('.hero .actions'));
-</script>
-</body>
-</html>
+<!-- END: Footer -->
+</body></html>

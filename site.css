@@ -1,0 +1,66 @@
+/* Shared pieces of the landing site that are not part of any one Stitch design:
+   the language menu, the translation note, and right-to-left fixes for Arabic. */
+
+.fl-lang { position: relative; }
+.fl-lang summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.fl-lang summary::-webkit-details-marker { display: none; }
+.fl-lang summary svg { transition: transform 0.2s ease; }
+.fl-lang[open] summary svg { transform: rotate(180deg); }
+.fl-lang-menu {
+  position: absolute;
+  inset-inline-end: 0;
+  top: calc(100% + 0.75rem);
+  z-index: 80;
+  display: grid;
+  min-width: 10rem;
+  padding: 0.35rem;
+  background: #fff;
+  border: 1px solid #dcdfe4;
+  border-radius: 0.75rem;
+  box-shadow: 0 16px 40px -16px rgba(9, 30, 66, 0.35);
+}
+.fl-lang-menu a {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  color: #172b4d;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.fl-lang-menu a:hover { background: #f4f6fa; }
+.fl-lang-menu a[aria-current] { color: #0c66e4; font-weight: 600; }
+.fl-lang-footer { display: inline-flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
+.fl-lang-footer a[aria-current] { color: #0c66e4; }
+
+.fl-translation-note {
+  margin-top: 1rem;
+  max-width: 40rem;
+  color: #626f86;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+/* Long words (German compounds above all) break instead of widening the page on phones. */
+body { overflow-wrap: break-word; }
+:lang(de) :is(h1, h2, h3, h4),
+:lang(fr) :is(h1, h2, h3, h4),
+:lang(es) :is(h1, h2, h3, h4) { hyphens: auto; }
+
+/* Long words (German compounds above all) break instead of widening the page on phones. */
+body { overflow-wrap: break-word; }
+:lang(de) :is(h1, h2, h3, h4),
+:lang(fr) :is(h1, h2, h3, h4),
+:lang(es) :is(h1, h2, h3, h4) { hyphens: auto; }
+
+/* Right to left: Tailwind's space-x and divide-x utilities assume left to right. */
+[dir='rtl'] [class*='space-x-'] > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
+[dir='rtl'] [class*='divide-x'] > :not([hidden]) ~ :not([hidden]) { --tw-divide-x-reverse: 1; }
+[dir='rtl'] .text-left { text-align: right; }
+[dir='rtl'] .list-disc.pl-5 { padding-left: 0; padding-right: 1.25rem; }
+[dir='rtl'] .list-decimal.pl-5 { padding-left: 0; padding-right: 1.25rem; }

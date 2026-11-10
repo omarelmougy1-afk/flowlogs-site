@@ -61,6 +61,9 @@
     }
   }
 }
+/* A pinned element never finishes its view timeline, so it would stay half faded. */
+[class*='sticky'] [data-reveal],
+[class*='sticky'][data-reveal] { animation: none; }
 @keyframes fl-reveal {
   from { opacity: 0; transform: translateY(36px) scale(0.985); }
 }

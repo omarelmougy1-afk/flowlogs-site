@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" dir="ltr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +11,12 @@
 <meta content="en_US" property="og:locale"/>
 <meta content="https://omarelmougy1-afk.github.io/flowlogs-site/img/og.png" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<link href="https://omarelmougy1-afk.github.io/flowlogs-site/" hreflang="en" rel="alternate"/>
-<link href="https://omarelmougy1-afk.github.io/flowlogs-site/ar.html" hreflang="ar" rel="alternate"/>
+<link href="privacy.html" hreflang="en" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy-ar.html" hreflang="ar" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy-es.html" hreflang="es" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy-fr.html" hreflang="fr" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy-de.html" hreflang="de" rel="alternate"/>
+<link href="privacy.html" hreflang="x-default" rel="alternate"/>
 <link href="img/logo-144.png" rel="icon"/>
 
   <!-- Google Fonts: Inter 400 to 900 -->
@@ -20,6 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="fonts.css" rel="stylesheet"/>
 <link href="privacy.css" rel="stylesheet"/>
+<link href="site.css" rel="stylesheet"/>
   <style>
     /* 28px square grid matching the landing page */
     .grid-bg {
@@ -39,7 +44,7 @@
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-brand-border">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 <!-- Brand & Badge -->
-<a class="flex items-center space-x-3 group" href="./">
+<a class="flex items-center space-x-3 group" href="index.html">
 <img alt="Flowlogs Logo" class="w-8 h-8 rounded-lg shadow-sm" src="img/logo-144.png"/>
 <div class="flex items-center space-x-2">
 <span class="text-xl font-bold tracking-tight text-brand-ink">Flowlogs</span>
@@ -50,22 +55,25 @@
 </a>
 <!-- Desktop Nav Links -->
 <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-secondary">
-<a class="hover:text-brand-blue transition-colors" href="./#flow">Flow</a>
-<a class="hover:text-brand-blue transition-colors" href="./#features">Features</a>
-<a class="hover:text-brand-blue transition-colors" href="./#how-it-works">How it works</a>
-<a class="hover:text-brand-blue transition-colors" href="./#security">Security</a>
-<a class="hover:text-brand-blue transition-colors" href="./#comparison">Fit comparison</a>
-<a class="hover:text-brand-blue transition-colors" href="./#faq">FAQ</a>
+<a class="hover:text-brand-blue transition-colors" href="index.html#flow">Flow</a>
+<a class="hover:text-brand-blue transition-colors" href="index.html#features">Features</a>
+<a class="hover:text-brand-blue transition-colors" href="index.html#how-it-works">How it works</a>
+<a class="hover:text-brand-blue transition-colors" href="index.html#security">Security</a>
+<a class="hover:text-brand-blue transition-colors" href="index.html#comparison">Fit comparison</a>
+<a class="hover:text-brand-blue transition-colors" href="index.html#faq">FAQ</a>
 </nav>
 <!-- CTA -->
-<div class="flex items-center gap-5">
-<a class="text-sm font-medium text-brand-secondary hover:text-brand-blue transition-colors" href="ar.html" hreflang="ar" lang="ar">العربية</a>
+<div class="flex items-center gap-4 sm:gap-5">
+<details class="fl-lang text-sm font-medium text-brand-secondary">
+<summary class="hover:text-brand-blue transition-colors" title="Language"><span class="hidden sm:inline">English</span><span class="sm:hidden">EN</span><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M6 9l6 6 6-6"/></svg></summary>
+<div class="fl-lang-menu"><a href="privacy.html" hreflang="en" lang="en" aria-current="page">English</a><a href="privacy-ar.html" hreflang="ar" lang="ar">العربية</a><a href="privacy-es.html" hreflang="es" lang="es">Español</a><a href="privacy-fr.html" hreflang="fr" lang="fr">Français</a><a href="privacy-de.html" hreflang="de" lang="de">Deutsch</a></div>
+</details>
 <a class="inline-flex items-center justify-center bg-brand-blue hover:bg-brand-blueHover text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors shadow-sm whitespace-nowrap" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noreferrer" target="_blank">
           Get it free
         </a>
 </div>
 </div>
-<nav aria-label="Sections" class="lg:hidden border-t border-brand-border"><div class="flex gap-5 overflow-x-auto whitespace-nowrap px-4 py-2.5 text-sm font-medium text-brand-secondary"><a class="hover:text-brand-blue transition-colors" href="./#flow">Flow</a><a class="hover:text-brand-blue transition-colors" href="./#features">Features</a><a class="hover:text-brand-blue transition-colors" href="./#how-it-works">How it works</a><a class="hover:text-brand-blue transition-colors" href="./#security">Security</a><a class="hover:text-brand-blue transition-colors" href="./#comparison">Comparison</a><a class="hover:text-brand-blue transition-colors" href="./#faq">FAQ</a></div></nav>
+<nav aria-label="Sections" class="lg:hidden border-t border-brand-border"><div class="flex gap-5 overflow-x-auto whitespace-nowrap px-4 py-2.5 text-sm font-medium text-brand-secondary"><a class="hover:text-brand-blue transition-colors" href="index.html#flow">Flow</a><a class="hover:text-brand-blue transition-colors" href="index.html#features">Features</a><a class="hover:text-brand-blue transition-colors" href="index.html#how-it-works">How it works</a><a class="hover:text-brand-blue transition-colors" href="index.html#security">Security</a><a class="hover:text-brand-blue transition-colors" href="index.html#comparison">Comparison</a><a class="hover:text-brand-blue transition-colors" href="index.html#faq">FAQ</a></div></nav>
 </header>
 
   <!-- Page Title Band (Hero Background with 28px Grid & Bottom Border) -->
@@ -340,7 +348,7 @@
         Know where your team's time went, in one Jira page.
       </h2>
       <p class="text-[16px] text-brand-secondary max-w-xl mx-auto mb-8 font-normal">
-        No new apps to convince your team to download. Just clear visibility over existing Jira worklogs.
+        Nothing new for your team to learn. Flowlogs reads the worklogs they already keep in Jira.
       </p>
       <a href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noopener" target="_blank" target="_blank" rel="noopener noreferrer" class="inline-block bg-brand-blue hover:bg-brand-blueHover text-white text-[15px] font-semibold px-6 py-3 rounded-md transition-colors shadow-xs">
         Get Flowlogs free
@@ -359,11 +367,11 @@
 <span class="text-xs text-brand-muted">· Built with Atlassian Forge</span>
 </div>
 <!-- Links -->
-<div class="flex items-center space-x-6 text-xs text-brand-secondary font-medium">
-<a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html">Privacy Policy</a>
-<a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/terms.html">Terms of Service</a>
-<a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/support.html">Support</a>
-<a class="hover:text-brand-blue transition-colors" href="ar.html" hreflang="ar" lang="ar">العربية</a>
+<div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-brand-secondary font-medium">
+<a class="hover:text-brand-blue transition-colors" href="privacy.html">Privacy Policy</a>
+<a class="hover:text-brand-blue transition-colors" href="terms.html">Terms of Service</a>
+<a class="hover:text-brand-blue transition-colors" href="support.html">Support</a>
+<span class="fl-lang-footer"><a href="privacy.html" hreflang="en" lang="en" aria-current="page">English</a><a href="privacy-ar.html" hreflang="ar" lang="ar">العربية</a><a href="privacy-es.html" hreflang="es" lang="es">Español</a><a href="privacy-fr.html" hreflang="fr" lang="fr">Français</a><a href="privacy-de.html" hreflang="de" lang="de">Deutsch</a></span>
 <span>Built by Omar El-Mougy</span>
 </div>
 </div>

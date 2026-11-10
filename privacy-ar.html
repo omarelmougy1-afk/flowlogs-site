@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سياسة الخصوصية في Flowlogs</title>
+<meta content="ما بيانات Jira التي يستخدمها Flowlogs، وأين تُحفظ، وإلى متى. يعمل Flowlogs بالكامل على Atlassian Forge وليست له خوادم خاصة." name="description"/>
+<meta content="سياسة الخصوصية في Flowlogs" property="og:title"/>
+<meta content="ما بيانات Jira التي يستخدمها Flowlogs، وأين تُحفظ، وإلى متى. يعمل Flowlogs بالكامل على Atlassian Forge وليست له خوادم خاصة." property="og:description"/>
+<meta content="https://omarelmougy1-afk.github.io/flowlogs-site/privacy-ar.html" property="og:url"/>
+<meta content="ar_AR" property="og:locale"/>
+<meta content="https://omarelmougy1-afk.github.io/flowlogs-site/img/og.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="privacy-ar.html" hreflang="en" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy-ar.html" hreflang="ar" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy-es.html" hreflang="es" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy-fr.html" hreflang="fr" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy-de.html" hreflang="de" rel="alternate"/>
+<link href="privacy-ar.html" hreflang="x-default" rel="alternate"/>
+<link href="img/logo-144.png" rel="icon"/>
+
+  <!-- Google Fonts: Inter 400 to 900 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="fonts.css" rel="stylesheet"/>
+<link href="privacy.css" rel="stylesheet"/>
+<link href="site.css" rel="stylesheet"/>
+  <style>
+    /* 28px square grid matching the landing page */
+    .grid-bg {
+      background-color: #F4F6FA;
+      background-image: 
+        linear-gradient(to right, rgba(220, 223, 228, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(220, 223, 228, 0.45) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+  </style>
+<link href="motion.css" rel="stylesheet"/>
+</head>
+<body class="bg-white text-brand-secondary font-sans antialiased selection:bg-brand-lightBlue selection:text-brand-blue">
+<div aria-hidden="true" class="fl-progress"></div>
+
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-brand-border">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<!-- Brand & Badge -->
+<a class="flex items-center space-x-3 group" href="ar.html">
+<img alt="شعار Flowlogs" class="w-8 h-8 rounded-lg shadow-sm" src="img/logo-144.png"/>
+<div class="flex items-center space-x-2">
+<span class="text-xl font-bold tracking-tight text-brand-ink">Flowlogs</span>
+<span class="hidden sm:inline-block text-[11px] font-semibold text-brand-secondary bg-brand-bg px-2 py-0.5 rounded border border-brand-border">
+            JIRA CLOUD
+          </span>
+</div>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-secondary">
+<a class="hover:text-brand-blue transition-colors" href="ar.html#flow">المسار</a>
+<a class="hover:text-brand-blue transition-colors" href="ar.html#features">المزايا</a>
+<a class="hover:text-brand-blue transition-colors" href="ar.html#how-it-works">طريقة العمل</a>
+<a class="hover:text-brand-blue transition-colors" href="ar.html#security">الأمان</a>
+<a class="hover:text-brand-blue transition-colors" href="ar.html#comparison">المقارنة</a>
+<a class="hover:text-brand-blue transition-colors" href="ar.html#faq">الأسئلة الشائعة</a>
+</nav>
+<!-- CTA -->
+<div class="flex items-center gap-4 sm:gap-5">
+<details class="fl-lang text-sm font-medium text-brand-secondary">
+<summary class="hover:text-brand-blue transition-colors" title="اللغة"><span class="hidden sm:inline">العربية</span><span class="sm:hidden">ع</span><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M6 9l6 6 6-6"/></svg></summary>
+<div class="fl-lang-menu"><a href="privacy-ar.html" hreflang="en" lang="en">English</a><a href="privacy-ar.html" hreflang="ar" lang="ar" aria-current="page">العربية</a><a href="privacy-es.html" hreflang="es" lang="es">Español</a><a href="privacy-fr.html" hreflang="fr" lang="fr">Français</a><a href="privacy-de.html" hreflang="de" lang="de">Deutsch</a></div>
+</details>
+<a class="inline-flex items-center justify-center bg-brand-blue hover:bg-brand-blueHover text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors shadow-sm whitespace-nowrap" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noreferrer" target="_blank">
+          ثبّته مجانًا
+        </a>
+</div>
+</div>
+<nav aria-label="أقسام الصفحة" class="lg:hidden border-t border-brand-border"><div class="flex gap-5 overflow-x-auto whitespace-nowrap px-4 py-2.5 text-sm font-medium text-brand-secondary"><a class="hover:text-brand-blue transition-colors" href="ar.html#flow">المسار</a><a class="hover:text-brand-blue transition-colors" href="ar.html#features">المزايا</a><a class="hover:text-brand-blue transition-colors" href="ar.html#how-it-works">طريقة العمل</a><a class="hover:text-brand-blue transition-colors" href="ar.html#security">الأمان</a><a class="hover:text-brand-blue transition-colors" href="ar.html#comparison">المقارنة</a><a class="hover:text-brand-blue transition-colors" href="ar.html#faq">الأسئلة الشائعة</a></div></nav>
+</header>
+
+  <!-- Page Title Band (Hero Background with 28px Grid & Bottom Border) -->
+  <section class="grid-bg border-b border-brand-border py-14 lg:py-20">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+      <div class="max-w-3xl">
+        <div class="text-[14px] font-semibold text-brand-muted mb-3">
+          تاريخ السريان: 4 نوفمبر 2026
+        </div>
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight mb-6">
+          سياسة الخصوصية
+        </h1>
+        <p class="text-lg lg:text-xl text-brand-secondary leading-relaxed font-normal">
+          Flowlogs تطبيق لمنصة Atlassian Jira Cloud، طوّره ويقدّمه عمر الموجي، وهو مطوّر مستقل مقيم في مصر (ويُشار إليه في هذه السياسة بضمير المتكلم أو بعبارة «المطوّر»). وتوضح هذه السياسة بيانات Jira التي يستخدمها Flowlogs، وأين تُحفظ، وإلى متى.
+        </p><p class="fl-translation-note">هذه الترجمة مقدَّمة للتيسير، وإذا اختلفت عن النسخة الإنجليزية فالنسخة الإنجليزية هي المعتمدة.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Layout (Sticky Sidebar + Policy Column) -->
+  <main class="max-w-[1440px] mx-auto px-6 lg:px-12 py-12 lg:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      
+      <!-- Left Column: Sticky "On this page" Index -->
+      <aside class="hidden lg:block lg:col-span-4 sticky top-24 pr-4">
+        <div data-reveal class="p-6 rounded-xl border border-brand-border bg-white shadow-xs">
+          <h2 data-reveal class="text-xs font-bold text-brand-ink mb-4">
+            في هذه الصفحة
+          </h2>
+          <nav class="flex flex-col space-y-2.5 text-[14px]">
+            <a href="#in-short" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">باختصار</a>
+            <a href="#data-processed" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">البيانات التي يعالجها Flowlogs</a>
+            <a href="#why-processed" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">سبب المعالجة</a>
+            <a href="#retention-storage" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">أين تُحفظ، وإلى متى</a>
+            <a href="#sharing-sale" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">المشاركة والبيع</a>
+            <a href="#security" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">الأمان</a>
+            <a href="#data-location" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">موقع البيانات</a>
+            <a href="#choices-rights" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">خياراتك وحقوقك</a>
+            <a href="#children" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">الأطفال</a>
+            <a href="#changes" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">التغييرات</a>
+            <a href="#contact" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">التواصل</a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Right Column: Readable Policy Column (~720px wide) -->
+      <div class="lg:col-span-8 max-w-[720px] space-y-12">
+        
+        <!-- "In short" Card -->
+        <section id="in-short" class="scroll-mt-24">
+          <div data-reveal class="p-6 lg:p-7 rounded-xl border border-brand-border bg-white shadow-xs">
+            <h2 data-reveal class="text-xs font-bold text-brand-muted mb-4">
+              باختصار
+            </h2>
+            <div class="space-y-3.5 text-[15px] lg:text-[16px] text-brand-ink font-medium leading-relaxed">
+              <p>يعمل Flowlogs بالكامل على Atlassian Forge، وليست له خوادم أو قاعدة بيانات أو أدوات تحليل خاصة به.</p>
+              <div class="h-px bg-brand-border"></div>
+              <p>تُنشأ ملفات التصدير (CSV وExcel وPDF) داخل متصفح المستخدم وتُحفظ على جهازه، ولا تُرفع إلى أي مكان.</p>
+              <div class="h-px bg-brand-border"></div>
+              <p>لا أبيع البيانات الشخصية.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 1: Data Flowlogs processes -->
+        <section id="data-processed" class="scroll-mt-24 space-y-4">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            البيانات التي يعالجها Flowlogs
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            لا يرى Flowlogs من بيانات Jira إلا ما يُسمح للشخص الذي يعرض التقرير برؤيته في Jira أصلًا:
+          </p>
+          <ul class="space-y-2.5 pl-5 list-disc text-[15px] text-brand-secondary leading-relaxed marker:text-brand-muted">
+            <li>معرّفات حسابات Jira وأسماء العرض؛</li>
+            <li>معرّفات المشاريع ومفاتيحها وأسماؤها؛</li>
+            <li>مفاتيح المهام وملخصاتها وحالاتها وتقديراتها الأصلية؛</li>
+            <li>كاتبو سجلات العمل وتواريخها وأوصافها والوقت المستغرق؛</li>
+            <li>إعدادات التقارير الخاصة بالمستخدم وعروضه المحفوظة.</li>
+          </ul>
+        </section>
+
+        <!-- Section 2: Why it is processed -->
+        <section id="why-processed" class="scroll-mt-24 space-y-4">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            سبب المعالجة
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            تُعالَج البيانات فقط من أجل: إعداد تقارير سجلات العمل والطاقة الاستيعابية والتقديرات والنشاط اليومي؛ وتطبيق عوامل التصفية التي يختارها المستخدم؛ ورسم المخططات وجدول دوام الفريق؛ وتصدير التقرير إلى CSV أو Excel أو PDF؛ وتذكّر الإعدادات؛ وإعادة فتح العروض المحفوظة.
+          </p>
+        </section>
+
+        <!-- Section 3: Where it is kept, and for how long -->
+        <section id="retention-storage" class="scroll-mt-24 space-y-6">
+          <div class="space-y-4">
+            <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
+              أين تُحفظ، وإلى متى
+            </h2>
+            <p class="text-[16px] text-brand-secondary leading-relaxed">
+              يعمل Flowlogs بالكامل على Atlassian Forge، وليست له خوادم أو قاعدة بيانات أو أدوات تحليل خاصة به.
+            </p>
+          </div>
+
+          <!-- Two-column retention table -->
+          <div data-reveal class="border border-brand-border rounded-xl overflow-hidden shadow-xs bg-white">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-brand-bg border-b border-brand-border">
+                  <th scope="col" class="py-3.5 px-5 text-xs font-bold text-brand-ink w-2/5">
+                    البيان
+                  </th>
+                  <th scope="col" class="py-3.5 px-5 text-xs font-bold text-brand-ink w-3/5">
+                    مدة الحفظ
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-brand-border text-[14px] leading-relaxed">
+                <tr class="hover:bg-brand-bg/50 transition-colors">
+                  <td class="py-4 px-5 font-semibold text-brand-ink align-top">
+                    إعدادات التقارير
+                  </td>
+                  <td class="py-4 px-5 text-brand-secondary align-top">
+                    تُحفظ في تخزين Atlassian Forge لكل حساب Jira، حتى تُغيَّر أو تُحذف بيانات التطبيق.
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-bg/50 transition-colors">
+                  <td class="py-4 px-5 font-semibold text-brand-ink align-top">
+                    العروض المحفوظة
+                  </td>
+                  <td class="py-4 px-5 text-brand-secondary align-top">
+                    تُحفظ في تخزين Atlassian Forge لكل حساب Jira، حتى يحذفها المستخدم أو تُحذف بيانات التطبيق.
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-bg/50 transition-colors">
+                  <td class="py-4 px-5 font-semibold text-brand-ink align-top">
+                    الذاكرة المؤقتة للتقارير
+                  </td>
+                  <td class="py-4 px-5 text-brand-secondary align-top">
+                    حتى 10 دقائق للفترات التي تشمل اليوم الحالي، وحتى 60 دقيقة للفترات السابقة.
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-bg/50 transition-colors">
+                  <td class="py-4 px-5 font-semibold text-brand-ink align-top">
+                    الذاكرة المؤقتة لدليل المستخدمين
+                  </td>
+                  <td class="py-4 px-5 text-brand-secondary align-top">
+                    حتى 6 ساعات.
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-bg/50 transition-colors">
+                  <td class="py-4 px-5 font-semibold text-brand-ink align-top">
+                    مهمة مجدولة كل ساعة
+                  </td>
+                  <td class="py-4 px-5 text-brand-secondary align-top">
+                    تحذف كل سجل مؤقت عند انتهاء مدته.
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-bg/50 transition-colors">
+                  <td class="py-4 px-5 font-semibold text-brand-ink align-top">
+                    في متصفح المستخدم
+                  </td>
+                  <td class="py-4 px-5 text-brand-secondary align-top">
+                    يُحفظ آخر تبويب وآخر عوامل تصفية مستخدمة في التخزين المحلي للمتصفح على ذلك الجهاز، ليُفتح التقرير من حيث توقف المستخدم. ويؤدي مسح بيانات الموقع من المتصفح إلى حذفها.
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-bg/50 transition-colors">
+                  <td class="py-4 px-5 font-semibold text-brand-ink align-top">
+                    ملفات التصدير (CSV وExcel وPDF)
+                  </td>
+                  <td class="py-4 px-5 text-brand-secondary align-top">
+                    تُنشأ داخل متصفح المستخدم وتُحفظ على جهازه، ولا تُرفع إلى أي مكان.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="space-y-4 pt-1">
+            <p class="text-[15px] text-brand-secondary leading-relaxed">
+              معرّفات حسابات Jira الوحيدة التي تُحفظ أكثر من 24 ساعة هي معرّف مالك سجل الإعدادات أو العرض المحفوظ، ومعرّف أي شخص يُختار في عامل تصفية المستخدمين ضمن عرض محفوظ. وتُبلغ مهمة مجدولة أسبوعية Atlassian بهذه المعرّفات عبر Forge Privacy API، وتحذفها عندما تُبلغ Atlassian بإغلاق الحساب.
+            </p>
+            <p class="text-[15px] font-medium text-brand-ink leading-relaxed">
+              يبقى Jira المصدر المعتمد للبيانات، ولا ينشئ Flowlogs أي مهام أو سجلات عمل ولا يعدّلها ولا يحذفها أبدًا.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 4: Sharing and sale -->
+        <section id="sharing-sale" class="scroll-mt-24 space-y-4">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            المشاركة والبيع
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            لا أبيع البيانات الشخصية، ولا يرسل Flowlogs أي بيانات من Jira إلى المعلنين أو خدمات الذكاء الاصطناعي أو مزوّدي التحليلات أو أي جهة أخرى خارج Atlassian. ولا يصرّح ملف البيان (manifest) الخاص به بأي اتصال بشبكة خارجية. وتعالج Atlassian البيانات بصفتها مزوّد استضافة Forge وفق شروطها الخاصة.
+          </p>
+        </section>
+
+        <!-- Section 5: Security -->
+        <section id="security" class="scroll-mt-24 space-y-4">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            الأمان
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            يستخدم Flowlogs نظام المصادقة في Atlassian. وتُطلب بيانات Jira بصلاحيات المستخدم الحالي، فتحدد صلاحيات Jira نفسها ما يراه كل مستخدم. وتُخزَّن الإعدادات والعروض المحفوظة والبيانات المؤقتة بمفاتيح مرتبطة بحساب Jira الذي تخصه، فلا تُعاد البيانات المخزنة لمستخدم إلى مستخدم آخر أبدًا.
+          </p>
+        </section>
+
+        <!-- Section 6: Data location -->
+        <section id="data-location" class="scroll-mt-24 space-y-4">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            موقع البيانات
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            تتحكم Atlassian في مكان تخزين Forge لبيانات التطبيقات. راجع وثائق Atlassian الخاصة بموطن البيانات والمعالجين الفرعيين لمعرفة الاستضافة التي تنطبق على موقع Jira الخاص بك.
+          </p>
+        </section>
+
+        <!-- Section 7: Your choices and rights -->
+        <section id="choices-rights" class="scroll-mt-24 space-y-4">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            خياراتك وحقوقك
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            يمكن للمستخدمين حذف عروضهم المحفوظة في Flowlogs في أي وقت. ويمكن لمسؤولي موقع Jira إلغاء تثبيت التطبيق، فتحذف Atlassian بعدها بياناته المخزنة وفق قواعد الاحتفاظ بالبيانات في Forge. ولطلبات الاطلاع أو التصحيح أو الحذف أو أي طلب آخر يتعلق بخصوصية بيانات Flowlogs، راسل <a href="mailto:omarelmougy1@gmail.com" class="text-brand-blue hover:underline font-medium">omarelmougy1@gmail.com</a>. أما الطلبات المتعلقة بسجلات Jira الأصلية فتُوجَّه إلى مسؤول موقع Jira لديك.
+          </p>
+        </section>
+
+        <!-- Section 8: Children -->
+        <section id="children" class="scroll-mt-24 space-y-4">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            الأطفال
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            Flowlogs أداة للأعمال وليست موجّهة إلى الأطفال.
+          </p>
+        </section>
+
+        <!-- Section 9: Changes -->
+        <section id="changes" class="scroll-mt-24 space-y-4">
+          <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            التغييرات
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            قد تُحدَّث هذه السياسة عند تغيّر التطبيق أو القانون، ويبيّن تاريخ السريان في أعلى الصفحة النسخة الحالية.
+          </p>
+        </section>
+
+        <!-- Section 10: Contact (White Card) -->
+        <section id="contact" class="scroll-mt-24">
+          <div data-reveal class="p-6 lg:p-8 rounded-xl border border-brand-border bg-white shadow-xs space-y-4">
+            <h2 data-reveal class="text-2xl font-extrabold text-brand-ink tracking-tight">
+              التواصل
+            </h2>
+            <div class="space-y-1 text-[15px] leading-relaxed text-brand-secondary">
+              <p class="font-semibold text-brand-ink">عمر الموجي، مصر</p>
+              <p>
+                <a href="mailto:omarelmougy1@gmail.com" class="text-brand-blue hover:underline font-medium">
+                  omarelmougy1@gmail.com
+                </a>
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Light Blue Band (Used once as permitted) -->
+  <section class="bg-brand-lightBlue border-t border-brand-border py-12 lg:py-16">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-12 text-center">
+      <h2 data-reveal class="text-2xl lg:text-3xl font-extrabold text-brand-ink tracking-tight mb-4">
+        اعرف أين ذهب وقت فريقك، في صفحة واحدة داخل Jira.
+      </h2>
+      <p class="text-[16px] text-brand-secondary max-w-xl mx-auto mb-8 font-normal">
+        لا شيء جديد يتعلّمه فريقك، إذ يقرأ Flowlogs سجلات العمل التي يدوّنونها في Jira أصلًا.
+      </p>
+      <a href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noopener" target="_blank" target="_blank" rel="noopener noreferrer" class="inline-block bg-brand-blue hover:bg-brand-blueHover text-white text-[15px] font-semibold px-6 py-3 rounded-md transition-colors shadow-xs">
+        احصل على Flowlogs مجانًا
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer (Exact match to landing page) -->
+  <footer class="bg-white py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-brand-border pb-8">
+<!-- Logo and Details -->
+<div class="flex items-center space-x-3">
+<img alt="أيقونة Flowlogs" class="w-7 h-7 rounded-md" src="img/logo-144.png"/>
+<span class="font-bold text-brand-ink text-base">Flowlogs</span>
+<span class="text-xs text-brand-muted">· مبني على Atlassian Forge</span>
+</div>
+<!-- Links -->
+<div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-brand-secondary font-medium">
+<a class="hover:text-brand-blue transition-colors" href="privacy-ar.html">سياسة الخصوصية</a>
+<a class="hover:text-brand-blue transition-colors" href="terms-ar.html">شروط الخدمة</a>
+<a class="hover:text-brand-blue transition-colors" href="support-ar.html">الدعم</a>
+<span class="fl-lang-footer"><a href="privacy-ar.html" hreflang="en" lang="en">English</a><a href="privacy-ar.html" hreflang="ar" lang="ar" aria-current="page">العربية</a><a href="privacy-es.html" hreflang="es" lang="es">Español</a><a href="privacy-fr.html" hreflang="fr" lang="fr">Français</a><a href="privacy-de.html" hreflang="de" lang="de">Deutsch</a></span>
+<span>من تطوير عمر الموجي</span>
+</div>
+</div>
+<!-- Legal Disclaimer -->
+<div class="mt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-brand-muted">
+<p>© 2026 Flowlogs. جميع الحقوق محفوظة.</p>
+<p class="mt-2 sm:mt-0">Jira علامة تجارية مسجلة لشركة Atlassian Pty Ltd.</p>
+</div>
+</div>
+</footer>
+
+  <!-- Active Scrollspy Navigation Script for Sidebar -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('main section[id]');
+      const navLinks = document.querySelectorAll('aside nav a');
+
+      function onScroll() {
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY + 140;
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            currentSectionId = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href').replace('#', '');
+          if (href === currentSectionId) {
+            link.classList.remove('text-brand-muted');
+            link.classList.add('text-brand-blue', 'font-semibold');
+          } else {
+            link.classList.remove('text-brand-blue', 'font-semibold');
+            link.classList.add('text-brand-muted');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    });
+  </script>
+<script defer src="motion.js"></script>
+</body>
+</html>

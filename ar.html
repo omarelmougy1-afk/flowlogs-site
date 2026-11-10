@@ -1,202 +1,219 @@
 <!DOCTYPE html>
 
-<html class="scroll-smooth scroll-pt-28 md:scroll-pt-20" dir="rtl" lang="ar"><head>
+<html class="scroll-smooth scroll-pt-28 md:scroll-pt-20" lang="ar" dir="rtl"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Flowlogs لجيرا: اعرف مين سجّل ساعاته ومين لأ</title>
-<meta content="Flowlogs بيحوّل الـ worklogs اللي فريقك بيسجّلها في جيرا لتايم شيت للفريق وتقرير capacity وPDF جاهز يتبعت. مجاني على Atlassian Marketplace." name="description"/>
-<meta content="Flowlogs لجيرا: اعرف مين سجّل ساعاته ومين لأ" property="og:title"/>
-<meta content="Flowlogs بيحوّل الـ worklogs اللي فريقك بيسجّلها في جيرا لتايم شيت للفريق وتقرير capacity وPDF جاهز يتبعت. مجاني على Atlassian Marketplace." property="og:description"/>
+<title>Flowlogs لمنصة Jira: اعرف من سجّل ساعات عمله ومن لم يسجّل</title>
+<meta content="يحوّل Flowlogs سجلات العمل التي يدوّنها فريقك في Jira إلى جدول دوام للفريق وتقرير للطاقة الاستيعابية وملف PDF جاهز للإرسال. مجاني على Atlassian Marketplace." name="description"/>
+<meta content="Flowlogs لمنصة Jira: اعرف من سجّل ساعات عمله ومن لم يسجّل" property="og:title"/>
+<meta content="يحوّل Flowlogs سجلات العمل التي يدوّنها فريقك في Jira إلى جدول دوام للفريق وتقرير للطاقة الاستيعابية وملف PDF جاهز للإرسال. مجاني على Atlassian Marketplace." property="og:description"/>
 <meta content="https://omarelmougy1-afk.github.io/flowlogs-site/ar.html" property="og:url"/>
-<meta content="ar_EG" property="og:locale"/>
+<meta content="ar_AR" property="og:locale"/>
 <meta content="https://omarelmougy1-afk.github.io/flowlogs-site/img/og.png" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <link href="https://omarelmougy1-afk.github.io/flowlogs-site/" hreflang="en" rel="alternate"/>
 <link href="https://omarelmougy1-afk.github.io/flowlogs-site/ar.html" hreflang="ar" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/es.html" hreflang="es" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/fr.html" hreflang="fr" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/de.html" hreflang="de" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/" hreflang="x-default" rel="alternate"/>
 <link href="img/logo-144.png" rel="icon"/>
 
-<!-- Google Fonts: IBM Plex Sans Arabic -->
+<!-- Inter Font Family -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="fonts.css" rel="stylesheet"/>
-<link href="ar.css" rel="stylesheet"/>
-<!-- Styling: Global Typography & Custom Grid Backgrounds -->
-<style data-purpose="typography">
-    body {
-      font-family: 'GhroobBB', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: #172B4D;
-      background-color: #FFFFFF;
-      overflow-x: hidden;
-    }
-  </style>
-<style data-purpose="background-patterns">
-    /* Subtle 28px SaaS square grid matching the original design */
+<link href="styles.css" rel="stylesheet"/>
+<link href="site.css" rel="stylesheet"/>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="background-grid">
+    /* Subtle 28px square timesheet-like grid */
     .bg-grid-pattern {
-      background-size: 28px 28px;
+      background-color: #F4F6FA;
       background-image: 
-        linear-gradient(to right, rgba(9, 30, 66, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(9, 30, 66, 0.04) 1px, transparent 1px);
+        linear-gradient(to right, rgba(220, 223, 228, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(220, 223, 228, 0.45) 1px, transparent 1px);
+      background-size: 28px 28px;
     }
   </style>
+<style data-purpose="details-summary">
+    /* Remove native arrow and style accordion details */
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    details summary {
+      list-style: none;
+    }
+    details[open] .faq-icon {
+      transform: rotate(180deg);
+    }
+  </style>
+<!-- END: Custom Styles -->
 <link href="motion.css" rel="stylesheet"/>
 </head>
-<body class="antialiased selection:bg-blue-100 selection:text-jira-blue">
+<body class="bg-brand-bg font-sans text-brand-ink antialiased selection:bg-brand-lightBlue selection:text-brand-blue">
 <div aria-hidden="true" class="fl-progress"></div>
-<!-- BEGIN: TopNavigation -->
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-jira-border/70" data-purpose="site-header">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between py-3.5">
-<!-- Right: Brand Logo & Title -->
-<div class="flex items-center gap-3">
-<img alt="شعار Flowlogs" class="w-9 h-9 rounded-xl shadow-sm object-contain" src="img/logo-144.png"/>
-<div class="flex items-center gap-2">
-<span class="text-xl font-bold tracking-tight text-jira-dark">Flowlogs</span>
-<span class="hidden sm:inline-block text-[11px] font-semibold text-jira-subtle bg-slate-100 px-2 py-0.5 rounded-md border border-jira-border/60">تطبيق جيرا كلاود</span>
+<!-- BEGIN: Sticky Navigation -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-brand-border">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<!-- Brand & Badge -->
+<a class="flex items-center space-x-3 group" href="ar.html">
+<img alt="شعار Flowlogs" class="w-8 h-8 rounded-lg shadow-sm" src="img/logo-144.png"/>
+<div class="flex items-center space-x-2">
+<span class="text-xl font-bold tracking-tight text-brand-ink">Flowlogs</span>
+<span class="hidden sm:inline-block text-[11px] font-semibold tracking-wider text-brand-secondary bg-brand-bg px-2 py-0.5 rounded border border-brand-border">
+            JIRA CLOUD
+          </span>
 </div>
-</div>
-<!-- Center: Navigation Links -->
-<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-jira-dark/80">
-<a class="hover:text-jira-blue transition-colors" href="#features">المميزات</a>
-<a class="hover:text-jira-blue transition-colors" href="#how-it-works">طريقة العمل</a>
-<a class="hover:text-jira-blue transition-colors" href="#security">الأمان والخصوصية</a>
-<a class="hover:text-jira-blue transition-colors" href="#comparison">مقارنة الأدوات</a>
-<a class="hover:text-jira-blue transition-colors" href="#faq">الأسئلة الشائعة</a>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-secondary">
+<a class="hover:text-brand-blue transition-colors" href="#flow">المسار</a>
+<a class="hover:text-brand-blue transition-colors" href="#features">المزايا</a>
+<a class="hover:text-brand-blue transition-colors" href="#how-it-works">طريقة العمل</a>
+<a class="hover:text-brand-blue transition-colors" href="#security">الأمان</a>
+<a class="hover:text-brand-blue transition-colors" href="#comparison">المقارنة</a>
+<a class="hover:text-brand-blue transition-colors" href="#faq">الأسئلة الشائعة</a>
 </nav>
-<!-- Left: CTA Button -->
-<div class="flex items-center gap-5">
-<a class="text-sm font-medium text-jira-dark/80 hover:text-jira-blue transition-colors" href="./" hreflang="en" lang="en">English</a>
-<a class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-jira-blue hover:bg-jira-hover rounded-lg transition-all shadow-sm active:scale-[0.98] whitespace-nowrap" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noopener" target="_blank">
-          نزّله مجاناً
+<!-- CTA -->
+<div class="flex items-center gap-4 sm:gap-5">
+<details class="fl-lang text-sm font-medium text-brand-secondary">
+<summary class="hover:text-brand-blue transition-colors" title="اللغة"><span class="hidden sm:inline">العربية</span><span class="sm:hidden">ع</span><svg aria-hidden="true" fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M6 9l6 6 6-6"/></svg></summary>
+<div class="fl-lang-menu"><a href="index.html" hreflang="en" lang="en">English</a><a href="ar.html" hreflang="ar" lang="ar" aria-current="page">العربية</a><a href="es.html" hreflang="es" lang="es">Español</a><a href="fr.html" hreflang="fr" lang="fr">Français</a><a href="de.html" hreflang="de" lang="de">Deutsch</a></div>
+</details>
+<a class="inline-flex items-center justify-center bg-brand-blue hover:bg-brand-blueHover text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors shadow-sm whitespace-nowrap" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noreferrer" target="_blank">
+          ثبّته مجانًا
         </a>
 </div>
 </div>
-<nav aria-label="Sections" class="md:hidden border-t border-jira-border"><div class="flex gap-5 overflow-x-auto whitespace-nowrap px-4 py-2.5 text-sm font-medium text-jira-dark/80"><a class="hover:text-jira-blue transition-colors" href="#features">المميزات</a><a class="hover:text-jira-blue transition-colors" href="#how-it-works">طريقة العمل</a><a class="hover:text-jira-blue transition-colors" href="#security">الأمان والخصوصية</a><a class="hover:text-jira-blue transition-colors" href="#comparison">مقارنة الأدوات</a><a class="hover:text-jira-blue transition-colors" href="#faq">الأسئلة الشائعة</a></div></nav>
+<nav aria-label="أقسام الصفحة" class="lg:hidden border-t border-brand-border"><div class="flex gap-5 overflow-x-auto whitespace-nowrap px-4 py-2.5 text-sm font-medium text-brand-secondary"><a class="hover:text-brand-blue transition-colors" href="#flow">المسار</a><a class="hover:text-brand-blue transition-colors" href="#features">المزايا</a><a class="hover:text-brand-blue transition-colors" href="#how-it-works">طريقة العمل</a><a class="hover:text-brand-blue transition-colors" href="#security">الأمان</a><a class="hover:text-brand-blue transition-colors" href="#comparison">المقارنة</a><a class="hover:text-brand-blue transition-colors" href="#faq">الأسئلة الشائعة</a></div></nav>
 </header>
-<!-- END: TopNavigation -->
-<!-- BEGIN: HeroSection -->
-<section class="relative bg-jira-bg bg-grid-pattern pt-14 pb-20 border-b border-jira-border" data-purpose="hero-section">
+<!-- END: Sticky Navigation -->
+<!-- BEGIN: Hero Section -->
+<section class="bg-grid-pattern pt-16 pb-28 border-b border-brand-border overflow-hidden">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-<!-- Right Column: Pitch & Value Prop -->
-<div class="lg:col-span-5 flex flex-col items-start text-right" data-hero-copy>
-<!-- Eyebrow Badge -->
-<p class="text-sm font-semibold text-jira-blue mb-4">لجيرا كلاود · مجاني</p>
-<!-- Main Headline -->
-<h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-jira-dark leading-[1.25] mb-5">
-            اعرف مين سجّل ساعاته… <br class="hidden sm:inline"/>
-<span class="text-jira-blue">ومين لأ.</span>
-</h1>
-<!-- Subhead -->
-<p class="text-base sm:text-lg text-jira-subtle leading-relaxed mb-8">
-            الـ worklogs اللي فريقك بيسجّلها في جيرا، بقت timesheet للفريق وتقرير capacity وPDF جاهز يتبعت، من غير أي setup.
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+<!-- Left Hero Column -->
+<div class="lg:col-span-5 space-y-6" data-hero-copy>
+<p class="text-sm font-semibold text-brand-blue">لمنصة Jira Cloud · مجاني</p>
+<h1 class="text-4xl sm:text-5xl lg:text-[50px] font-black text-brand-ink tracking-tight leading-[1.08]">
+            اعرف من سجّل ساعات عمله، ومن لم يسجّل.
+          </h1>
+<p class="text-lg text-brand-secondary max-w-xl leading-relaxed">
+            سجلات العمل التي يدوّنها فريقك في Jira تتحول إلى جدول دوام للفريق، وتقرير للطاقة الاستيعابية، وملف PDF جاهز للإرسال، دون أي إعداد.
           </p>
-<!-- Numbered Steps -->
-<div class="space-y-4 mb-8 w-full">
-<div class="flex items-start gap-3">
-<p class="text-sm text-jira-dark leading-snug">
-<strong class="font-bold text-jira-dark">اكتشف:</strong> يوم شغل من غير تسجيل بيظهر بإطار أحمر في تايم شيت الفريق.
+<!-- Numbered Steps Guide -->
+<div class="space-y-4 pt-2">
+<div class="flex items-start space-x-3.5 p-2 rounded-lg hover:bg-white/60 transition-colors">
+<p class="text-sm text-brand-secondary leading-snug">
+<strong class="text-brand-ink font-semibold">اكتشف.</strong> يظهر يوم العمل الذي لم يُسجَّل فيه شيء محاطًا بإطار أحمر في جدول دوام الفريق.
               </p>
 </div>
-<div class="flex items-start gap-3">
-<p class="text-sm text-jira-dark leading-snug">
-<strong class="font-bold text-jira-dark">اتصرّف:</strong> Needs attention بتقولك مين وناقصه قد إيه بالنسبة لطاقته.
+<div class="flex items-start space-x-3.5 p-2 rounded-lg hover:bg-white/60 transition-colors">
+<p class="text-sm text-brand-secondary leading-snug">
+<strong class="text-brand-ink font-semibold">تصرّف.</strong> تذكر قائمة Needs attention اسم الشخص ومقدار نقصه عن طاقته.
               </p>
 </div>
-<div class="flex items-start gap-3">
-<p class="text-sm text-jira-dark leading-snug">
-<strong class="font-bold text-jira-dark">ابعت:</strong> دوسة واحدة وتقرير PDF نظيف بمقاس A4 جاهز للإدارة.
+<div class="flex items-start space-x-3.5 p-2 rounded-lg hover:bg-white/60 transition-colors">
+<p class="text-sm text-brand-secondary leading-snug">
+<strong class="text-brand-ink font-semibold">أرسل التقرير.</strong> بنقرة واحدة تصل الصورة نفسها إلى الإدارة في ملف PDF أنيق بمقاس A4.
               </p>
 </div>
 </div>
-<!-- CTA Buttons -->
-<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full">
-<a class="inline-flex items-center justify-center px-6 py-3.5 bg-jira-blue hover:bg-jira-hover text-white text-base font-semibold rounded-lg shadow-sm transition-all text-center" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noopener" target="_blank">
-              احصل عليه مجاناً من Atlassian Marketplace
+<!-- Hero Actions -->
+<div class="pt-2 space-y-3">
+<a class="inline-flex items-center justify-center bg-brand-blue hover:bg-brand-blueHover text-white font-semibold text-base px-6 py-3.5 rounded-lg shadow-sm transition-all" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noreferrer" target="_blank">
+              احصل عليه مجانًا من Atlassian Marketplace
             </a>
+<p class="text-xs text-brand-muted font-medium">
+              يعمل على Atlassian Forge · بياناتك لا تغادر Jira · الأسماء العربية سليمة في كل تصدير
+            </p>
 </div>
-<!-- Trust Microcopy -->
-<p class="mt-4 text-xs text-jira-subtle flex items-center gap-2">
-<span>يعمل بتقنية Atlassian Forge</span>
-<span>·</span>
-<span>بياناتك لا تغادر جيرا</span>
-<span>·</span>
-<span>الأسماء العربي سليمة في كل تصدير</span>
-</p>
 </div>
-<!-- Left Column: Visual Showcase -->
-<div class="lg:col-span-7 relative" data-hero-visual>
-<div class="bg-white p-2 sm:p-3 rounded-2xl shadow-xl border border-jira-border/80">
-<img alt="تايم شيت الفريق ويوم مريم نبيل الفاضي عليه إطار أحمر، وقائمة Needs attention اللي بتقول إنها عند ٦٣٪ من طاقتها، وتقرير الـ PDF" class="w-full h-auto rounded-xl object-contain shadow-sm" src="img/flowlogs-flow.png"/>
+<!-- Right Hero Column (Visual Flow Composition) -->
+<div class="lg:col-span-7" data-hero-visual>
+<div class="bg-white p-2 sm:p-3 rounded-2xl border border-brand-border shadow-xl hover:shadow-2xl transition-shadow">
+<img alt="جدول دوام الفريق في Flowlogs، ويوم عمل مريم نبيل الفارغ محاط بإطار أحمر، وقائمة Needs attention تُظهرها عند 63% من طاقتها، وتقرير PDF" class="w-full h-auto rounded-xl object-contain block" src="img/flowlogs-flow.png"/>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- END: HeroSection -->
-<!-- BEGIN: ProofStrip -->
-<section class="bg-white border-b border-jira-border py-8" data-purpose="proof-strip">
+<!-- END: Hero Section -->
+<!-- BEGIN: Proof Strip -->
+<section class="bg-white border-b border-brand-border py-8">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x md:divide-x-reverse divide-jira-border">
-<div class="pt-4 md:pt-0">
-<p class="font-bold text-base text-jira-dark">مجاني بالكامل</p>
-<p class="text-xs text-jira-subtle mt-1">على Atlassian Marketplace</p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-brand-border">
+<div class="pt-2 md:pt-0">
+<p class="text-sm font-semibold text-brand-ink">مجاني على Marketplace</p>
+<p class="text-xs text-brand-muted mt-0.5">بلا رسوم ترخيص ولا حدّ لعدد المستخدمين</p>
 </div>
-<div class="pt-4 md:pt-0">
-<p class="font-bold text-base text-jira-dark">يقرأ سجلات جيرا القائمة</p>
-<p class="text-xs text-jira-subtle mt-1">صفر مجهود إدخال مضاعف</p>
+<div class="pt-2 md:pt-0">
+<p class="text-sm font-semibold text-brand-ink">يقرأ سجلات Jira الموجودة</p>
+<p class="text-xs text-brand-muted mt-0.5">بلا إدخال مزدوج</p>
 </div>
-<div class="pt-4 md:pt-0">
-<p class="font-bold text-base text-jira-dark">تخزين أطلسيان السحابي</p>
-<p class="text-xs text-jira-subtle mt-1">بياناتك بالكامل داخل جيرا</p>
+<div class="pt-2 md:pt-0">
+<p class="text-sm font-semibold text-brand-ink">البيانات تبقى لدى Atlassian</p>
+<p class="text-xs text-brand-muted mt-0.5">يعمل على Atlassian Forge</p>
 </div>
-<div class="pt-4 md:pt-0">
-<p class="font-bold text-base text-jira-dark">تصدير جاهز للعربي</p>
-<p class="text-xs text-jira-subtle mt-1">الأسماء العربي سليمة في PDF وExcel وCSV</p>
+<div class="pt-2 md:pt-0">
+<p class="text-sm font-semibold text-brand-ink">تصدير يدعم العربية</p>
+<p class="text-xs text-brand-muted mt-0.5">تظهر الأسماء صحيحة في PDF وExcel وCSV</p>
 </div>
 </div>
 </div>
 </section>
-<!-- END: ProofStrip -->
-<!-- BEGIN: ClickFlowSection -->
-<section class="bg-jira-bg bg-grid-pattern py-20 border-b border-jira-border" data-purpose="click-flow">
-<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-<!-- Section Headers -->
-<span class="text-sm font-semibold text-jira-blue block mb-2">من يوم ناقص لتقرير جاهز</span>
-<h2 data-reveal class="text-3xl sm:text-4xl font-bold text-jira-dark mb-12">من يوم فاضي لتقرير تنفيذي في ٣ خطوات</h2>
+<!-- END: Proof Strip -->
+<!-- BEGIN: Dedicated Flow Section (Prompt 3) -->
+<section class="py-28 bg-white border-b border-brand-border" id="flow">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-14">
+<p class="text-sm font-semibold text-brand-blue mb-2">سجل دوام مفقود، من البداية إلى النهاية</p>
+<h2 data-reveal class="text-3xl sm:text-4xl font-extrabold text-brand-ink tracking-tight">
+          من يوم فارغ إلى تقرير في ثلاث نقرات
+        </h2>
+</div>
 <div class="fl-story">
-<div class="fl-story-static"><!-- Large Flow Diagram -->
-<div data-reveal class="bg-white p-3 sm:p-5 rounded-2xl shadow-lg border border-jira-border mb-12">
-<img alt="يوم مريم الفاضي في تايم شيت الفريق، وFlowlogs بيطلّعها في Needs attention، ونفس اليوم الناقص في تقرير الـ PDF" class="w-full h-auto rounded-xl" src="img/flowlogs-flow.png"/>
+<div class="fl-story-static"><!-- Centered Wide Flow Diagram -->
+<div data-reveal class="bg-brand-bg/70 rounded-2xl border border-brand-border p-3 sm:p-6 shadow-sm mb-12">
+<img alt="يوم عمل مريم نبيل الفارغ محاط بإطار في جدول دوام الفريق، وFlowlogs يُبرزها في قائمة Needs attention، والفجوة نفسها في تقرير PDF" class="w-full h-auto rounded-xl object-contain block mx-auto bg-white border border-brand-border shadow-sm" src="img/flowlogs-flow.png"/>
 </div>
-<!-- 3 Captions Underneath -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-right">
-<div data-reveal class="bg-white p-6 rounded-xl border border-jira-border shadow-sm">
-<div class="flex items-center gap-3 mb-2">
-<h3 class="font-bold text-base text-jira-dark">اكتشف</h3>
+<!-- Three Columns / Captions (1, 2, 3) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="space-y-2">
+<div class="flex items-center space-x-2.5">
+<h3 class="text-base font-bold text-brand-ink">اكتشف</h3>
 </div>
-<p class="text-sm text-jira-subtle leading-relaxed">اليوم اللي متسجلش فيه حاجة بيتحاوط بإطار أحمر يلفت انتباهك فوراً.</p>
+<p class="text-sm text-brand-secondary leading-relaxed">
+            يظهر يوم العمل الذي لم يُسجَّل فيه شيء محاطًا بإطار أحمر في جدول دوام الفريق.
+          </p>
 </div>
-<div data-reveal class="bg-white p-6 rounded-xl border border-jira-border shadow-sm">
-<div class="flex items-center gap-3 mb-2">
-<h3 class="font-bold text-base text-jira-dark">اتصرّف</h3>
+<div class="space-y-2">
+<div class="flex items-center space-x-2.5">
+<h3 class="text-base font-bold text-brand-ink">تصرّف</h3>
 </div>
-<p class="text-sm text-jira-subtle leading-relaxed">قائمة واضحة بالزملاء اللي عندهم ساعات ناقصة بالمقارنة بطاقتهم الاستيعابية.</p>
+<p class="text-sm text-brand-secondary leading-relaxed">
+            تذكر قائمة Needs attention اسم الشخص ومقدار نقصه عن طاقته.
+          </p>
 </div>
-<div data-reveal class="bg-white p-6 rounded-xl border border-jira-border shadow-sm">
-<div class="flex items-center gap-3 mb-2">
-<h3 class="font-bold text-base text-jira-dark">ابعت</h3>
+<div class="space-y-2">
+<div class="flex items-center space-x-2.5">
+<h3 class="text-base font-bold text-brand-ink">أرسل التقرير</h3>
 </div>
-<p class="text-sm text-jira-subtle leading-relaxed">تقرير A4 متكامل أو شيت إكسل بضغطة زر للإدارة أو الكلاينت.</p>
+<p class="text-sm text-brand-secondary leading-relaxed">
+            بنقرة واحدة تصل الصورة نفسها إلى الإدارة في ملف PDF أنيق بمقاس A4.
+          </p>
 </div>
 </div>
 </div>
 <div class="fl-story-live">
 <div class="fl-story-steps">
-<div class="fl-story-step is-active" data-step="1"><h3>اكتشف</h3><p>اليوم اللي متسجلش فيه حاجة بيتحاوط بإطار أحمر يلفت انتباهك فوراً.</p></div>
-<div class="fl-story-step" data-step="2"><h3>اتصرّف</h3><p>قائمة واضحة بالزملاء اللي عندهم ساعات ناقصة بالمقارنة بطاقتهم الاستيعابية.</p></div>
-<div class="fl-story-step" data-step="3"><h3>ابعت</h3><p>تقرير A4 متكامل أو شيت إكسل بضغطة زر للإدارة أو الكلاينت.</p></div>
+<div class="fl-story-step is-active" data-step="1"><h3>اكتشف</h3><p>يظهر يوم العمل الذي لم يُسجَّل فيه شيء محاطًا بإطار أحمر في جدول دوام الفريق.</p></div>
+<div class="fl-story-step" data-step="2"><h3>تصرّف</h3><p>تذكر قائمة Needs attention اسم الشخص ومقدار نقصه عن طاقته.</p></div>
+<div class="fl-story-step" data-step="3"><h3>أرسل التقرير</h3><p>بنقرة واحدة تصل الصورة نفسها إلى الإدارة في ملف PDF أنيق بمقاس A4.</p></div>
 </div>
 <div class="fl-story-pin">
-<figure aria-label="تايم شيت الفريق ويوم مريم نبيل الفاضي عليه إطار أحمر، وقائمة Needs attention اللي بتسميها، وتقرير الـ PDF" class="fl-stage" data-active="1" role="img">
+<figure aria-label="جدول دوام الفريق في Flowlogs، ويوم عمل مريم نبيل الفارغ محاط بإطار أحمر، وقائمة Needs attention تذكر اسمها، وتقرير PDF" class="fl-stage" data-active="1" role="img">
 <div class="fl-layer fl-ts" style="top:25.92cqw;transform-origin:44.74% 77.35%"><img alt="" width="2720" height="596" src="img/story/timesheet.png"/><img alt="" class="fl-ts-focus" src="img/story/timesheet-focus.png"/><span class="fl-ring" style="left:42.60%;top:71.81%;width:4.29%;height:11.07%"></span></div>
 <div class="fl-layer fl-at"><img alt="" width="1568" height="424" src="img/story/attention.png"/><span class="fl-row" style="top:19.34%;height:18.87%"></span></div>
 <div class="fl-layer fl-pdf"><img alt="" width="952" height="1347" src="img/story/pdf-page.png"/></div>
@@ -207,383 +224,416 @@
 </div>
 </div>
 </section>
-<!-- END: ClickFlowSection -->
-<!-- BEGIN: ProblemSection -->
-<section class="bg-white py-20 border-b border-jira-border" data-purpose="problem-section">
-<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center max-w-3xl mx-auto mb-16">
-<span class="text-sm font-semibold text-jira-blue block mb-2">مألوف بالنسبة لك؟</span>
-<h2 data-reveal class="text-3xl sm:text-4xl font-bold text-jira-dark leading-snug">
-          يوم مراجعة الساعات مش لازم يكون عبارة عن تابات مفتوحة وتخمين
+<!-- END: Dedicated Flow Section -->
+<!-- BEGIN: Problem Section -->
+<section class="py-28 bg-grid-pattern border-b border-brand-border">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-14">
+<p class="text-sm font-semibold text-brand-blue mb-2">هل يبدو هذا مألوفًا؟</p>
+<h2 data-reveal class="text-3xl font-extrabold text-brand-ink tracking-tight">
+          يوم مراجعة الساعات لا ينبغي أن يعني نوافذ مفتوحة وتخمينًا
         </h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<!-- Card 1 -->
-<div data-reveal class="p-6 rounded-xl bg-jira-bg border border-jira-border relative">
-<h3 class="font-bold text-jira-dark text-base mb-2">مطاردة الفريق كل يوم خميس</h3>
-<p class="text-sm text-jira-subtle leading-relaxed">
-            تفتح بروفايل كل واحد يدوياً عشان تعرف مين نسي يسجل ساعاته قبل الـ standup أو مراجعة نهاية الأسبوع.
-          </p>
+<!-- Problem Card 1 -->
+<div data-reveal class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
+<div class="space-y-3">
+<h3 class="text-base font-bold text-brand-ink">ملاحقة الزملاء لتسجيل ساعاتهم كل خميس.</h3>
+<p class="text-sm text-brand-secondary leading-relaxed">
+              فتح ملف شخصي تلو الآخر لمعرفة من نسي تسجيل عمل الأمس.
+            </p>
 </div>
-<!-- Card 2 -->
-<div data-reveal class="p-6 rounded-xl bg-jira-bg border border-jira-border relative">
-<h3 class="font-bold text-jira-dark text-base mb-2">تصدير إكسل عشان سؤال واحد</h3>
-<p class="text-sm text-jira-subtle leading-relaxed">
-            تنزيل شيتات CSV وكتابة معادلات إكسل معقدة بس عشان تجاوب الإدارة عن نسبة استهلاك السبرنت.
-          </p>
 </div>
-<!-- Card 3 -->
-<div data-reveal class="p-6 rounded-xl bg-jira-bg border border-jira-border relative">
-<h3 class="font-bold text-jira-dark text-base mb-2">التخمين في التخطيط للسبرنت الجاي</h3>
-<p class="text-sm text-jira-subtle leading-relaxed">
-            التخطيط بدون معرفة من لديه طاقة إضافية، وما هي التاسكات التي تحرق الساعات بصمت وتتجاوز التقدير.
-          </p>
+<!-- Problem Card 2 -->
+<div data-reveal class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
+<div class="space-y-3">
+<h3 class="text-base font-bold text-brand-ink">تصدير سجلات العمل إلى جدول بيانات للإجابة عن سؤال واحد.</h3>
+<p class="text-sm text-brand-secondary leading-relaxed">
+              تنزيل ملفات CSV وكتابة المعادلات لمجرد مقارنة الساعات المسجلة بطاقة دورة العمل.
+            </p>
+</div>
+</div>
+<!-- Problem Card 3 -->
+<div data-reveal class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
+<div class="space-y-3">
+<h3 class="text-base font-bold text-brand-ink">التخمين في قدرة الفريق على استيعاب دورة العمل القادمة.</h3>
+<p class="text-sm text-brand-secondary leading-relaxed">
+              الالتزام بالمهام دون معرفة من يعمل فوق طاقته، وأي المهام تتجاوز تقديراتها.
+            </p>
+</div>
 </div>
 </div>
 </div>
 </section>
-<!-- END: ProblemSection -->
-<!-- BEGIN: FeatureTimesheet -->
-<section class="bg-jira-bg bg-grid-pattern py-20 border-b border-jira-border" data-purpose="feature-timesheet" id="features">
+<!-- END: Problem Section -->
+<!-- BEGIN: Feature 1 (Team Timesheet) -->
+<section class="py-28 bg-white border-b border-brand-border" id="features">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-<!-- Text Column -->
-<div class="lg:col-span-5 text-right">
-<span class="text-sm font-semibold text-jira-blue block mb-2">تايم شيت الفريق</span>
-<h2 data-reveal class="text-3xl sm:text-4xl font-bold text-jira-dark mb-4 leading-tight">
-            الأيام الناقصة بتبان في ثانية
+<!-- Feature Copy -->
+<div class="lg:col-span-5 space-y-4">
+<p class="text-sm font-semibold text-brand-blue">جدول دوام الفريق</p>
+<h2 data-reveal class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
+            الأيام الناقصة تظهر فورًا
           </h2>
-<p class="text-jira-subtle text-base leading-relaxed mb-6">
-            كل شخص وكل يوم متلونين حسب ساعات العمل. أي يوم عمل متسجلش فيه حاجة بيتحاوط بإطار أحمر واضح عشان تنبه الزملاء قبل الـ sprint review. اضغط على أي يوم فيه ساعات تنزل على تفاصيله.
+<p class="text-brand-secondary leading-relaxed text-base">
+            كل شخص وكل يوم ملوَّن مقارنةً بيوم العمل. ويُحاط اليوم الذي لم يُسجَّل فيه شيء بإطار أحمر، فتعرف من تذكّره قبل مراجعة دورة العمل. انقر يومًا لترى سجلات العمل التي وراءه.
           </p>
-<ul class="space-y-3 text-sm text-jira-dark list-disc pr-5">
+<ul class="pt-2 space-y-2 text-sm text-brand-secondary list-disc pl-5">
 <li>
-<span>ألوان لأقل من نص يوم، جزء من يوم، يوم كامل، وساعات زيادة</span>
+<span>ألوان لأقل من نصف يوم، ولجزء من يوم، وليوم كامل، ولما يزيد على يوم كامل</span>
 </li>
 <li>
-<span>ضغطة على اليوم توديك على الـ worklogs بتاعته</span>
+<span>انقر يومًا للانتقال مباشرة إلى سجلات عمله</span>
 </li>
 </ul>
 </div>
-<!-- Screenshot Column -->
+<!-- UI Screenshot -->
 <div class="lg:col-span-7">
-<div data-reveal class="bg-white p-2 rounded-2xl shadow-xl border border-jira-border">
-<img alt="جدول تايم شيت الفريق في Flowlogs" class="w-full h-auto rounded-xl object-contain" src="img/team-timesheet.png"/>
+<div data-reveal class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-white">
+<img alt="جدول دوام الفريق في Flowlogs: أربعة أشخاص على مدى أسبوعين، وأيام العمل الفارغة محاطة بإطار أحمر" class="w-full h-auto object-cover block" src="img/team-timesheet.png"/>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- END: FeatureTimesheet -->
-<!-- BEGIN: FeatureFlowReport -->
-<section class="bg-white py-20 border-b border-jira-border" data-purpose="feature-flow-report">
+<!-- END: Feature 1 -->
+<!-- BEGIN: Feature 2 (Flow Report) -->
+<section class="py-28 bg-grid-pattern border-b border-brand-border">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-<!-- Screenshot Column -->
+<!-- UI Screenshot (Left) -->
 <div class="lg:col-span-7 order-2 lg:order-1">
-<div data-reveal class="bg-white p-2 rounded-2xl shadow-xl border border-jira-border">
-<img alt="لوحة تقرير التدفق في Flowlogs" class="w-full h-auto rounded-xl object-contain" src="img/flow-report.png"/>
+<div data-reveal class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-white">
+<img alt="تقرير التدفق في Flowlogs: إجمالي الوقت، وطاقة الفريق، وكفاءة التدفق، والتقديرات الناقصة، وقائمة Needs attention" class="w-full h-auto object-cover block" src="img/flow-report.png"/>
 </div>
 </div>
-<!-- Text Column -->
-<div class="lg:col-span-5 text-right order-1 lg:order-2">
-<span class="text-sm font-semibold text-jira-blue block mb-2">تقرير التدفق والإنجاز</span>
-<h2 data-reveal class="text-3xl sm:text-4xl font-bold text-jira-dark mb-4 leading-tight">
-            الطاقة والتقديرات في لوحة واحدة
+<!-- Feature Copy (Right) -->
+<div class="lg:col-span-5 space-y-4 order-1 lg:order-2">
+<p class="text-sm font-semibold text-brand-blue">تقرير التدفق</p>
+<h2 data-reveal class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
+            الطاقة والتقديرات في عرض واحد
           </h2>
-<p class="text-jira-subtle text-base leading-relaxed mb-6">
-            إجمالي الساعات، الطاقة الاستيعابية، ونسبة كفاءة التدفق في الأعلى. مع قائمة Needs attention وتتبع تفصيلي لكل رقم من الشخص إلى المشروع إلى المهمة.
+<p class="text-brand-secondary leading-relaxed text-base">
+            إجمالي الوقت والطاقة الاستيعابية وكفاءة التدفق في الأعلى، وتحتها قائمة Needs attention موجزة، وكل رقم يمكن تتبّعه من الشخص إلى المشروع إلى المهمة.
           </p>
-<ul class="space-y-3 text-sm text-jira-dark list-disc pr-5">
+<ul class="pt-2 space-y-2 text-sm text-brand-secondary list-disc pl-5">
 <li>
-<span>المهام اللي عدّت تقديرها بتظهر في Needs attention</span>
+<span>المهام التي تجاوزت تقديرها الأصلي تظهر في قائمة Needs attention</span>
 </li>
 <li>
-<span>مقياس دقيق لكفاءة التدفق مقابل الطاقة الفعلية</span>
+<span>كفاءة التدفق تقارن الوقت المستغرق بالطاقة الاستيعابية</span>
 </li>
 </ul>
 </div>
 </div>
 </div>
 </section>
-<!-- END: FeatureFlowReport -->
-<!-- BEGIN: FeaturePDFExport -->
-<section class="bg-jira-bg bg-grid-pattern py-20 border-b border-jira-border" data-purpose="feature-pdf-export">
+<!-- END: Feature 2 -->
+<!-- BEGIN: Feature 3 (Share It) -->
+<section class="py-28 bg-white border-b border-brand-border">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-<!-- Text Column -->
-<div class="lg:col-span-5 text-right">
-<span class="text-sm font-semibold text-jira-blue block mb-2">شارك النتائج</span>
-<h2 data-reveal class="text-3xl sm:text-4xl font-bold text-jira-dark mb-4 leading-tight">
-            تقرير تنفيذي يشرح نفسه
+<!-- Feature Copy -->
+<div class="lg:col-span-5 space-y-4">
+<p class="text-sm font-semibold text-brand-blue">شارك النتائج</p>
+<h2 data-reveal class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
+            تقرير يشرح نفسه
           </h2>
-<p class="text-jira-subtle text-base leading-relaxed mb-6">
-            ملف PDF نظيف بقياس A4 يحتوي على الرسومات البيانية والتايم شيت، أو ملفات Excel وCSV تطابق ما تراه على الشاشة بالضبط بدون مجهود يدوي.
+<p class="text-brand-secondary leading-relaxed text-base">
+            ملف PDF أنيق بمقاس A4 يضم الرسوم البيانية وجدول الدوام، أو ملفات Excel وCSV تطابق ما على الشاشة تمامًا. لا شيء يحتاج إلى إعادة تنسيق قبل وصوله إلى الإدارة.
           </p>
-<div class="flex flex-wrap gap-2 text-xs font-semibold text-jira-dark">
-<span class="px-3 py-1.5 bg-white rounded-md border border-jira-border shadow-xs">PDF جاهز للطباعة A4</span>
-<span class="px-3 py-1.5 bg-white rounded-md border border-jira-border shadow-xs">بيانات CSV خام</span>
-<span class="px-3 py-1.5 bg-white rounded-md border border-jira-border shadow-xs">ملف Excel منسق تلقائياً</span>
+<div class="pt-2 flex flex-wrap gap-2 text-xs font-semibold text-brand-muted">
+<span class="px-2.5 py-1 bg-brand-bg rounded border border-brand-border">ملف PDF بمقاس A4 جاهز للطباعة</span>
+<span class="px-2.5 py-1 bg-brand-bg rounded border border-brand-border">CSV</span>
+<span class="px-2.5 py-1 bg-brand-bg rounded border border-brand-border">ملف Excel منسّق</span>
 </div>
 </div>
-<!-- Screenshot Column -->
+<!-- PDF UI Image -->
 <div class="lg:col-span-7">
-<div data-reveal class="bg-white p-2 rounded-2xl shadow-xl border border-jira-border">
-<img alt="تصدير تقرير تنفيذي بصيغة PDF في Flowlogs" class="w-full h-auto rounded-xl object-contain" src="img/pdf-report.png"/>
+<div data-reveal class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-brand-bg p-3 sm:p-6 flex items-center justify-center">
+<img alt="صفحتان من تقرير PDF في Flowlogs: النشاط اليومي مع الرسوم البيانية وجدول دوام الفريق، وجدول تقرير التدفق" class="w-full h-auto object-contain rounded-lg shadow-sm block" src="img/pdf-report.png"/>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- END: FeaturePDFExport -->
-<!-- BEGIN: HowItWorks -->
-<section class="bg-white py-20 border-b border-jira-border" data-purpose="how-it-works-section" id="how-it-works">
-<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-<span class="text-sm font-semibold text-jira-blue block mb-2">البدء والاستخدام</span>
-<h2 data-reveal class="text-3xl sm:text-4xl font-bold text-jira-dark mb-16">جاهز للعمل في دقيقتين فقط</h2>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-right">
+<!-- END: Feature 3 -->
+<!-- BEGIN: How It Works -->
+<section class="py-28 bg-grid-pattern border-b border-brand-border" id="how-it-works">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-xl mx-auto mb-16">
+<p class="text-sm font-semibold text-brand-blue mb-2">البدء</p>
+<h2 data-reveal class="text-3xl font-extrabold text-brand-ink tracking-tight">
+          جاهز للعمل في دقائق
+        </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
 <!-- Step 1 -->
-<div data-reveal class="bg-jira-bg p-8 rounded-2xl border border-jira-border">
-<p class="text-sm font-semibold text-jira-blue mb-3">الخطوة ١</p>
-<h3 class="font-bold text-lg text-jira-dark mb-3">ثبّت التطبيق من Marketplace</h3>
-<p class="text-sm text-jira-subtle leading-relaxed">
-            تثبيت مباشر في مساحة عمل Jira Cloud الخاصة بفريقك بصلاحيات الأدمن العادية دون أي تعقيد.
+<div data-reveal class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
+<p class="text-sm font-semibold text-brand-blue mb-2">الخطوة 1</p>
+<h3 class="text-base font-bold text-brand-ink mb-2">ثبّته من Marketplace</h3>
+<p class="text-sm text-brand-secondary leading-relaxed">
+            يثبّت مسؤول موقع Jira تطبيق Flowlogs من Atlassian Marketplace ببضع نقرات.
           </p>
 </div>
 <!-- Step 2 -->
-<div data-reveal class="bg-jira-bg p-8 rounded-2xl border border-jira-border">
-<p class="text-sm font-semibold text-jira-blue mb-3">الخطوة ٢</p>
-<h3 class="font-bold text-lg text-jira-dark mb-3">افتح Apps وبعدين Flowlogs</h3>
-<p class="text-sm text-jira-subtle leading-relaxed">
-            متواجد مباشرة داخل القائمة العلوية في جيرا بدون الحاجة لتسجيل حسابات خارجية أو كلمات سر جديدة.
+<div data-reveal class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
+<p class="text-sm font-semibold text-brand-blue mb-2">الخطوة 2</p>
+<h3 class="text-base font-bold text-brand-ink mb-2">افتح Apps ثم Flowlogs</h3>
+<p class="text-sm text-brand-secondary leading-relaxed">
+            يُفتح Flowlogs من قائمة Apps في Jira، دون حسابات جديدة أو كلمات مرور.
           </p>
 </div>
 <!-- Step 3 -->
-<div data-reveal class="bg-jira-bg p-8 rounded-2xl border border-jira-border">
-<p class="text-sm font-semibold text-jira-blue mb-3">الخطوة ٣</p>
-<h3 class="font-bold text-lg text-jira-dark mb-3">حدد نطاق التاريخ</h3>
-<p class="text-sm text-jira-subtle leading-relaxed">
-            الساعات المسجلة في جيرا بتظهر على طول في الجداول والرسوم البيانية.
+<div data-reveal class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
+<p class="text-sm font-semibold text-brand-blue mb-2">الخطوة 3</p>
+<h3 class="text-base font-bold text-brand-ink mb-2">اختر الفترة الزمنية</h3>
+<p class="text-sm text-brand-secondary leading-relaxed">
+            سجلات العمل التي يدوّنها فريقك في Jira تملأ التقارير وجدول دوام الفريق والرسوم البيانية.
           </p>
 </div>
 </div>
 </div>
 </section>
-<!-- END: HowItWorks -->
-<!-- BEGIN: TrustBand -->
-<section class="bg-jira-dark text-white py-20 border-b border-jira-border" data-purpose="security-band" id="security">
-<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-<span class="text-sm font-semibold text-blue-400 block mb-2">الخصوصية والبنية الهندسية</span>
-<h2 data-reveal class="text-3xl sm:text-4xl font-bold mb-4">بيانات جيرا تفضل داخل جيرا</h2>
-<p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mb-16 leading-relaxed">
-        تم بناء Flowlogs بالكامل على منصة Atlassian Forge السحابية والآمنة بدون أي خوادم خارجية أو وسيطة.
-      </p>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-right">
-<!-- Pillar 1 -->
-<div data-reveal class="p-6 rounded-xl bg-white/5 border border-white/10">
-<h3 class="font-bold text-base mb-2">يقرأ جيرا بصلاحياتك أنت</h3>
-<p class="text-xs text-gray-300 leading-relaxed">
-            لا يمكن لأي مستخدم رؤية أكثر مما تتيحه له صلاحيات جيرا الأصلية والمجموعات المحددة له.
+<!-- END: How It Works -->
+<!-- BEGIN: Trust Band (Dark Atlassian Navy - Only dark section) -->
+<section class="py-28 bg-brand-darkNavy text-white" id="security">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-14">
+<p class="text-sm font-semibold text-blue-300 mb-2">الخصوصية والبنية</p>
+<h2 data-reveal class="text-3xl font-extrabold text-white tracking-tight">
+          بيانات Jira تبقى في Jira
+        </h2>
+<p class="text-sm text-slate-300 mt-2">
+          يعمل Flowlogs على Atlassian Forge ولا يرسل شيئًا إلى خوادم خارج Atlassian.
+        </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div data-reveal class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
+<h4 class="text-sm font-semibold text-white">يقرأ Jira بصلاحياتك</h4>
+<p class="text-xs text-slate-300 leading-relaxed">
+            لا يرى كل شخص إلا المشاريع والمهام وسجلات العمل التي تسمح بها صلاحياته في Jira.
           </p>
 </div>
-<!-- Pillar 2 -->
-<div data-reveal class="p-6 rounded-xl bg-white/5 border border-white/10">
-<h3 class="font-bold text-base mb-2">تخزين Atlassian Forge</h3>
-<p class="text-xs text-gray-300 leading-relaxed">
-            الإعدادات والعروض المحفوظة مخزنة حصرياً داخل بيئة أطلسيان السحابية المعتمدة.
+<div data-reveal class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
+<h4 class="text-sm font-semibold text-white">تخزين Atlassian Forge</h4>
+<p class="text-xs text-slate-300 leading-relaxed">
+            تُحفظ الإعدادات والعروض المحفوظة في تخزين Atlassian Forge، ولا مكان غيره.
           </p>
 </div>
-<!-- Pillar 3 -->
-<div data-reveal class="p-6 rounded-xl bg-white/5 border border-white/10">
-<h3 class="font-bold text-base mb-2">بدون خوادم وسيطة</h3>
-<p class="text-xs text-gray-300 leading-relaxed">
-            صفر تحليلات خارجية، لا توجد خوادم طرف ثالث، أو قواعد بيانات تتبع وأكواد تجسس.
+<div data-reveal class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
+<h4 class="text-sm font-semibold text-white">لا خوادم خارجية</h4>
+<p class="text-xs text-slate-300 leading-relaxed">
+            لا خوادم خاصة بنا، ولا أدوات تحليل، ولا نصوص تتبّع.
           </p>
 </div>
-<!-- Pillar 4 -->
-<div data-reveal class="p-6 rounded-xl bg-white/5 border border-white/10">
-<h3 class="font-bold text-base mb-2">تصدير محلي في المتصفح</h3>
-<p class="text-xs text-gray-300 leading-relaxed">
-            ملفات الـ PDF والإكسل يتم بناؤها وتوليدها داخل متصفحك مباشرة قبل التنزيل في جهازك.
+<div data-reveal class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
+<h4 class="text-sm font-semibold text-white">التصدير داخل المتصفح</h4>
+<p class="text-xs text-slate-300 leading-relaxed">
+            تُنشأ ملفات PDF وExcel وCSV داخل متصفحك وتُحفظ على جهازك.
           </p>
 </div>
+</div>
+<div class="mt-10 text-center">
+<a class="text-xs font-semibold text-blue-300 hover:text-white transition-colors inline-flex items-center space-x-1" href="privacy-ar.html">
+<span>اقرأ سياسة الخصوصية</span>
+</a>
 </div>
 </div>
 </section>
-<!-- END: TrustBand -->
-<!-- BEGIN: ComparisonMatrix -->
-<section class="bg-white py-20 border-b border-jira-border" data-purpose="comparison-table" id="comparison">
-<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-<span class="text-sm font-semibold text-jira-blue block mb-2">اختيار الأداة المناسبة</span>
-<h2 data-reveal class="text-3xl sm:text-4xl font-bold text-jira-dark mb-4">هل Flowlogs هو الخيار الأنسب لفريقك؟</h2>
-<p class="text-jira-subtle text-sm max-w-xl mx-auto mb-12">
-        مقارنة شفافة بين Flowlogs وتصدير شيتات الإكسل وحلول تتبع الوقت المؤسسية المعقدة.
-      </p>
-<!-- Table Wrapper -->
-<div data-reveal class="overflow-x-auto rounded-xl border border-jira-border shadow-xs text-right">
-<table class="w-full text-sm border-collapse">
+<!-- END: Trust Band -->
+<!-- BEGIN: Fit Comparison Section -->
+<section class="py-28 bg-white border-b border-brand-border" id="comparison">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-14">
+<p class="text-sm font-semibold text-brand-blue mb-2">اختيار الأداة المناسبة</p>
+<h2 data-reveal class="text-3xl font-extrabold text-brand-ink tracking-tight">
+          هل Flowlogs مناسب لفريقك؟
+        </h2>
+<p class="text-sm text-brand-secondary mt-2">
+          مقارنة Flowlogs بتصدير جداول البيانات وبأنظمة تتبّع الوقت المتكاملة.
+        </p>
+</div>
+<!-- Comparison Table -->
+<div class="overflow-x-auto">
+<table class="w-full border-collapse text-left text-sm">
 <thead>
-<tr class="bg-slate-50 border-b border-jira-border text-jira-dark font-bold">
-<th class="p-4">المعيار</th>
-<th class="p-4 bg-blue-50/60 text-jira-blue">Flowlogs</th>
-<th class="p-4">تصدير الإكسل</th>
-<th class="p-4">أنظمة تتبع الوقت المتكاملة (Paid Suites)</th>
+<tr class="border-b border-brand-border">
+<th class="p-4 font-bold text-brand-ink w-1/4">المعيار</th>
+<th class="p-4 font-bold text-brand-blue bg-brand-lightBlue/60 rounded-t-lg border-x border-t border-brand-blue/30 w-1/4">
+                Flowlogs
+              </th>
+<th class="p-4 font-bold text-brand-ink w-1/4">تصدير جداول البيانات</th>
+<th class="p-4 font-bold text-brand-ink w-1/4">أنظمة تتبّع الوقت المتكاملة</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-jira-border text-jira-dark">
+<tbody class="divide-y divide-brand-border text-brand-secondary">
 <tr>
-<td class="p-4 font-semibold">طريقة الإعداد</td>
-<td class="p-4 bg-blue-50/30 text-jira-blue font-bold">فوري (Native Forge)</td>
-<td class="p-4 text-jira-subtle">تصدير يدوي أسبوعياً</td>
-<td class="p-4 text-jira-subtle">أيام من تدريب الفريق والإعداد</td>
+<td class="p-4 font-semibold text-brand-ink">الإعداد</td>
+<td class="p-4 bg-brand-lightBlue/60 border-x border-brand-blue/30 font-semibold text-brand-ink">
+                ثبّت وافتح
+              </td>
+<td class="p-4">تصدير يدوي كل أسبوع</td>
+<td class="p-4">تدريب الفريق وعادات جديدة</td>
 </tr>
 <tr>
-<td class="p-4 font-semibold">التكلفة</td>
-<td class="p-4 bg-blue-50/30 text-emerald-600 font-bold">مجاني</td>
-<td class="p-4 text-jira-subtle">مشمول في حزمة Office</td>
-<td class="p-4 text-jira-subtle">اشتراك لكل مستخدم</td>
+<td class="p-4 font-semibold text-brand-ink">التكلفة</td>
+<td class="p-4 bg-brand-lightBlue/60 border-x border-brand-blue/30 font-semibold text-emerald-700">
+                مجاني
+              </td>
+<td class="p-4">ضمن حزمة Office</td>
+<td class="p-4">اشتراك لكل مستخدم</td>
 </tr>
 <tr>
-<td class="p-4 font-semibold">تايم شيت الفريق</td>
-<td class="p-4 bg-blue-50/30 text-jira-dark">جدول تلقائي مع تنبيه الأيام الناقصة</td>
-<td class="p-4 text-jira-subtle">جداول محورية يدوية ومعادلات</td>
-<td class="p-4 text-jira-subtle">لوحة تحكم خارجية منفصلة</td>
+<td class="p-4 font-semibold text-brand-ink">عرض جدول دوام الفريق</td>
+<td class="p-4 bg-brand-lightBlue/60 border-x border-brand-blue/30 font-medium text-brand-ink">
+                مدمج، مع إبراز الأيام الفارغة
+              </td>
+<td class="p-4">معادلات وجداول محورية</td>
+<td class="p-4">لوحة تحكم منفصلة</td>
 </tr>
 <tr>
-<td class="p-4 font-semibold">مقارنة الساعات بالتقدير</td>
-<td class="p-4 bg-blue-50/30 text-jira-dark">تجميع وتحليل فوري</td>
-<td class="p-4 text-jira-subtle">معادلات VLOOKUP يدوية</td>
-<td class="p-4 text-jira-subtle">نماذج معقدة ومخصصة</td>
+<td class="p-4 font-semibold text-brand-ink">الطاقة مقابل التقديرات</td>
+<td class="p-4 bg-brand-lightBlue/60 border-x border-brand-blue/30 font-medium text-brand-ink">
+                تُحسب تلقائيًا
+              </td>
+<td class="p-4">بحث ومعادلات يدوية</td>
+<td class="p-4">نماذج مدمجة معقدة</td>
 </tr>
 <tr>
-<td class="p-4 font-semibold">تقرير الـ PDF</td>
-<td class="p-4 bg-blue-50/30 text-jira-dark">تقرير تنفيذي A4 بضغطة واحدة</td>
-<td class="p-4 text-jira-subtle">تنسيق ومعاينة طباعة من الإكسل</td>
-<td class="p-4 text-jira-subtle">محرر تقارير مخصص</td>
+<td class="p-4 font-semibold text-brand-ink">تقرير PDF</td>
+<td class="p-4 bg-brand-lightBlue/60 border-x border-brand-blue/30 font-medium text-brand-ink">
+                ملف PDF بمقاس A4 بنقرة واحدة
+              </td>
+<td class="p-4">معاينة الطباعة من Excel</td>
+<td class="p-4">منشئ تقارير مخصّص</td>
 </tr>
 <tr>
-<td class="p-4 font-semibold">الفواتير وإدارة المدفوعات</td>
-<td class="p-4 bg-blue-50/30 text-jira-subtle">غير مشمول (تركيز على الإنتاجية)</td>
-<td class="p-4 text-jira-subtle">غير مشمول</td>
-<td class="p-4 text-emerald-600 font-bold">إدارة كاملة للفواتير والعملاء</td>
+<td class="p-4 font-semibold text-brand-ink">الموافقات والفوترة</td>
+<td class="p-4 bg-brand-lightBlue/60 border-x border-b border-brand-blue/30 text-brand-muted">
+                غير مشمول
+              </td>
+<td class="p-4 text-brand-muted">غير مشمول</td>
+<td class="p-4 font-medium text-emerald-700">الموافقات وفوترة العملاء</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p class="text-xs text-jira-subtle mt-4 text-right">
-        ملحوظة: Flowlogs مصمم خصيصاً لفرق السوفتوير وقادة الفرق الذين يحتاجون لمعرفة ساعات العمل واستيعاب الفريق بدون التعقيد وتكاليف الأنظمة المحاسبية الضخمة.
-      </p>
+<!-- Footnote -->
+<div class="mt-6 p-4 rounded-lg bg-brand-bg border border-brand-border text-xs text-brand-secondary">
+<strong class="text-brand-ink">لمن صُمّم:</strong> صُمّم Flowlogs لفرق Jira وقادتها ممن يريدون رؤية الوقت المسجّل والطاقة الاستيعابية دون تكلفة أنظمة الفوترة وتعقيد إعدادها.
+      </div>
 </div>
 </section>
-<!-- END: ComparisonMatrix -->
-<!-- BEGIN: FAQSection -->
-<section class="bg-jira-bg bg-grid-pattern py-20 border-b border-jira-border" data-purpose="faq-section" id="faq">
-<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- END: Fit Comparison Section -->
+<!-- BEGIN: FAQ Accordion Section -->
+<section class="py-28 bg-grid-pattern border-b border-brand-border" id="faq">
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-12">
-<span class="text-sm font-semibold text-jira-blue block mb-2">الأسئلة الشائعة</span>
-<h2 data-reveal class="text-3xl sm:text-4xl font-bold text-jira-dark">كل ما تحتاج معرفته</h2>
+<p class="text-sm font-semibold text-brand-blue mb-2">الأسئلة الشائعة</p>
+<h2 data-reveal class="text-3xl font-extrabold text-brand-ink tracking-tight">
+          كل ما تحتاج إلى معرفته
+        </h2>
 </div>
-<!-- FAQ Items with Native Details/Summary for Clean Accessibility -->
-<div class="space-y-4" data-purpose="faq-accordion">
-<details data-reveal class="group bg-white p-5 rounded-xl border border-jira-border shadow-xs" open="">
-<summary class="flex justify-between items-center cursor-pointer list-none font-bold text-base text-jira-dark">
-<span>هل Flowlogs مجاني فعلاً؟</span>
-<span class="text-jira-blue transition-transform group-open:rotate-180">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</span>
+<div class="space-y-3">
+<!-- FAQ 1 -->
+<details data-reveal class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group" open="">
+<summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
+<span>هل Flowlogs مجاني؟</span>
+<svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
 </summary>
-<p class="mt-4 text-sm text-jira-subtle leading-relaxed pr-2">
-            أيوه، مجاني على Atlassian Marketplace، من غير فترة تجريبية ولا حد لعدد المستخدمين.
+<p class="mt-3 text-sm text-brand-secondary leading-relaxed">
+            نعم، Flowlogs مجاني على Atlassian Marketplace دون حدّ لعدد المستخدمين.
           </p>
 </details>
-<details data-reveal class="group bg-white p-5 rounded-xl border border-jira-border shadow-xs">
-<summary class="flex justify-between items-center cursor-pointer list-none font-bold text-base text-jira-dark">
-<span>هل تخرج أي بيانات خارج جيرا؟</span>
-<span class="text-jira-blue transition-transform group-open:rotate-180">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</span>
+<!-- FAQ 2 -->
+<details data-reveal class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
+<summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
+<span>هل تغادر أي بيانات Jira؟</span>
+<svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
 </summary>
-<p class="mt-4 text-sm text-jira-subtle leading-relaxed pr-2">
-            أبداً. تم بناء التطبيق كـ Forge Native App، مما يعني أن الكود يعمل ويعالج البيانات مباشرة داخل بنية Atlassian التحتية الآمنة، بدون أي سيرفر خارجي.
+<p class="mt-3 text-sm text-brand-secondary leading-relaxed">
+            لا. يعمل Flowlogs بالكامل على Atlassian Forge: تُنفَّذ شيفرته في سحابة Atlassian، وتبقى إعداداته في تخزين Forge، وتُنشأ ملفات التصدير في متصفحك.
           </p>
 </details>
-<details data-reveal class="group bg-white p-5 rounded-xl border border-jira-border shadow-xs">
-<summary class="flex justify-between items-center cursor-pointer list-none font-bold text-base text-jira-dark">
-<span>على أي تاريخ يتم احتساب ساعات العمل؟</span>
-<span class="text-jira-blue transition-transform group-open:rotate-180">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</span>
+<!-- FAQ 3 -->
+<details data-reveal class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
+<summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
+<span>في أي تاريخ يُحتسب سجل العمل؟</span>
+<svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
 </summary>
-<p class="mt-4 text-sm text-jira-subtle leading-relaxed pr-2">
-            على اليوم اللي الساعات اتسجلت فيه في جيرا، فتقرير الأسبوع اللي فات بيوريك اللي اتسجل فعلاً الأسبوع اللي فات. والـ capacity بتتحسب من عدد ساعات اليوم وأيام الشغل في الأسبوع اللي انت بتحددها.
+<p class="mt-3 text-sm text-brand-secondary leading-relaxed">
+            في اليوم الذي سُجّل فيه في Jira، فيعرض تقرير الأسبوع الماضي ما أُدخل فعلًا في الأسبوع الماضي. وتُحسب الطاقة الاستيعابية وفق عدد ساعات اليوم وأيام العمل في الأسبوع التي تحددها.
           </p>
 </details>
-<details data-reveal class="group bg-white p-5 rounded-xl border border-jira-border shadow-xs">
-<summary class="flex justify-between items-center cursor-pointer list-none font-bold text-base text-jira-dark">
-<span>من يمكنه رؤية التقارير والساعات؟</span>
-<span class="text-jira-blue transition-transform group-open:rotate-180">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</span>
+<!-- FAQ 4 -->
+<details data-reveal class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
+<summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
+<span>من يرى ماذا؟</span>
+<svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
 </summary>
-<p class="mt-4 text-sm text-jira-subtle leading-relaxed pr-2">
-            يطبق التطبيق ذات نظام الصلاحيات المعتمد في مشروعك بجيرا؛ فلن يتمكن أي فرد من استعراض ساعات أي مشروع أو مهمة ليس مصرحاً له بمشاهدتها في جيرا.
+<p class="mt-3 text-sm text-brand-secondary leading-relaxed">
+            يقرأ Flowlogs بيانات Jira بصلاحيات من يستخدمه، فلا يرى كل شخص إلا سجلات العمل والمهام التي يعرضها له Jira أصلًا.
           </p>
 </details>
-<details data-reveal class="group bg-white p-5 rounded-xl border border-jira-border shadow-xs">
-<summary class="flex justify-between items-center cursor-pointer list-none font-bold text-base text-jira-dark">
-<span>هل يدعم التطبيق اللغة العربية؟</span>
-<span class="text-jira-blue transition-transform group-open:rotate-180">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</span>
+<!-- FAQ 5 -->
+<details data-reveal class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
+<summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
+<span>هل يدعم اللغة العربية؟</span>
+<svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
 </summary>
-<p class="mt-4 text-sm text-jira-subtle leading-relaxed pr-2">
-            الأسماء والنصوص العربي بتظهر صح على الشاشة وفي كل تصدير، بما فيهم الـ PDF. واجهة التطبيق نفسها بالإنجليزي.
+<p class="mt-3 text-sm text-brand-secondary leading-relaxed">
+            تظهر الأسماء والنصوص العربية بشكل صحيح على الشاشة وفي كل ملفات التصدير، بما فيها PDF. أما واجهة التطبيق نفسه فبالإنجليزية، وهذا الموقع متاح أيضًا بالعربية والإسبانية والفرنسية والألمانية.
           </p>
 </details>
 </div>
 </div>
 </section>
-<!-- END: FAQSection -->
-<!-- BEGIN: BottomCTA -->
-<section class="bg-jira-lightBlue py-20" data-purpose="bottom-cta-banner">
-<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-<h2 data-reveal class="text-3xl sm:text-4xl font-bold text-jira-dark mb-4 leading-tight">
-        اعرف وقت فريقك راح فين، في صفحة واحدة جوه جيرا.
+<!-- END: FAQ Accordion Section -->
+<!-- BEGIN: Call to Action Band -->
+<section class="bg-brand-lightBlue py-24 border-b border-brand-border">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+<h2 data-reveal class="text-3xl sm:text-4xl font-extrabold text-brand-ink tracking-tight">
+        اعرف أين ذهب وقت فريقك، في صفحة واحدة داخل Jira.
       </h2>
-<p class="text-jira-subtle text-base mb-8 max-w-xl mx-auto leading-relaxed">
-        لا تطبيقات جديدة لإقناع فريقك بتحميلها. فقط وضوح تام لما يتم تسجيله بالفعل في جيرا.
+<p class="text-base text-brand-secondary max-w-xl mx-auto">
+        لا شيء جديد يتعلّمه فريقك، إذ يقرأ Flowlogs سجلات العمل التي يدوّنونها في Jira أصلًا.
       </p>
-<a class="inline-flex items-center justify-center px-8 py-3.5 bg-jira-blue hover:bg-jira-hover text-white text-base font-semibold rounded-lg shadow-sm transition-all" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noopener" target="_blank">
-        نزّل Flowlogs مجاناً
-      </a>
+<div>
+<a class="inline-flex items-center justify-center bg-brand-blue hover:bg-brand-blueHover text-white px-8 py-3.5 rounded-lg font-bold shadow-sm transition-colors text-base" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noreferrer" target="_blank">
+          احصل على Flowlogs مجانًا
+        </a>
+</div>
 </div>
 </section>
-<!-- END: BottomCTA -->
-<!-- BEGIN: SiteFooter -->
-<footer class="bg-white border-t border-jira-border py-10" data-purpose="site-footer">
+<!-- END: Call to Action Band -->
+<!-- BEGIN: Footer -->
+<footer class="bg-white py-12">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<!-- Top Row -->
-<div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-jira-border/60">
-<div class="flex items-center gap-3">
-<img alt="Flowlogs" class="w-7 h-7 rounded-lg object-contain" src="img/logo-144.png"/>
-<span class="font-bold text-lg text-jira-dark">Flowlogs</span>
-<span class="text-xs text-jira-subtle mr-2">مبني بواسطة Atlassian Forge</span>
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-brand-border pb-8">
+<!-- Logo and Details -->
+<div class="flex items-center space-x-3">
+<img alt="أيقونة Flowlogs" class="w-7 h-7 rounded-md" src="img/logo-144.png"/>
+<span class="font-bold text-brand-ink text-base">Flowlogs</span>
+<span class="text-xs text-brand-muted">· مبني على Atlassian Forge</span>
 </div>
-<div class="flex items-center gap-6 text-xs text-jira-subtle">
-<a class="hover:text-jira-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html" hreflang="en">سياسة الخصوصية</a>
-<a class="hover:text-jira-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/terms.html" hreflang="en">شروط الاستخدام</a>
-<a class="hover:text-jira-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/support.html" hreflang="en">الدعم والمساعدة</a>
-<a class="hover:text-jira-blue transition-colors" href="./" hreflang="en" lang="en">English</a>
-<span class="text-jira-dark/70 font-medium">تم التطوير بواسطة عمر الموجي</span>
+<!-- Links -->
+<div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-brand-secondary font-medium">
+<a class="hover:text-brand-blue transition-colors" href="privacy-ar.html">سياسة الخصوصية</a>
+<a class="hover:text-brand-blue transition-colors" href="terms-ar.html">شروط الخدمة</a>
+<a class="hover:text-brand-blue transition-colors" href="support-ar.html">الدعم</a>
+<span class="fl-lang-footer"><a href="index.html" hreflang="en" lang="en">English</a><a href="ar.html" hreflang="ar" lang="ar" aria-current="page">العربية</a><a href="es.html" hreflang="es" lang="es">Español</a><a href="fr.html" hreflang="fr" lang="fr">Français</a><a href="de.html" hreflang="de" lang="de">Deutsch</a></span>
+<span>من تطوير عمر الموجي</span>
 </div>
 </div>
-<!-- Bottom Row -->
-<div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-jira-subtle gap-4">
+<!-- Legal Disclaimer -->
+<div class="mt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-brand-muted">
 <p>© 2026 Flowlogs. جميع الحقوق محفوظة.</p>
-<p>Jira هي علامة تجارية مسجلة لشركة Atlassian Pty Ltd.</p>
+<p class="mt-2 sm:mt-0">Jira علامة تجارية مسجلة لشركة Atlassian Pty Ltd.</p>
 </div>
 </div>
 </footer>
-<!-- END: SiteFooter -->
+<!-- END: Footer -->
 <script defer src="motion.js"></script>
 </body></html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="scroll-smooth" lang="en"><head>
+<html class="scroll-smooth scroll-pt-28 md:scroll-pt-20" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Flowlogs for Jira: see who logged what, and who didn&#39;t</title>
@@ -60,7 +60,7 @@
 </div>
 </a>
 <!-- Desktop Nav Links -->
-<nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-brand-secondary">
+<nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-secondary">
 <a class="hover:text-brand-blue transition-colors" href="#flow">Flow</a>
 <a class="hover:text-brand-blue transition-colors" href="#features">Features</a>
 <a class="hover:text-brand-blue transition-colors" href="#how-it-works">How it works</a>
@@ -76,6 +76,7 @@
         </a>
 </div>
 </div>
+<nav aria-label="Sections" class="lg:hidden border-t border-brand-border"><div class="flex gap-5 overflow-x-auto whitespace-nowrap px-4 py-2.5 text-sm font-medium text-brand-secondary"><a class="hover:text-brand-blue transition-colors" href="#flow">Flow</a><a class="hover:text-brand-blue transition-colors" href="#features">Features</a><a class="hover:text-brand-blue transition-colors" href="#how-it-works">How it works</a><a class="hover:text-brand-blue transition-colors" href="#security">Security</a><a class="hover:text-brand-blue transition-colors" href="#comparison">Comparison</a><a class="hover:text-brand-blue transition-colors" href="#faq">FAQ</a></div></nav>
 </header>
 <!-- END: Sticky Navigation -->
 <!-- BEGIN: Hero Section -->
@@ -84,11 +85,9 @@
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
 <!-- Left Hero Column -->
 <div class="lg:col-span-5 space-y-6">
-<div class="inline-flex items-center px-2.5 py-1 rounded bg-brand-lightBlue border border-blue-200">
-<span class="text-xs font-bold uppercase tracking-wider text-brand-blue">FOR JIRA CLOUD · FREE</span>
-</div>
+<p class="text-sm font-semibold text-brand-blue">For Jira Cloud · Free</p>
 <h1 class="text-4xl sm:text-5xl lg:text-[50px] font-black text-brand-ink tracking-tight leading-[1.08]">
-            See who logged what — and who didn't.
+            See who logged what, and who didn't.
           </h1>
 <p class="text-lg text-brand-secondary max-w-xl leading-relaxed">
             The worklogs your team already logs in Jira, turned into a team timesheet, a capacity report, and a PDF you can send. Nothing to set up.
@@ -96,21 +95,18 @@
 <!-- Numbered Steps Guide -->
 <div class="space-y-4 pt-2">
 <div class="flex items-start space-x-3.5 p-2 rounded-lg hover:bg-white/60 transition-colors">
-<span class="w-6 h-6 rounded-full bg-brand-blue text-white flex-shrink-0 flex items-center justify-center text-xs font-bold mt-0.5 shadow-sm">1</span>
 <p class="text-sm text-brand-secondary leading-snug">
-<strong class="text-brand-ink font-semibold">Spot it</strong> — A working day with nothing logged gets a red outline in the team timesheet.
+<strong class="text-brand-ink font-semibold">Spot it.</strong> A working day with nothing logged gets a red outline in the team timesheet.
               </p>
 </div>
 <div class="flex items-start space-x-3.5 p-2 rounded-lg hover:bg-white/60 transition-colors">
-<span class="w-6 h-6 rounded-full bg-brand-blue text-white flex-shrink-0 flex items-center justify-center text-xs font-bold mt-0.5 shadow-sm">2</span>
 <p class="text-sm text-brand-secondary leading-snug">
-<strong class="text-brand-ink font-semibold">Act on it</strong> — Needs attention names the person and how far below capacity they are.
+<strong class="text-brand-ink font-semibold">Act on it.</strong> Needs attention names the person and how far below capacity they are.
               </p>
 </div>
 <div class="flex items-start space-x-3.5 p-2 rounded-lg hover:bg-white/60 transition-colors">
-<span class="w-6 h-6 rounded-full bg-brand-blue text-white flex-shrink-0 flex items-center justify-center text-xs font-bold mt-0.5 shadow-sm">3</span>
 <p class="text-sm text-brand-secondary leading-snug">
-<strong class="text-brand-ink font-semibold">Report it</strong> — One click sends the same picture to management as a clean A4 PDF.
+<strong class="text-brand-ink font-semibold">Report it.</strong> One click sends the same picture to management as a clean A4 PDF.
               </p>
 </div>
 </div>
@@ -127,7 +123,7 @@
 <!-- Right Hero Column (Visual Flow Composition) -->
 <div class="lg:col-span-7">
 <div class="bg-white p-2 sm:p-3 rounded-2xl border border-brand-border shadow-xl hover:shadow-2xl transition-shadow">
-<img alt="Flowlogs team timesheet with Mariam Nabil's empty working day outlined in red, the Needs attention list flagging her at 63% of capacity, and the PDF report" class="w-full h-auto rounded-xl object-contain block" src="img/flowlogs-panel.png"/>
+<img alt="Flowlogs team timesheet with Mariam Nabil's empty working day outlined in red, the Needs attention list flagging her at 63% of capacity, and the PDF report" class="w-full h-auto rounded-xl object-contain block" src="img/flowlogs-flow.png"/>
 </div>
 </div>
 </div>
@@ -143,11 +139,11 @@
 <p class="text-xs text-brand-muted mt-0.5">No license fees or user limits</p>
 </div>
 <div class="pt-2 md:pt-0">
-<p class="text-sm font-semibold text-brand-ink">Reads Existing Jira Logs</p>
+<p class="text-sm font-semibold text-brand-ink">Reads existing Jira worklogs</p>
 <p class="text-xs text-brand-muted mt-0.5">Zero manual time duplication</p>
 </div>
 <div class="pt-2 md:pt-0">
-<p class="text-sm font-semibold text-brand-ink">Data Stays in Atlassian</p>
+<p class="text-sm font-semibold text-brand-ink">Data stays in Atlassian</p>
 <p class="text-xs text-brand-muted mt-0.5">Native Forge infrastructure</p>
 </div>
 <div class="pt-2 md:pt-0">
@@ -162,41 +158,38 @@
 <section class="py-28 bg-white border-b border-brand-border" id="flow">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center max-w-3xl mx-auto mb-14">
-<p class="text-xs font-semibold uppercase tracking-wider text-brand-blue mb-2">ONE MISSING TIMESHEET, START TO FINISH</p>
+<p class="text-sm font-semibold text-brand-blue mb-2">One missing timesheet, start to finish</p>
 <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-ink tracking-tight">
           From an empty day to a report in three clicks
         </h2>
 </div>
 <!-- Centered Wide Flow Diagram -->
 <div class="bg-brand-bg/70 rounded-2xl border border-brand-border p-3 sm:p-6 shadow-sm mb-12">
-<img alt="Three steps: Mariam Nabil's empty working day outlined in the team timesheet, Flowlogs flagging her in Needs attention, and the same gap in the PDF report" class="w-full h-auto rounded-xl object-contain block mx-auto bg-white border border-brand-border shadow-sm" src="img/flowlogs-flow.png"/>
+<img alt="Mariam Nabil's empty working day outlined in the team timesheet, Flowlogs flagging her in Needs attention, and the same gap in the PDF report" class="w-full h-auto rounded-xl object-contain block mx-auto bg-white border border-brand-border shadow-sm" src="img/flowlogs-flow.png"/>
 </div>
 <!-- Three Columns / Captions (1, 2, 3) -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 <div class="space-y-2">
 <div class="flex items-center space-x-2.5">
-<span class="w-7 h-7 rounded-full bg-brand-blue text-white flex-shrink-0 flex items-center justify-center text-xs font-bold shadow-sm">1</span>
 <h3 class="text-base font-bold text-brand-ink">Spot it</h3>
 </div>
-<p class="text-sm text-brand-secondary leading-relaxed pl-9">
+<p class="text-sm text-brand-secondary leading-relaxed">
             A working day with nothing logged gets a red outline in the team timesheet.
           </p>
 </div>
 <div class="space-y-2">
 <div class="flex items-center space-x-2.5">
-<span class="w-7 h-7 rounded-full bg-brand-blue text-white flex-shrink-0 flex items-center justify-center text-xs font-bold shadow-sm">2</span>
 <h3 class="text-base font-bold text-brand-ink">Act on it</h3>
 </div>
-<p class="text-sm text-brand-secondary leading-relaxed pl-9">
+<p class="text-sm text-brand-secondary leading-relaxed">
             Needs attention names the person and how far below capacity they are.
           </p>
 </div>
 <div class="space-y-2">
 <div class="flex items-center space-x-2.5">
-<span class="w-7 h-7 rounded-full bg-brand-blue text-white flex-shrink-0 flex items-center justify-center text-xs font-bold shadow-sm">3</span>
 <h3 class="text-base font-bold text-brand-ink">Report it</h3>
 </div>
-<p class="text-sm text-brand-secondary leading-relaxed pl-9">
+<p class="text-sm text-brand-secondary leading-relaxed">
             One click sends the same picture to management as a clean A4 PDF.
           </p>
 </div>
@@ -208,7 +201,7 @@
 <section class="py-28 bg-grid-pattern border-b border-brand-border">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center max-w-2xl mx-auto mb-14">
-<p class="text-xs font-bold uppercase tracking-wider text-brand-blue mb-2">SOUND FAMILIAR?</p>
+<p class="text-sm font-semibold text-brand-blue mb-2">Sound familiar?</p>
 <h2 class="text-3xl font-extrabold text-brand-ink tracking-tight">
           Timesheet day shouldn't mean open tabs and guessing games
         </h2>
@@ -217,9 +210,6 @@
 <!-- Problem Card 1 -->
 <div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
 <div class="space-y-3">
-<div class="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center font-bold text-sm">
-              !
-            </div>
 <h3 class="text-base font-bold text-brand-ink">Chasing people for timesheets every Thursday.</h3>
 <p class="text-sm text-brand-secondary leading-relaxed">
               Manually checking ten separate profiles just to figure out who forgot to log yesterday's standup or design work.
@@ -229,9 +219,6 @@
 <!-- Problem Card 2 -->
 <div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
 <div class="space-y-3">
-<div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm">
-              !
-            </div>
 <h3 class="text-base font-bold text-brand-ink">Exporting worklogs to a spreadsheet to answer one question.</h3>
 <p class="text-sm text-brand-secondary leading-relaxed">
               Downloading messy CSV dumps and writing Excel formulas just to check sprint capacity vs spent hours.
@@ -241,9 +228,6 @@
 <!-- Problem Card 3 -->
 <div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm flex flex-col justify-between">
 <div class="space-y-3">
-<div class="w-8 h-8 rounded-lg bg-blue-50 text-brand-blue flex items-center justify-center font-bold text-sm">
-              !
-            </div>
 <h3 class="text-base font-bold text-brand-ink">Guessing whether the team has capacity for the next sprint.</h3>
 <p class="text-sm text-brand-secondary leading-relaxed">
               Planning commitments without knowing who is over capacity and which issues are quietly burning extra hours.
@@ -260,20 +244,18 @@
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 <!-- Feature Copy -->
 <div class="lg:col-span-5 space-y-4">
-<p class="text-xs font-bold uppercase tracking-wider text-brand-blue">TEAM TIMESHEET</p>
+<p class="text-sm font-semibold text-brand-blue">Team timesheet</p>
 <h2 class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
             Missing timesheets stand out
           </h2>
 <p class="text-brand-secondary leading-relaxed text-base">
             Every person, every day, coloured against a working day. A day with nothing logged gets a red outline, so you know who to nudge before the sprint review. Click any day to see every worklog.
           </p>
-<ul class="pt-2 space-y-2 text-sm text-brand-secondary">
-<li class="flex items-center space-x-2">
-<span class="text-brand-blue font-bold">✓</span>
+<ul class="pt-2 space-y-2 text-sm text-brand-secondary list-disc pl-5">
+<li>
 <span>Visual color-coded thresholds for over, part, and full days</span>
 </li>
-<li class="flex items-center space-x-2">
-<span class="text-brand-blue font-bold">✓</span>
+<li>
 <span>Granular drilldown into specific issues with one click</span>
 </li>
 </ul>
@@ -300,20 +282,18 @@
 </div>
 <!-- Feature Copy (Right) -->
 <div class="lg:col-span-5 space-y-4 order-1 lg:order-2">
-<p class="text-xs font-bold uppercase tracking-wider text-brand-blue">FLOW REPORT</p>
+<p class="text-sm font-semibold text-brand-blue">Flow report</p>
 <h2 class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
             Capacity and estimates in one view
           </h2>
 <p class="text-brand-secondary leading-relaxed text-base">
             Total time, capacity and flow efficiency at the top, a short Needs attention list under it, and every number traceable from person to project to issue.
           </p>
-<ul class="pt-2 space-y-2 text-sm text-brand-secondary">
-<li class="flex items-center space-x-2">
-<span class="text-brand-blue font-bold">✓</span>
+<ul class="pt-2 space-y-2 text-sm text-brand-secondary list-disc pl-5">
+<li>
 <span>Immediate flags for issues exceeding original estimates</span>
 </li>
-<li class="flex items-center space-x-2">
-<span class="text-brand-blue font-bold">✓</span>
+<li>
 <span>Flow efficiency metric to evaluate utilization against target capacity</span>
 </li>
 </ul>
@@ -328,7 +308,7 @@
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 <!-- Feature Copy -->
 <div class="lg:col-span-5 space-y-4">
-<p class="text-xs font-bold uppercase tracking-wider text-brand-blue">SHARE IT</p>
+<p class="text-sm font-semibold text-brand-blue">Share it</p>
 <h2 class="text-3xl font-bold text-brand-ink tracking-tight leading-tight">
             A report that explains itself
           </h2>
@@ -355,7 +335,7 @@
 <section class="py-28 bg-grid-pattern border-b border-brand-border" id="how-it-works">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center max-w-xl mx-auto mb-16">
-<p class="text-xs font-bold uppercase tracking-wider text-brand-blue mb-2">GETTING STARTED</p>
+<p class="text-sm font-semibold text-brand-blue mb-2">Getting started</p>
 <h2 class="text-3xl font-extrabold text-brand-ink tracking-tight">
           Up and running in two minutes
         </h2>
@@ -363,9 +343,7 @@
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
 <!-- Step 1 -->
 <div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
-<div class="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm mx-auto mb-4">
-            1
-          </div>
+<p class="text-sm font-semibold text-brand-blue mb-2">Step 1</p>
 <h3 class="text-base font-bold text-brand-ink mb-2">Install from Marketplace</h3>
 <p class="text-sm text-brand-secondary leading-relaxed">
             Install Flowlogs directly into your Jira Cloud workspace with standard admin permissions.
@@ -373,19 +351,15 @@
 </div>
 <!-- Step 2 -->
 <div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
-<div class="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm mx-auto mb-4">
-            2
-          </div>
-<h3 class="text-base font-bold text-brand-ink mb-2">Open Apps → Flowlogs</h3>
+<p class="text-sm font-semibold text-brand-blue mb-2">Step 2</p>
+<h3 class="text-base font-bold text-brand-ink mb-2">Open Apps, then Flowlogs</h3>
 <p class="text-sm text-brand-secondary leading-relaxed">
             Navigate right to Flowlogs in your Jira top navigation. No extra passwords or third-party signups.
           </p>
 </div>
 <!-- Step 3 -->
 <div class="bg-white p-6 rounded-xl border border-brand-border shadow-sm text-center relative">
-<div class="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm mx-auto mb-4">
-            3
-          </div>
+<p class="text-sm font-semibold text-brand-blue mb-2">Step 3</p>
 <h3 class="text-base font-bold text-brand-ink mb-2">Pick your date range</h3>
 <p class="text-sm text-brand-secondary leading-relaxed">
             Your team's existing Jira worklogs populate automatically. Timesheets and charts appear instantly.
@@ -399,7 +373,7 @@
 <section class="py-28 bg-brand-darkNavy text-white" id="security">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center max-w-2xl mx-auto mb-14">
-<p class="text-xs font-bold uppercase tracking-wider text-blue-300 mb-2">PRIVACY &amp; ARCHITECTURE</p>
+<p class="text-sm font-semibold text-blue-300 mb-2">Privacy &amp; architecture</p>
 <h2 class="text-3xl font-extrabold text-white tracking-tight">
           Your Jira data stays in Jira
         </h2>
@@ -409,28 +383,24 @@
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 <div class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
-<div class="text-blue-400 font-bold text-lg">01</div>
 <h4 class="text-sm font-semibold text-white">Reads Jira as you</h4>
 <p class="text-xs text-slate-300 leading-relaxed">
             Nobody sees more than Jira already allows them to see through existing permission schemes.
           </p>
 </div>
 <div class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
-<div class="text-blue-400 font-bold text-lg">02</div>
 <h4 class="text-sm font-semibold text-white">Atlassian Forge storage</h4>
 <p class="text-xs text-slate-300 leading-relaxed">
             Configuration and saved views live strictly inside Atlassian-managed multi-tenant cloud storage.
           </p>
 </div>
 <div class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
-<div class="text-blue-400 font-bold text-lg">03</div>
 <h4 class="text-sm font-semibold text-white">No external servers</h4>
 <p class="text-xs text-slate-300 leading-relaxed">
             Zero third-party analytics, external telemetry databases, or ad tracking scripts embedded.
           </p>
 </div>
 <div class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
-<div class="text-blue-400 font-bold text-lg">04</div>
 <h4 class="text-sm font-semibold text-white">Client-side exports</h4>
 <p class="text-xs text-slate-300 leading-relaxed">
             PDFs and Excel files are rendered directly inside your browser window before downloading.
@@ -440,7 +410,6 @@
 <div class="mt-10 text-center">
 <a class="text-xs font-semibold text-blue-300 hover:text-white transition-colors inline-flex items-center space-x-1" href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html">
 <span>Read our detailed privacy &amp; security architecture</span>
-<span>→</span>
 </a>
 </div>
 </div>
@@ -450,7 +419,7 @@
 <section class="py-28 bg-white border-b border-brand-border" id="comparison">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center max-w-2xl mx-auto mb-14">
-<p class="text-xs font-bold uppercase tracking-wider text-brand-blue mb-2">CHOOSING THE RIGHT TOOL</p>
+<p class="text-sm font-semibold text-brand-blue mb-2">Choosing the right tool</p>
 <h2 class="text-3xl font-extrabold text-brand-ink tracking-tight">
           Is Flowlogs right for your team?
         </h2>
@@ -483,7 +452,7 @@
 <tr>
 <td class="p-4 font-semibold text-brand-ink">Cost</td>
 <td class="p-4 bg-brand-lightBlue/60 border-x border-brand-blue/30 font-semibold text-emerald-700">
-                100% Free
+                Free
               </td>
 <td class="p-4">Included in Office</td>
 <td class="p-4">Paid per user</td>
@@ -509,23 +478,23 @@
 <td class="p-4 bg-brand-lightBlue/60 border-x border-brand-blue/30 font-medium text-brand-ink">
                 One-click executive A4 export
               </td>
-<td class="p-4">Print print-preview from Excel</td>
+<td class="p-4">Print preview from Excel</td>
 <td class="p-4">Custom report builder</td>
 </tr>
 <tr>
 <td class="p-4 font-semibold text-brand-ink">Approvals and billing</td>
 <td class="p-4 bg-brand-lightBlue/60 border-x border-b border-brand-blue/30 text-brand-muted">
-                ✕ Not included
+                Not included
               </td>
-<td class="p-4 text-brand-muted">✕ Not included</td>
-<td class="p-4 font-medium text-emerald-700">✓ Full client invoicing &amp; approvals</td>
+<td class="p-4 text-brand-muted">Not included</td>
+<td class="p-4 font-medium text-emerald-700">Full client invoicing &amp; approvals</td>
 </tr>
 </tbody>
 </table>
 </div>
 <!-- Footnote -->
 <div class="mt-6 p-4 rounded-lg bg-brand-bg border border-brand-border text-xs text-brand-secondary">
-<strong class="text-brand-ink">Honest note:</strong> Flowlogs is built specifically for Jira sprint teams and engineering leads who want timesheet visibility and capacity tracking without the friction, cost, and overhead of heavy enterprise billing suites.
+<strong class="text-brand-ink">Who it is for:</strong> Flowlogs is built specifically for Jira sprint teams and engineering leads who want timesheet visibility and capacity tracking without the friction, cost, and overhead of heavy enterprise billing suites.
       </div>
 </div>
 </section>
@@ -534,7 +503,7 @@
 <section class="py-28 bg-grid-pattern border-b border-brand-border" id="faq">
 <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center mb-12">
-<p class="text-xs font-bold uppercase tracking-wider text-brand-blue mb-2">FREQUENTLY ASKED QUESTIONS</p>
+<p class="text-sm font-semibold text-brand-blue mb-2">Frequently asked questions</p>
 <h2 class="text-3xl font-extrabold text-brand-ink tracking-tight">
           Everything you need to know
         </h2>
@@ -544,17 +513,17 @@
 <details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group" open="">
 <summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
 <span>Is Flowlogs free?</span>
-<span class="faq-icon text-brand-muted text-xs transition-transform duration-200">▼</span>
+<svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
 </summary>
 <p class="mt-3 text-sm text-brand-secondary leading-relaxed">
-            Yes, completely free on the Atlassian Marketplace with no tiers, trial limits, or hidden fees. We built it to be a transparent, high-quality utility for the Jira community.
+            Yes. Flowlogs is free on the Atlassian Marketplace, with no user limits.
           </p>
 </details>
 <!-- FAQ 2 -->
 <details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
 <summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
 <span>Does any data leave Jira?</span>
-<span class="faq-icon text-brand-muted text-xs transition-transform duration-200">▼</span>
+<svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
 </summary>
 <p class="mt-3 text-sm text-brand-secondary leading-relaxed">
             Never. Flowlogs is built entirely on Atlassian Forge, meaning all code executes in Atlassian cloud infrastructure and stores configuration in Forge storage.
@@ -564,7 +533,7 @@
 <details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
 <summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
 <span>Which date does a worklog count on?</span>
-<span class="faq-icon text-brand-muted text-xs transition-transform duration-200">▼</span>
+<svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
 </summary>
 <p class="mt-3 text-sm text-brand-secondary leading-relaxed">
             On the day they were logged in Jira, so a report for last week shows exactly what was entered last week. Capacity follows the hours per day and days per week you set.
@@ -574,7 +543,7 @@
 <details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
 <summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
 <span>Who can see what?</span>
-<span class="faq-icon text-brand-muted text-xs transition-transform duration-200">▼</span>
+<svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
 </summary>
 <p class="mt-3 text-sm text-brand-secondary leading-relaxed">
             Flowlogs adheres strictly to Jira permission schemes. Users only see worklogs and issues they already have permission to view in Jira.
@@ -584,7 +553,7 @@
 <details class="bg-white rounded-xl border border-brand-border p-5 shadow-sm group">
 <summary class="flex justify-between items-center cursor-pointer select-none font-semibold text-brand-ink">
 <span>Does it support Arabic?</span>
-<span class="faq-icon text-brand-muted text-xs transition-transform duration-200">▼</span>
+<svg aria-hidden="true" class="faq-icon w-4 h-4 flex-none text-brand-muted transition-transform duration-200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
 </summary>
 <p class="mt-3 text-sm text-brand-secondary leading-relaxed">
             Arabic names and text display correctly on screen and in every export, including the PDF. The interface itself is in English. This page is also available <a class="text-brand-blue hover:underline" href="ar.html" hreflang="ar">in Arabic</a>.
@@ -598,7 +567,7 @@
 <section class="bg-brand-lightBlue py-24 border-b border-brand-border">
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
 <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-ink tracking-tight">
-        Know where your team's time went — in one Jira page.
+        Know where your team's time went, in one Jira page.
       </h2>
 <p class="text-base text-brand-secondary max-w-xl mx-auto">
         No new apps to convince your team to download. Just clear visibility over existing Jira worklogs.
@@ -626,6 +595,7 @@
 <a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html">Privacy Policy</a>
 <a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/terms.html">Terms of Service</a>
 <a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/support.html">Support</a>
+<a class="hover:text-brand-blue transition-colors" href="ar.html" hreflang="ar" lang="ar">العربية</a>
 <span>Built by Omar El-Mougy</span>
 </div>
 </div>

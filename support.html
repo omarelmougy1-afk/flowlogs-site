@@ -1,55 +1,242 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Flowlogs Support</title>
-<style>
-  body { margin: 0; background: #f7f8f9; color: #172b4d; font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-  header { background: #fff; border-bottom: 1px solid #dcdfe4; }
-  header div, main { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-  header div { display: flex; align-items: center; gap: 10px; height: 60px; }
-  header a { color: #172b4d; font-weight: 700; text-decoration: none; }
-  nav { margin-left: auto; display: flex; gap: 18px; font-size: 14px; }
-  nav a { font-weight: 500; color: #44546f; }
-  main { padding-top: 32px; padding-bottom: 64px; }
-  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 8px; }
-  h2 { font-size: 18px; margin: 32px 0 8px; }
-  a { color: #0c66e4; }
-  li { margin: 4px 0; }
-  code { background: #f1f2f4; padding: 1px 4px; border-radius: 3px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowlogs support</title>
+<meta content="How to get help with Flowlogs: email, hours, what to include, quick checks, and how to report a security issue." name="description"/>
+<meta content="Flowlogs support" property="og:title"/>
+<meta content="How to get help with Flowlogs: email, hours, what to include, quick checks, and how to report a security issue." property="og:description"/>
+<meta content="https://omarelmougy1-afk.github.io/flowlogs-site/support.html" property="og:url"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://omarelmougy1-afk.github.io/flowlogs-site/img/og.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/" hreflang="en" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/ar.html" hreflang="ar" rel="alternate"/>
+<link href="img/logo-144.png" rel="icon"/>
+
+  <!-- Google Fonts: Inter 400 to 900 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="support.css" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #44546F;
+      background-color: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+    }
+    .grid-pattern {
+      background-color: #F4F6FA;
+      background-image: 
+        linear-gradient(to right, rgba(220, 223, 228, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(220, 223, 228, 0.45) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+  </style>
 </head>
-<body>
-<header><div>
-  <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="11" width="4" height="7" rx="1" fill="#1D7AFC"/><rect x="8" y="7" width="4" height="11" rx="1" fill="#1D7AFC"/><rect x="14" y="3" width="4" height="15" rx="1" fill="#1D7AFC"/></svg>
-  <a href="index.html">Flowlogs</a>
-  <nav><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav>
-</div></header>
-<main>
-<h1>Flowlogs Support</h1>
-<h2>Contact</h2>
-<p>Email: <a href="mailto:omarelmougy1@gmail.com">omarelmougy1@gmail.com</a></p>
-<p>Hours: Sunday to Thursday, 09:00 to 17:00 Cairo time, excluding public holidays. First response within two business days.</p>
-<h2>Please include</h2>
-<ul>
-<li>your Jira Cloud site URL;</li>
-<li>the Flowlogs screen (Flow report, Daily activity, or Saved views) and the date range;</li>
-<li>steps to reproduce, and what you expected to happen;</li>
-<li>a screenshot, with sensitive information removed where possible;</li>
-<li>the approximate time and time zone of the problem.</li>
-</ul>
-<p>Never send passwords, API tokens, or private keys.</p>
-<h2>Quick checks</h2>
-<ol>
-<li>Make sure you can browse the affected project and its worklogs in Jira itself.</li>
-<li>Flowlogs counts each worklog on the day it was logged in Jira. Check the date range with that in mind.</li>
-<li>Clear the project, team, and user filters.</li>
-<li>Press Refresh once to bypass the short report cache.</li>
-<li>If only one person sees a problem, compare their Jira project permissions with someone who does not.</li>
-</ol>
-<h2>Security issues</h2>
-<p>Report security vulnerabilities privately to <a href="mailto:omarelmougy1@gmail.com">omarelmougy1@gmail.com</a>. Please do not publish details until a fix is available.</p>
-</main>
+<body class="min-h-screen flex flex-col justify-between">
+
+  <!-- Sticky Header identical to Landing Page -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-brand-border">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<!-- Brand & Badge -->
+<a class="flex items-center space-x-3 group" href="./">
+<img alt="Flowlogs Logo" class="w-8 h-8 rounded-lg shadow-sm" src="img/logo-144.png"/>
+<div class="flex items-center space-x-2">
+<span class="text-xl font-bold tracking-tight text-brand-ink">Flowlogs</span>
+<span class="hidden sm:inline-block text-[11px] font-semibold text-brand-secondary bg-brand-bg px-2 py-0.5 rounded border border-brand-border">
+            JIRA CLOUD
+          </span>
+</div>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-secondary">
+<a class="hover:text-brand-blue transition-colors" href="./#flow">Flow</a>
+<a class="hover:text-brand-blue transition-colors" href="./#features">Features</a>
+<a class="hover:text-brand-blue transition-colors" href="./#how-it-works">How it works</a>
+<a class="hover:text-brand-blue transition-colors" href="./#security">Security</a>
+<a class="hover:text-brand-blue transition-colors" href="./#comparison">Fit comparison</a>
+<a class="hover:text-brand-blue transition-colors" href="./#faq">FAQ</a>
+</nav>
+<!-- CTA -->
+<div class="flex items-center gap-5">
+<a class="text-sm font-medium text-brand-secondary hover:text-brand-blue transition-colors" href="ar.html" hreflang="ar" lang="ar">العربية</a>
+<a class="inline-flex items-center justify-center bg-brand-blue hover:bg-brand-blueHover text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors shadow-sm whitespace-nowrap" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noreferrer" target="_blank">
+          Get it free
+        </a>
+</div>
+</div>
+<nav aria-label="Sections" class="lg:hidden border-t border-brand-border"><div class="flex gap-5 overflow-x-auto whitespace-nowrap px-4 py-2.5 text-sm font-medium text-brand-secondary"><a class="hover:text-brand-blue transition-colors" href="./#flow">Flow</a><a class="hover:text-brand-blue transition-colors" href="./#features">Features</a><a class="hover:text-brand-blue transition-colors" href="./#how-it-works">How it works</a><a class="hover:text-brand-blue transition-colors" href="./#security">Security</a><a class="hover:text-brand-blue transition-colors" href="./#comparison">Comparison</a><a class="hover:text-brand-blue transition-colors" href="./#faq">FAQ</a></div></nav>
+</header>
+
+  <main class="flex-grow">
+    <!-- Title Band with landing hero grid pattern -->
+    <section class="grid-pattern border-b border-brand-border py-14 sm:py-20 px-4 sm:px-6 lg:px-12">
+      <div class="max-w-[1280px] mx-auto">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-ink tracking-tight leading-none mb-4">
+          Support
+        </h1>
+        <p class="text-lg sm:text-xl text-brand-secondary max-w-2xl leading-relaxed">
+          Questions, problems and security reports about Flowlogs go to one email address.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 space-y-12">
+      
+      <!-- Row of Three White Cards: Email, Hours, First Response -->
+      <section>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Card 1: Email -->
+          <div class="bg-white border border-brand-border rounded-xl p-6 sm:p-7 shadow-sm">
+            <h2 class="text-lg font-bold text-brand-ink tracking-tight mb-2">
+              Email
+            </h2>
+            <p class="text-sm sm:text-base text-brand-secondary">
+              <a href="mailto:omarelmougy1@gmail.com" class="text-brand-blue hover:underline font-medium break-all">
+                omarelmougy1@gmail.com
+              </a>
+            </p>
+          </div>
+
+          <!-- Card 2: Hours -->
+          <div class="bg-white border border-brand-border rounded-xl p-6 sm:p-7 shadow-sm">
+            <h2 class="text-lg font-bold text-brand-ink tracking-tight mb-2">
+              Hours
+            </h2>
+            <p class="text-sm sm:text-base text-brand-secondary leading-relaxed">
+              Sunday to Thursday, 09:00 to 17:00 Cairo time, excluding public holidays.
+            </p>
+          </div>
+
+          <!-- Card 3: First response -->
+          <div class="bg-white border border-brand-border rounded-xl p-6 sm:p-7 shadow-sm">
+            <h2 class="text-lg font-bold text-brand-ink tracking-tight mb-2">
+              First response
+            </h2>
+            <p class="text-sm sm:text-base text-brand-secondary leading-relaxed">
+              Within two business days.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Two Columns of White Cards: "Please include" and "Quick checks" -->
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Left Column: Please include -->
+        <div class="bg-white border border-brand-border rounded-xl p-7 sm:p-9 shadow-sm flex flex-col justify-between">
+          <div>
+            <h2 class="text-2xl font-black text-brand-ink tracking-tight mb-6">
+              Please include
+            </h2>
+            <ul class="space-y-3.5 text-brand-secondary text-base leading-relaxed pl-5 list-disc">
+              <li>your Jira Cloud site URL;</li>
+              <li>the Flowlogs screen (Flow report, Daily activity, or Saved views) and the date range;</li>
+              <li>steps to reproduce, and what you expected to happen;</li>
+              <li>a screenshot, with sensitive information removed where possible;</li>
+              <li>the approximate time and time zone of the problem.</li>
+            </ul>
+          </div>
+          
+          <div class="mt-8 pt-6 border-t border-brand-border">
+            <p class="text-base font-bold text-brand-ink">
+              Never send passwords, API tokens, or private keys.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Column: Quick checks -->
+        <div class="bg-white border border-brand-border rounded-xl p-7 sm:p-9 shadow-sm">
+          <h2 class="text-2xl font-black text-brand-ink tracking-tight mb-6">
+            Quick checks
+          </h2>
+          <ol class="space-y-4 text-brand-secondary text-base leading-relaxed list-decimal pl-5">
+            <li>Make sure you can browse the affected project and its worklogs in Jira itself.</li>
+            <li>Flowlogs counts each worklog on the day it was logged in Jira. Check the date range with that in mind.</li>
+            <li>Clear the project, team, and user filters.</li>
+            <li>Press Refresh once to bypass the short report cache.</li>
+            <li>If only one person sees a problem, compare their Jira project permissions with someone who does not.</li>
+          </ol>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- Security Issues: The Dark Navy Band (#172B4D) -->
+    <section class="bg-brand-darkNavy text-white py-14 sm:py-16 px-4 sm:px-6 lg:px-12">
+      <div class="max-w-[1280px] mx-auto">
+        <div class="max-w-3xl">
+          <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight mb-4">
+            Security issues
+          </h2>
+          <p class="text-base sm:text-lg text-slate-200 leading-relaxed mb-4">
+            Report security vulnerabilities privately to 
+            <a href="mailto:omarelmougy1@gmail.com" class="text-sky-300 hover:underline font-medium">omarelmougy1@gmail.com</a>.
+          </p>
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+            Please do not publish details until a fix is available.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Links Band: The Light Blue Band (#E9F2FF) -->
+    <section class="bg-brand-lightBlue border-t border-b border-brand-border py-12 px-4 sm:px-6 lg:px-12">
+      <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-xl font-black text-brand-ink tracking-tight mb-1">
+            Documentation and policies
+          </h3>
+          <p class="text-sm text-brand-secondary">
+            Learn more about data handling, product terms, and common questions.
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-6 text-sm font-semibold">
+          <a href="privacy.html" class="text-brand-blue hover:text-brand-blueHover hover:underline">
+            Privacy policy
+          </a>
+          <a href="terms.html" class="text-brand-blue hover:text-brand-blueHover hover:underline">
+            Terms of use
+          </a>
+          <a href="./#faq" class="text-brand-blue hover:text-brand-blueHover hover:underline">
+            Flowlogs FAQ
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer identical to Landing Page -->
+  <footer class="bg-white py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-brand-border pb-8">
+<!-- Logo and Details -->
+<div class="flex items-center space-x-3">
+<img alt="Flowlogs Icon" class="w-7 h-7 rounded-md" src="img/logo-144.png"/>
+<span class="font-bold text-brand-ink text-base">Flowlogs</span>
+<span class="text-xs text-brand-muted">· Built with Atlassian Forge</span>
+</div>
+<!-- Links -->
+<div class="flex items-center space-x-6 text-xs text-brand-secondary font-medium">
+<a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html">Privacy Policy</a>
+<a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/terms.html">Terms of Service</a>
+<a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/support.html">Support</a>
+<a class="hover:text-brand-blue transition-colors" href="ar.html" hreflang="ar" lang="ar">العربية</a>
+<span>Built by Omar El-Mougy</span>
+</div>
+</div>
+<!-- Legal Disclaimer -->
+<div class="mt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-brand-muted">
+<p>© 2026 Flowlogs. All rights reserved.</p>
+<p class="mt-2 sm:mt-0">Jira is a registered trademark of Atlassian Pty Ltd.</p>
+</div>
+</div>
+</footer>
+
 </body>
 </html>

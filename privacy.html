@@ -1,73 +1,411 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Flowlogs Privacy Policy</title>
-<style>
-  body { margin: 0; background: #f7f8f9; color: #172b4d; font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-  header { background: #fff; border-bottom: 1px solid #dcdfe4; }
-  header div, main { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-  header div { display: flex; align-items: center; gap: 10px; height: 60px; }
-  header a { color: #172b4d; font-weight: 700; text-decoration: none; }
-  nav { margin-left: auto; display: flex; gap: 18px; font-size: 14px; }
-  nav a { font-weight: 500; color: #44546f; }
-  main { padding-top: 32px; padding-bottom: 64px; }
-  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 8px; }
-  h2 { font-size: 18px; margin: 32px 0 8px; }
-  a { color: #0c66e4; }
-  li { margin: 4px 0; }
-  code { background: #f1f2f4; padding: 1px 4px; border-radius: 3px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowlogs privacy policy</title>
+<meta content="What Jira data Flowlogs uses, where it is kept and for how long. Flowlogs runs entirely on Atlassian Forge and has no servers of its own." name="description"/>
+<meta content="Flowlogs privacy policy" property="og:title"/>
+<meta content="What Jira data Flowlogs uses, where it is kept and for how long. Flowlogs runs entirely on Atlassian Forge and has no servers of its own." property="og:description"/>
+<meta content="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html" property="og:url"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://omarelmougy1-afk.github.io/flowlogs-site/img/og.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/" hreflang="en" rel="alternate"/>
+<link href="https://omarelmougy1-afk.github.io/flowlogs-site/ar.html" hreflang="ar" rel="alternate"/>
+<link href="img/logo-144.png" rel="icon"/>
+
+  <!-- Google Fonts: Inter 400 to 900 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="privacy.css" rel="stylesheet"/>
+  <style>
+    /* 28px square grid matching the landing page */
+    .grid-bg {
+      background-color: #F4F6FA;
+      background-image: 
+        linear-gradient(to right, rgba(220, 223, 228, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(220, 223, 228, 0.45) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+  </style>
 </head>
-<body>
-<header><div>
-  <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="11" width="4" height="7" rx="1" fill="#1D7AFC"/><rect x="8" y="7" width="4" height="11" rx="1" fill="#1D7AFC"/><rect x="14" y="3" width="4" height="15" rx="1" fill="#1D7AFC"/></svg>
-  <a href="index.html">Flowlogs</a>
-  <nav><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav>
-</div></header>
-<main>
-<h1>Flowlogs Privacy Policy</h1>
-<p>Effective date: 4 November 2026</p>
-<p>Flowlogs is an app for Atlassian Jira Cloud, built and provided by Omar El-Mougy, an independent developer based in Egypt ("I", "me", "the developer"). This policy explains what Jira data Flowlogs uses, where it is kept, and for how long.</p>
-<h2>Data Flowlogs processes</h2>
-<p>Flowlogs only sees Jira data that the person viewing the report is already allowed to see in Jira:</p>
-<ul>
-<li>Jira account identifiers and display names;</li>
-<li>project identifiers, keys, and names;</li>
-<li>issue keys, summaries, statuses, and original estimates;</li>
-<li>worklog authors, dates, descriptions, and time spent;</li>
-<li>the viewer's own report settings and saved report views.</li>
-</ul>
-<h2>Why it is processed</h2>
-<p>Only to build the worklog, capacity, estimate, and daily activity reports; to apply the filters the viewer chooses; to draw charts and the team timesheet; to export the report to CSV, Excel, or PDF; to remember settings; and to reopen saved views.</p>
-<h2>Where it is kept, and for how long</h2>
-<p>Flowlogs runs entirely on Atlassian Forge. It has no servers, database, or analytics of its own.</p>
-<ul>
-<li><strong>Report settings</strong> are stored in Atlassian Forge storage per Jira account, until changed or the app's data is removed.</li>
-<li><strong>Saved views</strong> are stored in Atlassian Forge storage per Jira account, until the user deletes them or the app's data is removed.</li>
-<li><strong>Report caches</strong>: up to 10 minutes for ranges that include today, up to 60 minutes for past ranges.</li>
-<li><strong>User directory cache</strong>: up to 6 hours.</li>
-<li>An hourly scheduled job deletes every cached record once its time is up.</li>
-<li><strong>In the viewer's browser</strong>: the last tab and filters used are kept in the browser's local storage on that device, so the report reopens where the viewer left it. Clearing the browser's site data removes them.</li>
-<li><strong>Exports</strong> (CSV, Excel, PDF) are created inside the viewer's browser and saved to their device. They are never uploaded anywhere.</li>
-</ul>
-<p>The only Jira account identifiers kept longer than 24 hours are the owner of a settings record or saved view, and any person chosen in a saved view's user filter. A weekly scheduled job reports these identifiers to Atlassian through the Forge Privacy API and deletes them when Atlassian reports that an account has been closed.</p>
-<p>Jira stays the system of record. Flowlogs never creates, edits, or deletes issues or worklogs.</p>
-<h2>Sharing and sale</h2>
-<p>I do not sell personal data, and Flowlogs sends no Jira data to advertisers, AI services, analytics providers, or any other destination outside Atlassian. Its manifest declares no external network access. Atlassian processes the data as the Forge hosting provider under its own terms.</p>
-<h2>Security</h2>
-<p>Flowlogs uses Atlassian's authentication. Jira data is requested as the current user, so Jira's own permissions decide what each viewer can see. Settings, saved views, and caches are stored under keys tied to the Jira account they belong to, so one user's stored data is never returned to another.</p>
-<h2>Data location</h2>
-<p>Atlassian controls where Forge stores app data. See Atlassian's data residency and subprocessor documentation for the hosting that applies to your Jira site.</p>
-<h2>Your choices and rights</h2>
-<p>Users can delete their saved views in Flowlogs at any time. Jira site administrators can uninstall the app, after which Atlassian removes its stored data under the Forge data retention rules. For access, correction, deletion, or any other privacy request about Flowlogs data, email <a href="mailto:omarelmougy1@gmail.com">omarelmougy1@gmail.com</a>. Requests about the underlying Jira records should go to your Jira site administrator.</p>
-<h2>Children</h2>
-<p>Flowlogs is a business tool and is not directed to children.</p>
-<h2>Changes</h2>
-<p>This policy may be updated when the app or the law changes. The effective date at the top shows the current version.</p>
-<h2>Contact</h2>
-<p>Omar El-Mougy, Egypt<br><a href="mailto:omarelmougy1@gmail.com">omarelmougy1@gmail.com</a></p>
-</main>
+<body class="bg-white text-brand-secondary font-sans antialiased selection:bg-brand-lightBlue selection:text-brand-blue">
+
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-brand-border">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<!-- Brand & Badge -->
+<a class="flex items-center space-x-3 group" href="./">
+<img alt="Flowlogs Logo" class="w-8 h-8 rounded-lg shadow-sm" src="img/logo-144.png"/>
+<div class="flex items-center space-x-2">
+<span class="text-xl font-bold tracking-tight text-brand-ink">Flowlogs</span>
+<span class="hidden sm:inline-block text-[11px] font-semibold text-brand-secondary bg-brand-bg px-2 py-0.5 rounded border border-brand-border">
+            JIRA CLOUD
+          </span>
+</div>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-secondary">
+<a class="hover:text-brand-blue transition-colors" href="./#flow">Flow</a>
+<a class="hover:text-brand-blue transition-colors" href="./#features">Features</a>
+<a class="hover:text-brand-blue transition-colors" href="./#how-it-works">How it works</a>
+<a class="hover:text-brand-blue transition-colors" href="./#security">Security</a>
+<a class="hover:text-brand-blue transition-colors" href="./#comparison">Fit comparison</a>
+<a class="hover:text-brand-blue transition-colors" href="./#faq">FAQ</a>
+</nav>
+<!-- CTA -->
+<div class="flex items-center gap-5">
+<a class="text-sm font-medium text-brand-secondary hover:text-brand-blue transition-colors" href="ar.html" hreflang="ar" lang="ar">العربية</a>
+<a class="inline-flex items-center justify-center bg-brand-blue hover:bg-brand-blueHover text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors shadow-sm whitespace-nowrap" href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noreferrer" target="_blank">
+          Get it free
+        </a>
+</div>
+</div>
+<nav aria-label="Sections" class="lg:hidden border-t border-brand-border"><div class="flex gap-5 overflow-x-auto whitespace-nowrap px-4 py-2.5 text-sm font-medium text-brand-secondary"><a class="hover:text-brand-blue transition-colors" href="./#flow">Flow</a><a class="hover:text-brand-blue transition-colors" href="./#features">Features</a><a class="hover:text-brand-blue transition-colors" href="./#how-it-works">How it works</a><a class="hover:text-brand-blue transition-colors" href="./#security">Security</a><a class="hover:text-brand-blue transition-colors" href="./#comparison">Comparison</a><a class="hover:text-brand-blue transition-colors" href="./#faq">FAQ</a></div></nav>
+</header>
+
+  <!-- Page Title Band (Hero Background with 28px Grid & Bottom Border) -->
+  <section class="grid-bg border-b border-brand-border py-14 lg:py-20">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+      <div class="max-w-3xl">
+        <div class="text-[14px] font-semibold text-brand-muted mb-3">
+          Effective date: 4 November 2026
+        </div>
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-brand-ink tracking-tight mb-6">
+          Privacy policy
+        </h1>
+        <p class="text-lg lg:text-xl text-brand-secondary leading-relaxed font-normal">
+          Flowlogs is an app for Atlassian Jira Cloud, built and provided by Omar El-Mougy, an independent developer based in Egypt ("I", "me", "the developer"). This policy explains what Jira data Flowlogs uses, where it is kept, and for how long.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Layout (Sticky Sidebar + Policy Column) -->
+  <main class="max-w-[1440px] mx-auto px-6 lg:px-12 py-12 lg:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      
+      <!-- Left Column: Sticky "On this page" Index -->
+      <aside class="hidden lg:block lg:col-span-4 sticky top-24 pr-4">
+        <div class="p-6 rounded-xl border border-brand-border bg-white shadow-xs">
+          <h2 class="text-xs font-bold text-brand-ink mb-4">
+            On this page
+          </h2>
+          <nav class="flex flex-col space-y-2.5 text-[14px]">
+            <a href="#in-short" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">In short</a>
+            <a href="#data-processed" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">Data Flowlogs processes</a>
+            <a href="#why-processed" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">Why it is processed</a>
+            <a href="#retention-storage" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">Where it is kept, and for how long</a>
+            <a href="#sharing-sale" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">Sharing and sale</a>
+            <a href="#security" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">Security</a>
+            <a href="#data-location" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">Data location</a>
+            <a href="#choices-rights" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">Your choices and rights</a>
+            <a href="#children" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">Children</a>
+            <a href="#changes" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">Changes</a>
+            <a href="#contact" class="text-brand-muted hover:text-brand-ink transition-colors py-0.5">Contact</a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Right Column: Readable Policy Column (~720px wide) -->
+      <div class="lg:col-span-8 max-w-[720px] space-y-12">
+        
+        <!-- "In short" Card -->
+        <section id="in-short" class="scroll-mt-24">
+          <div class="p-6 lg:p-7 rounded-xl border border-brand-border bg-white shadow-xs">
+            <h2 class="text-xs font-bold text-brand-muted mb-4">
+              In short
+            </h2>
+            <div class="space-y-3.5 text-[15px] lg:text-[16px] text-brand-ink font-medium leading-relaxed">
+              <p>Flowlogs runs entirely on Atlassian Forge. It has no servers, database, or analytics of its own.</p>
+              <div class="h-px bg-brand-border"></div>
+              <p>Exports (CSV, Excel, PDF) are created inside the viewer's browser and saved to their device. They are never uploaded anywhere.</p>
+              <div class="h-px bg-brand-border"></div>
+              <p>I do not sell personal data.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 1: Data Flowlogs processes -->
+        <section id="data-processed" class="scroll-mt-24 space-y-4">
+          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            Data Flowlogs processes
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            Flowlogs only sees Jira data that the person viewing the report is already allowed to see in Jira:
+          </p>
+          <ul class="space-y-2.5 pl-5 list-disc text-[15px] text-brand-secondary leading-relaxed marker:text-brand-muted">
+            <li>Jira account identifiers and display names;</li>
+            <li>project identifiers, keys, and names;</li>
+            <li>issue keys, summaries, statuses, and original estimates;</li>
+            <li>worklog authors, dates, descriptions, and time spent;</li>
+            <li>the viewer's own report settings and saved report views.</li>
+          </ul>
+        </section>
+
+        <!-- Section 2: Why it is processed -->
+        <section id="why-processed" class="scroll-mt-24 space-y-4">
+          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            Why it is processed
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            Only to build the worklog, capacity, estimate, and daily activity reports; to apply the filters the viewer chooses; to draw charts and the team timesheet; to export the report to CSV, Excel, or PDF; to remember settings; and to reopen saved views.
+          </p>
+        </section>
+
+        <!-- Section 3: Where it is kept, and for how long -->
+        <section id="retention-storage" class="scroll-mt-24 space-y-6">
+          <div class="space-y-4">
+            <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+              Where it is kept, and for how long
+            </h2>
+            <p class="text-[16px] text-brand-secondary leading-relaxed">
+              Flowlogs runs entirely on Atlassian Forge. It has no servers, database, or analytics of its own.
+            </p>
+          </div>
+
+          <!-- Two-column retention table -->
+          <div class="border border-brand-border rounded-xl overflow-hidden shadow-xs bg-white">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-brand-bg border-b border-brand-border">
+                  <th scope="col" class="py-3.5 px-5 text-xs font-bold text-brand-ink w-2/5">
+                    What
+                  </th>
+                  <th scope="col" class="py-3.5 px-5 text-xs font-bold text-brand-ink w-3/5">
+                    How long
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-brand-border text-[14px] leading-relaxed">
+                <tr class="hover:bg-brand-bg/50 transition-colors">
+                  <td class="py-4 px-5 font-semibold text-brand-ink align-top">
+                    Report settings
+                  </td>
+                  <td class="py-4 px-5 text-brand-secondary align-top">
+                    stored in Atlassian Forge storage per Jira account, until changed or the app's data is removed.
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-bg/50 transition-colors">
+                  <td class="py-4 px-5 font-semibold text-brand-ink align-top">
+                    Saved views
+                  </td>
+                  <td class="py-4 px-5 text-brand-secondary align-top">
+                    stored in Atlassian Forge storage per Jira account, until the user deletes them or the app's data is removed.
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-bg/50 transition-colors">
+                  <td class="py-4 px-5 font-semibold text-brand-ink align-top">
+                    Report caches
+                  </td>
+                  <td class="py-4 px-5 text-brand-secondary align-top">
+                    up to 10 minutes for ranges that include today, up to 60 minutes for past ranges.
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-bg/50 transition-colors">
+                  <td class="py-4 px-5 font-semibold text-brand-ink align-top">
+                    User directory cache
+                  </td>
+                  <td class="py-4 px-5 text-brand-secondary align-top">
+                    up to 6 hours.
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-bg/50 transition-colors">
+                  <td class="py-4 px-5 font-semibold text-brand-ink align-top">
+                    Hourly scheduled job
+                  </td>
+                  <td class="py-4 px-5 text-brand-secondary align-top">
+                    deletes every cached record once its time is up.
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-bg/50 transition-colors">
+                  <td class="py-4 px-5 font-semibold text-brand-ink align-top">
+                    In the viewer's browser
+                  </td>
+                  <td class="py-4 px-5 text-brand-secondary align-top">
+                    the last tab and filters used are kept in the browser's local storage on that device, so the report reopens where the viewer left it. Clearing the browser's site data removes them.
+                  </td>
+                </tr>
+                <tr class="hover:bg-brand-bg/50 transition-colors">
+                  <td class="py-4 px-5 font-semibold text-brand-ink align-top">
+                    Exports (CSV, Excel, PDF)
+                  </td>
+                  <td class="py-4 px-5 text-brand-secondary align-top">
+                    are created inside the viewer's browser and saved to their device. They are never uploaded anywhere.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="space-y-4 pt-1">
+            <p class="text-[15px] text-brand-secondary leading-relaxed">
+              The only Jira account identifiers kept longer than 24 hours are the owner of a settings record or saved view, and any person chosen in a saved view's user filter. A weekly scheduled job reports these identifiers to Atlassian through the Forge Privacy API and deletes them when Atlassian reports that an account has been closed.
+            </p>
+            <p class="text-[15px] font-medium text-brand-ink leading-relaxed">
+              Jira stays the system of record. Flowlogs never creates, edits, or deletes issues or worklogs.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 4: Sharing and sale -->
+        <section id="sharing-sale" class="scroll-mt-24 space-y-4">
+          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            Sharing and sale
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            I do not sell personal data, and Flowlogs sends no Jira data to advertisers, AI services, analytics providers, or any other destination outside Atlassian. Its manifest declares no external network access. Atlassian processes the data as the Forge hosting provider under its own terms.
+          </p>
+        </section>
+
+        <!-- Section 5: Security -->
+        <section id="security" class="scroll-mt-24 space-y-4">
+          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            Security
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            Flowlogs uses Atlassian's authentication. Jira data is requested as the current user, so Jira's own permissions decide what each viewer can see. Settings, saved views, and caches are stored under keys tied to the Jira account they belong to, so one user's stored data is never returned to another.
+          </p>
+        </section>
+
+        <!-- Section 6: Data location -->
+        <section id="data-location" class="scroll-mt-24 space-y-4">
+          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            Data location
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            Atlassian controls where Forge stores app data. See Atlassian's data residency and subprocessor documentation for the hosting that applies to your Jira site.
+          </p>
+        </section>
+
+        <!-- Section 7: Your choices and rights -->
+        <section id="choices-rights" class="scroll-mt-24 space-y-4">
+          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            Your choices and rights
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            Users can delete their saved views in Flowlogs at any time. Jira site administrators can uninstall the app, after which Atlassian removes its stored data under the Forge data retention rules. For access, correction, deletion, or any other privacy request about Flowlogs data, email <a href="mailto:omarelmougy1@gmail.com" class="text-brand-blue hover:underline font-medium">omarelmougy1@gmail.com</a>. Requests about the underlying Jira records should go to your Jira site administrator.
+          </p>
+        </section>
+
+        <!-- Section 8: Children -->
+        <section id="children" class="scroll-mt-24 space-y-4">
+          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            Children
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            Flowlogs is a business tool and is not directed to children.
+          </p>
+        </section>
+
+        <!-- Section 9: Changes -->
+        <section id="changes" class="scroll-mt-24 space-y-4">
+          <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+            Changes
+          </h2>
+          <p class="text-[16px] text-brand-secondary leading-relaxed">
+            This policy may be updated when the app or the law changes. The effective date at the top shows the current version.
+          </p>
+        </section>
+
+        <!-- Section 10: Contact (White Card) -->
+        <section id="contact" class="scroll-mt-24">
+          <div class="p-6 lg:p-8 rounded-xl border border-brand-border bg-white shadow-xs space-y-4">
+            <h2 class="text-2xl font-extrabold text-brand-ink tracking-tight">
+              Contact
+            </h2>
+            <div class="space-y-1 text-[15px] leading-relaxed text-brand-secondary">
+              <p class="font-semibold text-brand-ink">Omar El-Mougy, Egypt</p>
+              <p>
+                <a href="mailto:omarelmougy1@gmail.com" class="text-brand-blue hover:underline font-medium">
+                  omarelmougy1@gmail.com
+                </a>
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Light Blue Band (Used once as permitted) -->
+  <section class="bg-brand-lightBlue border-t border-brand-border py-12 lg:py-16">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-12 text-center">
+      <h2 class="text-2xl lg:text-3xl font-extrabold text-brand-ink tracking-tight mb-4">
+        Know where your team's time went, in one Jira page.
+      </h2>
+      <p class="text-[16px] text-brand-secondary max-w-xl mx-auto mb-8 font-normal">
+        No new apps to convince your team to download. Just clear visibility over existing Jira worklogs.
+      </p>
+      <a href="https://marketplace.atlassian.com/search?query=flowlogs" rel="noopener" target="_blank" target="_blank" rel="noopener noreferrer" class="inline-block bg-brand-blue hover:bg-brand-blueHover text-white text-[15px] font-semibold px-6 py-3 rounded-md transition-colors shadow-xs">
+        Get Flowlogs free
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer (Exact match to landing page) -->
+  <footer class="bg-white py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-brand-border pb-8">
+<!-- Logo and Details -->
+<div class="flex items-center space-x-3">
+<img alt="Flowlogs Icon" class="w-7 h-7 rounded-md" src="img/logo-144.png"/>
+<span class="font-bold text-brand-ink text-base">Flowlogs</span>
+<span class="text-xs text-brand-muted">· Built with Atlassian Forge</span>
+</div>
+<!-- Links -->
+<div class="flex items-center space-x-6 text-xs text-brand-secondary font-medium">
+<a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/privacy.html">Privacy Policy</a>
+<a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/terms.html">Terms of Service</a>
+<a class="hover:text-brand-blue transition-colors" href="https://omarelmougy1-afk.github.io/flowlogs-site/support.html">Support</a>
+<a class="hover:text-brand-blue transition-colors" href="ar.html" hreflang="ar" lang="ar">العربية</a>
+<span>Built by Omar El-Mougy</span>
+</div>
+</div>
+<!-- Legal Disclaimer -->
+<div class="mt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-brand-muted">
+<p>© 2026 Flowlogs. All rights reserved.</p>
+<p class="mt-2 sm:mt-0">Jira is a registered trademark of Atlassian Pty Ltd.</p>
+</div>
+</div>
+</footer>
+
+  <!-- Active Scrollspy Navigation Script for Sidebar -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('main section[id]');
+      const navLinks = document.querySelectorAll('aside nav a');
+
+      function onScroll() {
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY + 140;
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            currentSectionId = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href').replace('#', '');
+          if (href === currentSectionId) {
+            link.classList.remove('text-brand-muted');
+            link.classList.add('text-brand-blue', 'font-semibold');
+          } else {
+            link.classList.remove('text-brand-blue', 'font-semibold');
+            link.classList.add('text-brand-muted');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    });
+  </script>
 </body>
 </html>

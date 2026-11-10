@@ -21,7 +21,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="fonts.css" rel="stylesheet"/>
+  <link as="font" crossorigin="" href="fonts/GhroobBB-Regular.woff2" rel="preload" type="font/woff2"/>
+<link href="fonts.css" rel="stylesheet"/>
 <link href="terms.css" rel="stylesheet"/>
 <link href="site.css" rel="stylesheet"/>
   <style>
@@ -36,13 +37,14 @@
 </head>
 <body class="bg-white font-sans text-brand-secondary antialiased selection:bg-brand-lightBlue selection:text-brand-blue">
 <div aria-hidden="true" class="fl-progress"></div>
+<a class="fl-skip" href="#main">Saltar al contenido</a>
 
   <!-- Header -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-brand-border">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 <!-- Brand & Badge -->
 <a class="flex items-center space-x-3 group" href="es.html">
-<img alt="Logotipo de Flowlogs" class="w-8 h-8 rounded-lg shadow-sm" src="img/logo-144.png"/>
+<img alt="Logotipo de Flowlogs" class="w-8 h-8 rounded-lg shadow-sm" height="144" src="img/logo-144.png" width="144"/>
 <div class="flex items-center space-x-2">
 <span class="text-xl font-bold tracking-tight text-brand-ink">Flowlogs</span>
 <span class="hidden sm:inline-block text-[11px] font-semibold text-brand-secondary bg-brand-bg px-2 py-0.5 rounded border border-brand-border">
@@ -51,7 +53,7 @@
 </div>
 </a>
 <!-- Desktop Nav Links -->
-<nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-secondary">
+<nav aria-label="Navegación principal" class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-secondary">
 <a class="hover:text-brand-blue transition-colors" href="es.html#flow">Recorrido</a>
 <a class="hover:text-brand-blue transition-colors" href="es.html#features">Funciones</a>
 <a class="hover:text-brand-blue transition-colors" href="es.html#how-it-works">Cómo funciona</a>
@@ -72,6 +74,7 @@
 </div>
 <nav aria-label="Secciones" class="lg:hidden border-t border-brand-border"><div class="flex gap-5 overflow-x-auto whitespace-nowrap px-4 py-2.5 text-sm font-medium text-brand-secondary"><a class="hover:text-brand-blue transition-colors" href="es.html#flow">Recorrido</a><a class="hover:text-brand-blue transition-colors" href="es.html#features">Funciones</a><a class="hover:text-brand-blue transition-colors" href="es.html#how-it-works">Cómo funciona</a><a class="hover:text-brand-blue transition-colors" href="es.html#security">Seguridad</a><a class="hover:text-brand-blue transition-colors" href="es.html#comparison">Comparativa</a><a class="hover:text-brand-blue transition-colors" href="es.html#faq">Preguntas</a></div></nav>
 </header>
+<main id="main" tabindex="-1">
 
   <!-- Title Band with Grid Background -->
   <section class="bg-brand-bg grid-pattern border-b border-brand-border py-14 lg:py-20">
@@ -91,7 +94,7 @@
   </section>
 
   <!-- Main Content Layout -->
-  <main class="py-12 lg:py-16">
+  <div class="py-12 lg:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-start">
         
@@ -213,15 +216,16 @@
 
       </div>
     </div>
-  </main>
+  </div>
 
   <!-- Footer -->
-  <footer class="bg-white py-12">
+  </main>
+<footer class="bg-white py-12">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-brand-border pb-8">
 <!-- Logo and Details -->
 <div class="flex items-center space-x-3">
-<img alt="Icono de Flowlogs" class="w-7 h-7 rounded-md" src="img/logo-144.png"/>
+<img loading="lazy" decoding="async" alt="Icono de Flowlogs" class="w-7 h-7 rounded-md" height="144" src="img/logo-144.png" width="144"/>
 <span class="font-bold text-brand-ink text-base">Flowlogs</span>
 <span class="text-xs text-brand-muted">· Creado con Atlassian Forge</span>
 </div>

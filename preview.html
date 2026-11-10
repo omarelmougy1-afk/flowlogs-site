@@ -511,7 +511,7 @@
     pressed('[data-page]', el => el.dataset.page === state.page);
     pressed('[data-orient]', el => (el.dataset.orient === 'landscape') === state.w > state.h);
     pressed('[data-ratio]', el => state.kind === 'plain' && el.dataset.ratio === `${state.w}x${state.h}`);
-    pressed('[data-theme]', el => el.dataset.theme === state.theme);
+    pressed('button[data-theme]', el => el.dataset.theme === state.theme);
     pressed('[data-finish]', el => el.dataset.finish.toLowerCase() === state.finish.toLowerCase());
     pressed('#rulers', () => state.rulers);
     pressed('#grid', () => state.grid);
@@ -598,7 +598,7 @@
     state.grid = !state.grid;
     render();
   });
-  document.querySelectorAll('[data-theme]').forEach(el =>
+  document.querySelectorAll('button[data-theme]').forEach(el =>
     el.addEventListener('click', () => {
       state.theme = el.dataset.theme;
       render();

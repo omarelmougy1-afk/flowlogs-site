@@ -22,6 +22,7 @@
 <!-- Inter Font Family -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="font" crossorigin="" href="fonts/GhroobBB-Regular.woff2" rel="preload" type="font/woff2"/>
 <link href="fonts.css" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
 <link href="site.css" rel="stylesheet"/>
@@ -53,12 +54,13 @@
 </head>
 <body class="bg-brand-bg font-sans text-brand-ink antialiased selection:bg-brand-lightBlue selection:text-brand-blue">
 <div aria-hidden="true" class="fl-progress"></div>
+<a class="fl-skip" href="#main">انتقل إلى المحتوى</a>
 <!-- BEGIN: Sticky Navigation -->
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-brand-border">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 <!-- Brand & Badge -->
 <a class="flex items-center space-x-3 group" href="ar.html">
-<img alt="شعار Flowlogs" class="w-8 h-8 rounded-lg shadow-sm" src="img/logo-144.png"/>
+<img alt="شعار Flowlogs" class="w-8 h-8 rounded-lg shadow-sm" height="144" src="img/logo-144.png" width="144"/>
 <div class="flex items-center space-x-2">
 <span class="text-xl font-bold tracking-tight text-brand-ink">Flowlogs</span>
 <span class="hidden sm:inline-block text-[11px] font-semibold tracking-wider text-brand-secondary bg-brand-bg px-2 py-0.5 rounded border border-brand-border">
@@ -67,7 +69,7 @@
 </div>
 </a>
 <!-- Desktop Nav Links -->
-<nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-secondary">
+<nav aria-label="التنقل الرئيسي" class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-secondary">
 <a class="hover:text-brand-blue transition-colors" href="#flow">المسار</a>
 <a class="hover:text-brand-blue transition-colors" href="#features">المزايا</a>
 <a class="hover:text-brand-blue transition-colors" href="#how-it-works">طريقة العمل</a>
@@ -88,6 +90,7 @@
 </div>
 <nav aria-label="أقسام الصفحة" class="lg:hidden border-t border-brand-border"><div class="flex gap-5 overflow-x-auto whitespace-nowrap px-4 py-2.5 text-sm font-medium text-brand-secondary"><a class="hover:text-brand-blue transition-colors" href="#flow">المسار</a><a class="hover:text-brand-blue transition-colors" href="#features">المزايا</a><a class="hover:text-brand-blue transition-colors" href="#how-it-works">طريقة العمل</a><a class="hover:text-brand-blue transition-colors" href="#security">الأمان</a><a class="hover:text-brand-blue transition-colors" href="#comparison">المقارنة</a><a class="hover:text-brand-blue transition-colors" href="#faq">الأسئلة الشائعة</a></div></nav>
 </header>
+<main id="main" tabindex="-1">
 <!-- END: Sticky Navigation -->
 <!-- BEGIN: Hero Section -->
 <section class="bg-grid-pattern pt-16 pb-28 border-b border-brand-border overflow-hidden">
@@ -133,7 +136,7 @@
 <!-- Right Hero Column (Visual Flow Composition) -->
 <div class="lg:col-span-7" data-hero-visual>
 <div class="bg-white p-2 sm:p-3 rounded-2xl border border-brand-border shadow-xl hover:shadow-2xl transition-shadow">
-<img alt="جدول دوام الفريق في Flowlogs، ويوم عمل مريم نبيل الفارغ محاط بإطار أحمر، وقائمة Needs attention تُظهرها عند 63% من طاقتها، وتقرير PDF" class="w-full h-auto rounded-xl object-contain block" src="img/flowlogs-flow.png"/>
+<img alt="جدول دوام الفريق في Flowlogs، ويوم عمل مريم نبيل الفارغ محاط بإطار أحمر، وقائمة Needs attention تُظهرها عند 63% من طاقتها، وتقرير PDF" class="w-full h-auto rounded-xl object-contain block" height="1286" src="img/flowlogs-flow.webp" width="3000"/>
 </div>
 </div>
 </div>
@@ -176,7 +179,7 @@
 <div class="fl-story">
 <div class="fl-story-static"><!-- Centered Wide Flow Diagram -->
 <div data-reveal class="bg-brand-bg/70 rounded-2xl border border-brand-border p-3 sm:p-6 shadow-sm mb-12">
-<img alt="يوم عمل مريم نبيل الفارغ محاط بإطار في جدول دوام الفريق، وFlowlogs يُبرزها في قائمة Needs attention، والفجوة نفسها في تقرير PDF" class="w-full h-auto rounded-xl object-contain block mx-auto bg-white border border-brand-border shadow-sm" src="img/flowlogs-flow.png"/>
+<img loading="lazy" decoding="async" alt="يوم عمل مريم نبيل الفارغ محاط بإطار في جدول دوام الفريق، وFlowlogs يُبرزها في قائمة Needs attention، والفجوة نفسها في تقرير PDF" class="w-full h-auto rounded-xl object-contain block mx-auto bg-white border border-brand-border shadow-sm" height="1286" src="img/flowlogs-flow.webp" width="3000"/>
 </div>
 <!-- Three Columns / Captions (1, 2, 3) -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -214,9 +217,9 @@
 </div>
 <div class="fl-story-pin">
 <figure aria-label="جدول دوام الفريق في Flowlogs، ويوم عمل مريم نبيل الفارغ محاط بإطار أحمر، وقائمة Needs attention تذكر اسمها، وتقرير PDF" class="fl-stage" data-active="1" role="img">
-<div class="fl-layer fl-ts" style="top:25.92cqw;transform-origin:44.74% 77.35%"><img alt="" width="2720" height="596" src="img/story/timesheet.png"/><img alt="" class="fl-ts-focus" src="img/story/timesheet-focus.png"/><span class="fl-ring" style="left:42.60%;top:71.81%;width:4.29%;height:11.07%"></span></div>
-<div class="fl-layer fl-at"><img alt="" width="1568" height="424" src="img/story/attention.png"/><span class="fl-row" style="top:19.34%;height:18.87%"></span></div>
-<div class="fl-layer fl-pdf"><img alt="" width="952" height="1347" src="img/story/pdf-page.png"/></div>
+<div class="fl-layer fl-ts" style="top:25.92cqw;transform-origin:44.74% 77.35%"><img loading="lazy" decoding="async" alt="" width="2720" height="596" src="img/story/timesheet.webp"/><img loading="lazy" decoding="async" alt="" class="fl-ts-focus" height="596" src="img/story/timesheet-focus.webp" width="2720"/><span class="fl-scan"></span><span class="fl-ring" style="left:42.60%;top:71.81%;width:4.29%;height:11.07%"></span></div>
+<div class="fl-layer fl-at"><img loading="lazy" decoding="async" alt="" width="1568" height="424" src="img/story/attention.webp"/><span class="fl-row" style="top:19.34%;height:18.87%"></span></div>
+<div class="fl-layer fl-pdf"><img loading="lazy" decoding="async" alt="" width="952" height="1347" src="img/story/pdf-page.webp"/></div>
 <div class="fl-story-bar"><span></span></div>
 </figure>
 </div>
@@ -291,7 +294,7 @@
 <!-- UI Screenshot -->
 <div class="lg:col-span-7">
 <div data-reveal class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-white">
-<img alt="جدول دوام الفريق في Flowlogs: أربعة أشخاص على مدى أسبوعين، وأيام العمل الفارغة محاطة بإطار أحمر" class="w-full h-auto object-cover block" src="img/team-timesheet.png"/>
+<img loading="lazy" decoding="async" alt="جدول دوام الفريق في Flowlogs: أربعة أشخاص على مدى أسبوعين، وأيام العمل الفارغة محاطة بإطار أحمر" class="w-full h-auto object-cover block" height="1800" src="img/team-timesheet.webp" width="2880"/>
 </div>
 </div>
 </div>
@@ -305,7 +308,7 @@
 <!-- UI Screenshot (Left) -->
 <div class="lg:col-span-7 order-2 lg:order-1">
 <div data-reveal class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-white">
-<img alt="تقرير التدفق في Flowlogs: إجمالي الوقت، وطاقة الفريق، وكفاءة التدفق، والتقديرات الناقصة، وقائمة Needs attention" class="w-full h-auto object-cover block" src="img/flow-report.png"/>
+<img loading="lazy" decoding="async" alt="تقرير التدفق في Flowlogs: إجمالي الوقت، وطاقة الفريق، وكفاءة التدفق، والتقديرات الناقصة، وقائمة Needs attention" class="w-full h-auto object-cover block" height="1800" src="img/flow-report.webp" width="2880"/>
 </div>
 </div>
 <!-- Feature Copy (Right) -->
@@ -352,7 +355,7 @@
 <!-- PDF UI Image -->
 <div class="lg:col-span-7">
 <div data-reveal class="rounded-xl border border-brand-border shadow-md overflow-hidden bg-brand-bg p-3 sm:p-6 flex items-center justify-center">
-<img alt="صفحتان من تقرير PDF في Flowlogs: النشاط اليومي مع الرسوم البيانية وجدول دوام الفريق، وجدول تقرير التدفق" class="w-full h-auto object-contain rounded-lg shadow-sm block" src="img/pdf-report.png"/>
+<img loading="lazy" decoding="async" alt="صفحتان من تقرير PDF في Flowlogs: النشاط اليومي مع الرسوم البيانية وجدول دوام الفريق، وجدول تقرير التدفق" class="w-full h-auto object-contain rounded-lg shadow-sm block" height="1800" src="img/pdf-report.webp" width="2880"/>
 </div>
 </div>
 </div>
@@ -411,25 +414,25 @@
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 <div data-reveal class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
-<h4 class="text-sm font-semibold text-white">يقرأ Jira بصلاحياتك</h4>
+<h3 class="text-sm font-semibold text-white">يقرأ Jira بصلاحياتك</h3>
 <p class="text-xs text-slate-300 leading-relaxed">
             لا يرى كل شخص إلا المشاريع والمهام وسجلات العمل التي تسمح بها صلاحياته في Jira.
           </p>
 </div>
 <div data-reveal class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
-<h4 class="text-sm font-semibold text-white">تخزين Atlassian Forge</h4>
+<h3 class="text-sm font-semibold text-white">تخزين Atlassian Forge</h3>
 <p class="text-xs text-slate-300 leading-relaxed">
             تُحفظ الإعدادات والعروض المحفوظة في تخزين Atlassian Forge، ولا مكان غيره.
           </p>
 </div>
 <div data-reveal class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
-<h4 class="text-sm font-semibold text-white">لا خوادم خارجية</h4>
+<h3 class="text-sm font-semibold text-white">لا خوادم خارجية</h3>
 <p class="text-xs text-slate-300 leading-relaxed">
             لا خوادم خاصة بنا، ولا أدوات تحليل، ولا نصوص تتبّع.
           </p>
 </div>
 <div data-reveal class="bg-brand-navyCard p-6 rounded-xl border border-white/10 space-y-2">
-<h4 class="text-sm font-semibold text-white">التصدير داخل المتصفح</h4>
+<h3 class="text-sm font-semibold text-white">التصدير داخل المتصفح</h3>
 <p class="text-xs text-slate-300 leading-relaxed">
             تُنشأ ملفات PDF وExcel وCSV داخل متصفحك وتُحفظ على جهازك.
           </p>
@@ -609,12 +612,13 @@
 </section>
 <!-- END: Call to Action Band -->
 <!-- BEGIN: Footer -->
+</main>
 <footer class="bg-white py-12">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-brand-border pb-8">
 <!-- Logo and Details -->
 <div class="flex items-center space-x-3">
-<img alt="أيقونة Flowlogs" class="w-7 h-7 rounded-md" src="img/logo-144.png"/>
+<img loading="lazy" decoding="async" alt="أيقونة Flowlogs" class="w-7 h-7 rounded-md" height="144" src="img/logo-144.png" width="144"/>
 <span class="font-bold text-brand-ink text-base">Flowlogs</span>
 <span class="text-xs text-brand-muted">· مبني على Atlassian Forge</span>
 </div>

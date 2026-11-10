@@ -1,6 +1,22 @@
 /* Shared pieces of the landing site that are not part of any one Stitch design:
    the language menu, the translation note, and right-to-left fixes for Arabic. */
 
+/* Skip link: out of sight until a keyboard user tabs to it. */
+.fl-skip {
+  position: fixed;
+  inset-inline-start: 1rem;
+  top: 0.75rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  background: #0c66e4;
+  color: #fff;
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+.fl-skip:focus { transform: none; }
+main:focus { outline: none; }
+
 .fl-lang { position: relative; }
 .fl-lang summary {
   display: inline-flex;

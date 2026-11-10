@@ -22,7 +22,8 @@
   <!-- Google Fonts: Inter 400 to 900 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="fonts.css" rel="stylesheet"/>
+  <link as="font" crossorigin="" href="fonts/GhroobBB-Regular.woff2" rel="preload" type="font/woff2"/>
+<link href="fonts.css" rel="stylesheet"/>
 <link href="support.css" rel="stylesheet"/>
 <link href="site.css" rel="stylesheet"/>
   <style>
@@ -44,13 +45,14 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 <div aria-hidden="true" class="fl-progress"></div>
+<a class="fl-skip" href="#main">Aller au contenu</a>
 
   <!-- Sticky Header identical to Landing Page -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-brand-border">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 <!-- Brand & Badge -->
 <a class="flex items-center space-x-3 group" href="fr.html">
-<img alt="Logo Flowlogs" class="w-8 h-8 rounded-lg shadow-sm" src="img/logo-144.png"/>
+<img alt="Logo Flowlogs" class="w-8 h-8 rounded-lg shadow-sm" height="144" src="img/logo-144.png" width="144"/>
 <div class="flex items-center space-x-2">
 <span class="text-xl font-bold tracking-tight text-brand-ink">Flowlogs</span>
 <span class="hidden sm:inline-block text-[11px] font-semibold text-brand-secondary bg-brand-bg px-2 py-0.5 rounded border border-brand-border">
@@ -59,7 +61,7 @@
 </div>
 </a>
 <!-- Desktop Nav Links -->
-<nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-secondary">
+<nav aria-label="Navigation principale" class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-secondary">
 <a class="hover:text-brand-blue transition-colors" href="fr.html#flow">Parcours</a>
 <a class="hover:text-brand-blue transition-colors" href="fr.html#features">Fonctionnalités</a>
 <a class="hover:text-brand-blue transition-colors" href="fr.html#how-it-works">Fonctionnement</a>
@@ -80,8 +82,9 @@
 </div>
 <nav aria-label="Sections" class="lg:hidden border-t border-brand-border"><div class="flex gap-5 overflow-x-auto whitespace-nowrap px-4 py-2.5 text-sm font-medium text-brand-secondary"><a class="hover:text-brand-blue transition-colors" href="fr.html#flow">Parcours</a><a class="hover:text-brand-blue transition-colors" href="fr.html#features">Fonctionnalités</a><a class="hover:text-brand-blue transition-colors" href="fr.html#how-it-works">Fonctionnement</a><a class="hover:text-brand-blue transition-colors" href="fr.html#security">Sécurité</a><a class="hover:text-brand-blue transition-colors" href="fr.html#comparison">Comparatif</a><a class="hover:text-brand-blue transition-colors" href="fr.html#faq">FAQ</a></div></nav>
 </header>
+<main id="main" tabindex="-1">
 
-  <main class="flex-grow">
+  <div class="flex-grow">
     <!-- Title Band with landing hero grid pattern -->
     <section class="grid-pattern border-b border-brand-border py-14 sm:py-20 px-4 sm:px-6 lg:px-12">
       <div class="max-w-[1280px] mx-auto">
@@ -219,15 +222,16 @@
         </div>
       </div>
     </section>
-  </main>
+  </div>
 
   <!-- Footer identical to Landing Page -->
-  <footer class="bg-white py-12">
+  </main>
+<footer class="bg-white py-12">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-brand-border pb-8">
 <!-- Logo and Details -->
 <div class="flex items-center space-x-3">
-<img alt="Icône Flowlogs" class="w-7 h-7 rounded-md" src="img/logo-144.png"/>
+<img loading="lazy" decoding="async" alt="Icône Flowlogs" class="w-7 h-7 rounded-md" height="144" src="img/logo-144.png" width="144"/>
 <span class="font-bold text-brand-ink text-base">Flowlogs</span>
 <span class="text-xs text-brand-muted">· Conçu avec Atlassian Forge</span>
 </div>

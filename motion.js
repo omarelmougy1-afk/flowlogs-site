@@ -1,32 +1,28 @@
-// Drives the landing page scroll story: the step crossing the middle of the screen
-// sets the pinned picture's state. Without this script the first state stays shown.
-// Also: staggered card reveals, word-by-word headings, screenshots that lean towards the
-// pointer, and a language menu that closes the way a menu should. All motion stays off
-// when the visitor asks for reduced motion.
+// Landing page motion that needs a script: blocks that rise once as they come into view,
+// section headings that arrive word by word, the tour capture loading only when it is
+// near, screenshots that lean towards the pointer, and a language menu that closes the way
+// a menu should. All motion stays off when the visitor asks for reduced motion; the tour
+// itself runs on CSS scroll-driven animation (motion.css).
 (() => {
-  for (const story of document.querySelectorAll('.fl-story-live')) {
-    const stage = story.querySelector('.fl-stage');
-    const steps = [...story.querySelectorAll('.fl-story-step')];
-    const observer = new IntersectionObserver(
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  for (const tour of document.querySelectorAll('.fl-tour-live')) {
+    const near = new IntersectionObserver(
       entries => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          stage.dataset.active = entry.target.dataset.step;
-          for (const step of steps) step.classList.toggle('is-active', step === entry.target);
-        }
+        if (!entries.some(entry => entry.isIntersecting)) return;
+        tour.classList.add('is-near');
+        near.disconnect();
       },
-      { rootMargin: '-45% 0px -45% 0px' },
+      { rootMargin: '150% 0px' },
     );
-    for (const step of steps) observer.observe(step);
+    near.observe(tour);
   }
 
-  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const scrollLinked = window.CSS?.supports?.('animation-timeline: view()');
-
-  if (!calm && scrollLinked) {
+  if (!calm) {
+    document.documentElement.classList.add('fl-js');
     // Cards side by side arrive one after another rather than all at once.
-    const parents = new Set([...document.querySelectorAll('[data-reveal]')].map(el => el.parentElement));
-    for (const parent of parents) {
+    const blocks = [...document.querySelectorAll('[data-reveal]')];
+    for (const parent of new Set(blocks.map(el => el.parentElement))) {
       const items = [...parent.children].filter(el => el.hasAttribute('data-reveal'));
       if (items.length > 1) items.forEach((el, i) => el.style.setProperty('--i', Math.min(i, 5)));
     }
@@ -40,18 +36,30 @@
         const span = document.createElement('span');
         span.className = 'fl-w';
         span.setAttribute('aria-hidden', 'true');
-        span.style.setProperty('--w', Math.min(i, 10));
+        span.style.setProperty('--w', Math.min(i, 12));
         span.textContent = word;
         heading.append(span, i < words.length - 1 ? ' ' : '');
       });
       heading.classList.add('fl-words');
     }
+    const reveal = new IntersectionObserver(
+      entries => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add('is-in');
+          reveal.unobserve(entry.target);
+        }
+      },
+      { rootMargin: '0px 0px -8% 0px' },
+    );
+    for (const block of blocks) reveal.observe(block);
   }
 
   // Screenshots lean a few degrees towards the mouse pointer.
   if (!calm && matchMedia('(hover: hover) and (pointer: fine)').matches) {
     const shots = document.querySelectorAll('img[src*="team-timesheet"], img[src*="flow-report"], img[src*="pdf-report"]');
     for (const img of shots) {
+      if (img.closest('.fl-tour')) continue;
       const host = img.closest('[data-reveal]')?.parentElement || img.parentElement;
       host.classList.add('fl-tilt');
       host.addEventListener('pointermove', event => {

@@ -11,7 +11,7 @@
   --fl-red: #e2483d;
 }
 
-/* --- Hero entrance: the copy, line by line, then the picture settles ------------- */
+/* --- Hero entrance: the copy, line by line ---------------------------------------- */
 @media (prefers-reduced-motion: no-preference) {
   [data-hero-copy] > * {
     animation: fl-enter 0.9s var(--fl-ease) both;
@@ -21,31 +21,206 @@
   [data-hero-copy] > :nth-child(4) { animation-delay: 0.24s; }
   [data-hero-copy] > :nth-child(5) { animation-delay: 0.32s; }
   [data-hero-copy] > :nth-child(n + 6) { animation-delay: 0.4s; }
-  [data-hero-visual] {
-    animation: fl-settle 1.3s var(--fl-ease) 0.25s both;
-  }
 }
 @keyframes fl-enter {
   from { opacity: 0; transform: translateY(18px); }
 }
-@keyframes fl-settle {
-  from { opacity: 0; transform: translateY(48px) scale(0.96); }
+
+/* --- Hero stage: the app window and two cards in depth -----------------------------
+   The window runs past the edge of the page; the cards float in front at their own
+   depth, so they shift against it as the stage turns towards the pointer (motion.js
+   sets --px and --py) and as it flattens on scroll (--fl-flat). */
+@property --fl-flat {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+.fl-hero {
+  --px: 0;
+  --py: 0;
+  --turn: -16deg;
+  position: relative;
+  container-type: inline-size;
+  perspective: 2400px;
+}
+[dir='rtl'] .fl-hero { --turn: 16deg; }
+.fl-hero-glow {
+  position: absolute;
+  inset: -12% -20% -10% -10%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(closest-side at 55% 45%, rgba(12, 102, 228, 0.28), transparent),
+    radial-gradient(closest-side at 80% 80%, rgba(101, 84, 192, 0.2), transparent);
+  filter: blur(20px);
+}
+.fl-hero-scene {
+  position: relative;
+  z-index: 1;
+  height: 82cqw;
+  margin: 0;
+  transform-style: preserve-3d;
+  transform-origin: 30% 50%;
+  transform:
+    rotateX(calc(var(--fl-flat) * 9deg - var(--py) * 5deg))
+    rotateY(calc(var(--fl-flat) * var(--turn) + var(--px) * 7deg));
+  transition: transform 0.7s var(--fl-ease);
+}
+[dir='rtl'] .fl-hero-scene { transform-origin: 70% 50%; }
+/* The window runs off the outer edge of the page. In Arabic that edge is on the left,
+   where the app's names column is, so the window stays nearly within the column. */
+.fl-hero-win {
+  position: absolute;
+  top: 2cqw;
+  left: 0;
+  width: 128cqw;
+  overflow: hidden;
+  border-radius: 1.6cqw;
+  background: #f7f8f9;
+  box-shadow:
+    0 0 0 1px rgba(9, 30, 66, 0.08),
+    0 3cqw 8cqw -2cqw rgba(9, 30, 66, 0.35),
+    0 1cqw 2cqw -1cqw rgba(9, 30, 66, 0.2);
+  direction: ltr;
+}
+[dir='rtl'] .fl-hero-win { left: auto; right: 0; width: 108cqw; }
+.fl-hero-dots {
+  display: flex;
+  gap: 0.7cqw;
+  align-items: center;
+  height: 3cqw;
+  padding: 0 1.4cqw;
+  background: #f1f2f4;
+  border-bottom: 1px solid #dcdfe4;
+}
+.fl-hero-dots i { width: 0.9cqw; aspect-ratio: 1; border-radius: 50%; background: #c1c7d0; }
+.fl-hero-bar,
+.fl-hero-sheet img { display: block; width: 100%; height: auto; }
+.fl-hero-body { padding: 2.6cqw 0 3.4cqw; }
+.fl-hero-sheet { position: relative; width: var(--sheet); margin: 0 auto; }
+.fl-hero-ring {
+  position: absolute;
+  box-sizing: border-box;
+  border: 0.35cqw solid var(--fl-red);
+  border-radius: 0.7cqw;
+  box-shadow: 0 0 1.6cqw rgba(226, 72, 61, 0.5);
+}
+.fl-hero-ring::after {
+  content: '';
+  position: absolute;
+  inset: -0.35cqw;
+  border: 0.35cqw solid var(--fl-red);
+  border-radius: inherit;
+  opacity: 0;
+}
+.fl-hero-chip {
+  position: absolute;
+  margin-top: 0.8cqw;
+  padding: 0.5cqw 1.1cqw;
+  border-radius: 99px;
+  background: #c9372c;
+  color: #fff;
+  font-size: max(10px, 1.5cqw);
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+  translate: var(--chip-x) 0;
+  box-shadow: 0 0.6cqw 1.6cqw -0.4cqw rgba(226, 72, 61, 0.6);
+}
+/* The label opens away from the PDF card, which floats on the outer side. */
+.fl-hero-chip { --chip-x: calc(-100% + 2.4cqw); }
+[dir='rtl'] .fl-hero-chip { --chip-x: -2.4cqw; }
+[dir='rtl'] .fl-hero-pdf { top: 47cqw; }
+.fl-hero-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.55) 50%, transparent 65%);
+  opacity: 0;
+}
+.fl-hero-card {
+  position: absolute;
+  height: auto;
+  border-radius: 1cqw;
+  box-shadow:
+    0 0 0 1px rgba(9, 30, 66, 0.08),
+    0 4cqw 7cqw -2cqw rgba(9, 30, 66, 0.4);
+}
+.fl-hero-attention {
+  top: 51cqw;
+  inset-inline-start: 3cqw;
+  width: 58cqw;
+  transform: translateZ(90px);
+}
+.fl-hero-pdf {
+  top: 40cqw;
+  inset-inline-start: 70cqw;
+  width: 27cqw;
+  border-radius: 0.5cqw;
+  transform: translateZ(150px) rotate(4deg);
+}
+[dir='rtl'] .fl-hero-pdf { transform: translateZ(150px) rotate(-4deg); }
+@media (max-width: 1023px) {
+  .fl-hero { margin-top: 1rem; }
+  .fl-hero-scene { height: 86cqw; }
 }
 
-/* The hero picture settles from a slight tilt as the page starts to scroll. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Arrival: the window slides in, the cards rise one after the other, then the empty
+     day is ringed and a light passes over the glass. */
+  .fl-hero-win { animation: fl-hero-win 1.3s var(--fl-ease) 0.15s both; }
+  .fl-hero-attention { animation: fl-hero-card 1.1s var(--fl-ease) 0.55s both; }
+  .fl-hero-pdf { animation: fl-hero-pdf 1.2s var(--fl-ease) 0.75s both; }
+  .fl-hero-ring { animation: fl-hero-ring 0.6s var(--fl-ease) 1.35s both; }
+  .fl-hero-ring::after { animation: fl-pulse 2s ease-out 2s infinite; }
+  .fl-hero-chip { animation: fl-hero-chip 0.6s var(--fl-ease) 1.6s both; }
+  .fl-hero-shine { animation: fl-hero-shine 1.6s ease-in-out 1.1s both; }
+  .fl-hero-glow { animation: fl-breathe 7s ease-in-out infinite alternate; }
+}
+@keyframes fl-hero-win {
+  from { opacity: 0; translate: 10cqw 0; scale: 0.94; }
+}
+[dir='rtl'] .fl-hero-win { animation-name: fl-hero-win-rtl; }
+@keyframes fl-hero-win-rtl {
+  from { opacity: 0; translate: -10cqw 0; scale: 0.94; }
+}
+@keyframes fl-hero-card {
+  from { opacity: 0; translate: 0 12cqw; }
+}
+@keyframes fl-hero-pdf {
+  from { opacity: 0; translate: 0 18cqw; rotate: 10deg; }
+}
+@keyframes fl-hero-ring {
+  from { opacity: 0; scale: 1.8; }
+}
+@keyframes fl-hero-chip {
+  from { opacity: 0; translate: var(--chip-x) 1cqw; }
+}
+@keyframes fl-hero-shine {
+  0% { opacity: 1; transform: translateX(-100%); }
+  100% { opacity: 1; transform: translateX(100%); }
+}
+@keyframes fl-breathe {
+  from { opacity: 0.75; }
+  to { opacity: 1; }
+}
+@keyframes fl-pulse {
+  from { opacity: 0.7; transform: scale(1); }
+  to { opacity: 0; transform: scale(1.7); }
+}
+
+/* The stage flattens as the page starts to scroll. */
 @supports (animation-timeline: scroll()) {
   @media (prefers-reduced-motion: no-preference) {
-    [data-hero-visual] > * {
-      transform-origin: 50% 0;
-      animation: fl-hero-settle linear both;
+    .fl-hero {
+      animation: fl-flatten linear both;
       animation-timeline: scroll(root);
-      animation-range: 0 70vh;
+      animation-range: 0 75vh;
     }
   }
 }
-@keyframes fl-hero-settle {
-  from { transform: perspective(1600px) rotateX(13deg) scale(0.95); }
-  to { transform: none; }
+@keyframes fl-flatten {
+  to { --fl-flat: 0.15; }
 }
 
 /* --- Reveals: each block rises once as it comes into view (motion.js adds .is-in) ---

@@ -55,6 +55,26 @@
     for (const block of blocks) reveal.observe(block);
   }
 
+  // The hero stage turns towards the mouse pointer anywhere over the hero.
+  const hero = document.querySelector('.fl-hero');
+  if (hero && !calm && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const area = hero.closest('section') || hero;
+    let frame = 0;
+    area.addEventListener('pointermove', event => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const box = area.getBoundingClientRect();
+        hero.style.setProperty('--px', ((event.clientX - box.left) / box.width - 0.5).toFixed(3));
+        hero.style.setProperty('--py', ((event.clientY - box.top) / box.height - 0.5).toFixed(3));
+      });
+    });
+    area.addEventListener('pointerleave', () => {
+      cancelAnimationFrame(frame);
+      hero.style.setProperty('--px', 0);
+      hero.style.setProperty('--py', 0);
+    });
+  }
+
   // Screenshots lean a few degrees towards the mouse pointer.
   if (!calm && matchMedia('(hover: hover) and (pointer: fine)').matches) {
     const shots = document.querySelectorAll('img[src*="team-timesheet"], img[src*="flow-report"], img[src*="pdf-report"]');

@@ -333,6 +333,45 @@
   transition: stroke-dashoffset 0.45s var(--fl-ease) calc(var(--i, 0) * 90ms + 550ms + var(--r) * 70ms);
 }
 .fl-js .fl-cmp-card.is-in .fl-cmp-yes path { stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .fl-cmp-main::before { animation: fl-orbit 7s linear infinite; }
+}
+@keyframes fl-orbit { to { --fl-angle: 560deg; } }
+
+/* Cards light up under the pointer: a soft glow follows it across the card and along its
+   border (motion.js sets --sx and --sy, and .is-lit while the pointer is over it). */
+.fl-glow { position: relative; isolation: isolate; }
+.fl-glow::before,
+.fl-glow::after {
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.fl-glow::before {
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(26rem circle at var(--sx) var(--sy), rgba(12, 102, 228, 0.1), transparent 45%);
+}
+.fl-glow::after {
+  inset: -1px;
+  padding: 1.5px;
+  background: radial-gradient(18rem circle at var(--sx) var(--sy), #388bff, transparent 60%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+.fl-glow.is-lit::before,
+.fl-glow.is-lit::after { opacity: 1; }
+.fl-js .fl-glow {
+  transition: opacity 0.8s ease, transform 1s var(--fl-ease), translate 0.35s var(--fl-ease);
+  transition-delay: calc(var(--i, 0) * 90ms), calc(var(--i, 0) * 90ms), 0s;
+}
+.fl-js .fl-glow.is-lit { translate: 0 -3px; }
+/* Comparison cards stay put, so their rows keep lining up with the labels. */
+.fl-js .fl-cmp-card.fl-glow.is-lit { translate: none; }
 
 /* --- Reading progress and header lift, tied to the page scroll -------------------- */
 .fl-progress { display: none; }

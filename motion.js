@@ -75,6 +75,22 @@
     });
   }
 
+  // Cards light up under the mouse pointer. Picture frames lean instead (below), and the
+  // Flowlogs comparison card has its own light.
+  if (!calm && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    for (const card of document.querySelectorAll('[data-reveal]')) {
+      if (!/\brounded/.test(card.className) || card.classList.contains('fl-cmp-main') || card.querySelector('img')) continue;
+      card.classList.add('fl-glow');
+      card.addEventListener('pointermove', event => {
+        const box = card.getBoundingClientRect();
+        card.style.setProperty('--sx', `${event.clientX - box.left}px`);
+        card.style.setProperty('--sy', `${event.clientY - box.top}px`);
+        card.classList.add('is-lit');
+      });
+      card.addEventListener('pointerleave', () => card.classList.remove('is-lit'));
+    }
+  }
+
   // Screenshots lean a few degrees towards the mouse pointer.
   if (!calm && matchMedia('(hover: hover) and (pointer: fine)').matches) {
     const shots = document.querySelectorAll('img[src*="team-timesheet"], img[src*="flow-report"], img[src*="pdf-report"]');

@@ -318,6 +318,21 @@
 /* A pinned element may never cross the line that reveals it. */
 .fl-js [class*='sticky'] [data-reveal],
 .fl-js [class*='sticky'][data-reveal] { opacity: 1; transform: none; }
+/* Comparison cards: once a card has risen, its rows follow one by one and the Flowlogs
+   ticks draw themselves. */
+.fl-js .fl-cmp-card .fl-cmp-row {
+  opacity: 0;
+  translate: 0 10px;
+  transition: opacity 0.5s ease, translate 0.7s var(--fl-ease), background-color 0.2s ease;
+  transition-delay: calc(var(--i, 0) * 90ms + 250ms + var(--r) * 70ms), calc(var(--i, 0) * 90ms + 250ms + var(--r) * 70ms), 0s;
+}
+.fl-js .fl-cmp-card.is-in .fl-cmp-row { opacity: 1; translate: none; }
+.fl-js .fl-cmp-card .fl-cmp-yes path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.45s var(--fl-ease) calc(var(--i, 0) * 90ms + 550ms + var(--r) * 70ms);
+}
+.fl-js .fl-cmp-card.is-in .fl-cmp-yes path { stroke-dashoffset: 0; }
 
 /* --- Reading progress and header lift, tied to the page scroll -------------------- */
 .fl-progress { display: none; }

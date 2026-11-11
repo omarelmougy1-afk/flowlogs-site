@@ -68,11 +68,212 @@ body { overflow-wrap: break-word; }
 :lang(fr) :is(h1, h2, h3, h4),
 :lang(es) :is(h1, h2, h3, h4) { hyphens: auto; }
 
-/* Long words (German compounds above all) break instead of widening the page on phones. */
-body { overflow-wrap: break-word; }
-:lang(de) :is(h1, h2, h3, h4),
-:lang(fr) :is(h1, h2, h3, h4),
-:lang(es) :is(h1, h2, h3, h4) { hyphens: auto; }
+/* --- Comparison: Flowlogs and two alternatives as cards ----------------------------
+   Phones stack the cards, Flowlogs first. From 768px they sit side by side and their rows
+   share the section grid's row tracks (subgrid), so each criterion lines up across the
+   cards; from 1024px a column of row labels joins them and the in-card labels are only
+   read aloud. */
+.fl-cmp-section {
+  background:
+    radial-gradient(44rem 26rem at 40% 45%, rgba(12, 102, 228, 0.07), transparent 70%),
+    #fff;
+}
+[dir='rtl'] .fl-cmp-section {
+  background:
+    radial-gradient(44rem 26rem at 60% 45%, rgba(12, 102, 228, 0.07), transparent 70%),
+    #fff;
+}
+.fl-cmp { display: grid; gap: 1.75rem; }
+.fl-cmp-labels { display: none; }
+.fl-cmp-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-color: #dcdfe4;
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.06), 0 12px 32px -24px rgba(9, 30, 66, 0.25);
+}
+.fl-cmp-main {
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(180deg, #f1f6ff 0%, #fff 11rem) padding-box,
+    linear-gradient(155deg, #0c66e4 0%, #579dff 55%, #8f7ee7 100%) border-box;
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.08), 0 28px 56px -28px rgba(12, 102, 228, 0.5);
+}
+.fl-cmp-head { padding: 1.75rem 1.5rem 1.25rem; }
+.fl-cmp-head h3 { color: #172b4d; font-size: 1.125rem; font-weight: 800; line-height: 1.3; }
+.fl-cmp-head p:last-child { margin-top: 0.25rem; color: #626f86; font-size: 0.875rem; line-height: 1.45; text-wrap: pretty; }
+.fl-cmp-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+  color: #626f86;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+.fl-cmp-legend li { display: inline-flex; align-items: center; gap: 0.45rem; }
+.fl-cmp-legend .fl-cmp-mark { width: 1rem; height: 1rem; margin: 0; }
+.fl-cmp-legend-top { margin-top: 1.5rem; }
+.fl-cmp-legend-side { display: none; }
+.fl-cmp-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  border-radius: 0.75rem;
+  background: #f1f2f4;
+  color: #44546f;
+}
+.fl-cmp-icon svg { width: 1.25rem; height: 1.25rem; }
+.fl-cmp-icon img { width: 100%; height: 100%; border-radius: inherit; }
+.fl-cmp-main .fl-cmp-icon { background: none; box-shadow: 0 6px 14px -6px rgba(12, 102, 228, 0.55); }
+.fl-cmp-badge {
+  position: absolute;
+  top: 0;
+  inset-inline-start: 1.5rem;
+  transform: translateY(-50%);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: #0c66e4;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+  box-shadow: 0 8px 18px -8px rgba(12, 102, 228, 0.7);
+}
+.fl-cmp-rows { margin: 0; }
+.fl-cmp-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.85rem 1.5rem;
+  border-top: 1px solid #ebecf0;
+  transition: background-color 0.2s ease;
+}
+.fl-cmp-main .fl-cmp-row { border-top-color: #dfe9fb; }
+.fl-cmp-card:not(.fl-cmp-main) .fl-cmp-row:last-child { border-radius: 0 0 calc(1rem - 1px) calc(1rem - 1px); }
+.fl-cmp-row dt { margin-bottom: 0.3rem; color: #626f86; font-size: 0.75rem; font-weight: 600; }
+.fl-cmp-row dd {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 0;
+  color: #44546f;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.fl-cmp-main .fl-cmp-row dd { color: #172b4d; font-weight: 600; }
+.fl-cmp-main .fl-cmp-off dd,
+.fl-cmp-off dd { color: #626f86; font-weight: 500; }
+.fl-cmp-mark { flex: none; width: 1.25rem; height: 1.25rem; margin-top: 0.05rem; }
+.fl-cmp-mark path { fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.9; }
+.fl-cmp-yes circle { fill: #0c66e4; }
+.fl-cmp-yes path { stroke: #fff; stroke-width: 2.2; }
+.fl-cmp-has circle { fill: #e9ebee; }
+.fl-cmp-has path { stroke: #44546f; }
+.fl-cmp-part circle { fill: none; stroke: #b38600; stroke-width: 1.5; }
+.fl-cmp-part path { fill: #e2b203; stroke: none; }
+.fl-cmp-no circle { fill: none; stroke: #8590a2; stroke-width: 1.5; stroke-dasharray: 2.4 2.2; }
+.fl-cmp-no path { stroke: #8590a2; }
+[dir='rtl'] .fl-cmp-part { transform: scaleX(-1); }
+@media (min-width: 360px) and (max-width: 767.98px) {
+  .fl-cmp-row {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: 0.75rem;
+    padding-inline: 1.25rem;
+  }
+  .fl-cmp-row dt { margin: 0; padding-top: 0.1rem; font-size: 0.8125rem; }
+  .fl-cmp-head { padding-inline: 1.25rem; }
+  .fl-cmp-foot { padding-inline: 1.25rem; }
+}
+.fl-cmp-foot { padding: 0.5rem 1.5rem 1.5rem; }
+.fl-cmp-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  border-radius: 0.6rem;
+  background: #0c66e4;
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.2);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.fl-cmp-cta:hover { background: #0055cc; box-shadow: 0 10px 22px -10px rgba(12, 102, 228, 0.8); }
+.fl-cmp-cta:focus-visible { outline: 2px solid #0c66e4; outline-offset: 3px; }
+.fl-cmp-note {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.5rem;
+  border-color: #cce0ff;
+  background: linear-gradient(90deg, #f1f6ff, #fff 70%);
+  color: #44546f;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+[dir='rtl'] .fl-cmp-note { background: linear-gradient(270deg, #f1f6ff, #fff 70%); }
+.fl-cmp-note .fl-cmp-icon { margin: 0; background: #fff; color: #0c66e4; box-shadow: inset 0 0 0 1px #cce0ff; }
+.fl-cmp-note strong { color: #172b4d; font-weight: 700; }
+
+@media (min-width: 768px) {
+  .fl-cmp { grid-template-columns: 1.1fr 1fr 1fr; column-gap: 1rem; row-gap: 0; }
+  @supports (grid-template-rows: subgrid) {
+    .fl-cmp { grid-template-rows: auto repeat(6, auto) auto; }
+    .fl-cmp-card { display: grid; grid-template-rows: subgrid; grid-row: 1 / span 7; }
+    .fl-cmp-main { grid-row: 1 / span 8; }
+    .fl-cmp-rows { display: grid; grid-template-rows: subgrid; grid-row: span 6; }
+  }
+}
+@media (min-width: 1024px) {
+  .fl-cmp { grid-template-columns: minmax(10rem, 0.85fr) 1.2fr 1fr 1fr; column-gap: 1.25rem; }
+  .fl-cmp-labels {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: 1 / span 7;
+    color: #172b4d;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  .fl-cmp-labels > div[data-row] {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    border-top: 1px solid #ebecf0;
+    padding-inline-start: 0.25rem;
+    transition: background-color 0.2s ease;
+  }
+  .fl-cmp-labels svg { flex: none; width: 1.125rem; height: 1.125rem; color: #8590a2; }
+  .fl-cmp-labels > div:first-child { display: flex; align-items: flex-end; padding-bottom: 1.25rem; }
+  .fl-cmp-legend-top { display: none; }
+  .fl-cmp-legend-side { display: grid; gap: 0.6rem; justify-content: start; }
+  .fl-cmp-legend-side .fl-cmp-mark { width: 1.125rem; height: 1.125rem; }
+  .fl-cmp-row dt {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .fl-cmp-row { padding-block: 1rem; }
+  /* Pointing at a criterion tints it across every card. */
+  .fl-cmp:has([data-row='0']:hover) [data-row='0'],
+  .fl-cmp:has([data-row='1']:hover) [data-row='1'],
+  .fl-cmp:has([data-row='2']:hover) [data-row='2'],
+  .fl-cmp:has([data-row='3']:hover) [data-row='3'],
+  .fl-cmp:has([data-row='4']:hover) [data-row='4'],
+  .fl-cmp:has([data-row='5']:hover) [data-row='5'] { background-color: rgba(12, 102, 228, 0.045); }
+}
 
 /* Right to left: Tailwind's space-x and divide-x utilities assume left to right. */
 [dir='rtl'] [class*='space-x-'] > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
